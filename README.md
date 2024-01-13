@@ -1,3 +1,3 @@
-# Tim 01
+# Sistem za internet i TV provajdere
 
 Test izmena  README
