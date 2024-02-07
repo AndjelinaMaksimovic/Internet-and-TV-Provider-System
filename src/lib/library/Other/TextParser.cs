@@ -25,19 +25,15 @@ namespace library.Other {
             }
 
             if (lineCount != 2) {
-                throw new Exception("Config file not valid!");
+                throw new Exception("ERROR at TextParser.Parse - Config file not valid!");
             }
 
             if (!keyValuePairs.ContainsKey("PROVIDER")) {
-                throw new Exception("Provider not mentioned!");
+                throw new Exception("ERROR at TextParser.Parse - Provider not mentioned!");
             }
 
             if (!keyValuePairs.ContainsKey("CONNSTRING")) {
-                throw new Exception("Connstring not mentioned!");
-            }
-
-            if (!File.Exists(keyValuePairs["CONNSTRING"].Replace("Data Source=", "").Replace(";", ""))) {
-                throw new Exception("Given path does not exist!");
+                throw new Exception("ERROR at TextParser.Parse - Connection string not mentioned!");
             }
 
             return keyValuePairs;

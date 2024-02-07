@@ -1,1 +1,2 @@
 System.Data.SQLite
+MySql.Data.MySqlClient

@@ -1,2 +1,2 @@
 PROVIDER # SBB
-CONNSTRING # Data Source=C:\Users\radov\Desktop\Dizajniranje_softvera\Projekat\ClonedProject\src\db\sbb_database.db;
+CONNSTRING # server=localhost;user=root;password=;database=sbb_database;;
