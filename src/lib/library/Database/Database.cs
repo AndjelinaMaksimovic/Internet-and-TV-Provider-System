@@ -11,7 +11,7 @@ namespace library.Database {
         private static Database Instance = null;
         private IDbConnection connection = null;
         private static readonly object _lock = new object(); // lock object that will be used to synchronize threads
-        private string configFilepath = "C:\\Users\\radov\\Desktop\\Dizajniranje_softvera\\Projekat\\ClonedProject\\src\\config.txt";
+        private string configFilepath = "../../../../../config.txt";
 
         /* *********************************************************************************************************
          * Private Constructor
