@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
 using library.Other;
@@ -53,10 +54,18 @@ namespace library.Database {
          * -------------------
          * TO DO: Obezbediti parametarizaciju upita zbog bezbednosti i bolje strukture
          * ********************************************************************************************************* */
-        public DataTable Query(string sql) {
+        public DataTable Query(string sql, Dictionary<string, object> queryParameters) {
             DataTable dt = new DataTable();
             IDbCommand command = connection.CreateCommand();
             command.CommandText = sql;
+
+            // Add parameters to the command
+            foreach (var param in queryParameters) {
+                IDbDataParameter parameter = command.CreateParameter();
+                parameter.ParameterName = param.Key;
+                parameter.Value = param.Value;
+                command.Parameters.Add(parameter);
+            }
 
             // Execute the SQL query and fill the DataTable with the results
             using (IDataReader reader = command.ExecuteReader()) {
