@@ -13,5 +13,9 @@ namespace form_app {
         public Form1() {
             InitializeComponent();
         }
+
+        private void label4_Click(object sender, EventArgs e) {
+
+        }
     }
 }
