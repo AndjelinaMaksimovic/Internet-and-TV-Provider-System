@@ -2,6 +2,9 @@
 using System.Drawing;
 using System.Windows.Forms;
 using library.Other;
+using library.Database;
+using System.Collections.Generic;
+using System.Data;
 
 namespace form_app {
     partial class Form1 {
@@ -9,7 +12,7 @@ namespace form_app {
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
-        private readonly string configFilePath = "C:\\Users\\radov\\Desktop\\Dizajniranje_softvera\\Projekat\\ClonedProject\\src\\config.txt";
+        private readonly string configFilePath = "../../../../../config.txt";
 
         /// <summary>
         /// Clean up any resources being used.
@@ -63,6 +66,81 @@ namespace form_app {
                 input_lastname.ForeColor = System.Drawing.SystemColors.GrayText;
             }
         }
+
+        private void fill_clients_panel(FlowLayoutPanel panel) {
+            Database instance = Database.GetInstance();
+            Dictionary<string, object> keyValuePairs = new Dictionary<string, object>();
+            DataTable dt = instance.Query("SELECT * FROM client", keyValuePairs);
+            foreach (DataRow dr in dt.Rows) {
+                Label lb = new Label();
+                lb.Text = dr["username"].ToString();
+                lb.TextAlign = ContentAlignment.MiddleLeft;
+                lb.BorderStyle = BorderStyle.FixedSingle;
+                lb.AutoSize = false;
+                lb.Width = 180;
+                lb.Height = 30;
+
+                // TO DO - SELECT
+                lb.Click += (sender, e) => {
+                    lb.BackColor = (lb.BackColor == Color.Green) ? SystemColors.Control : Color.Green;
+                };
+                panel.Controls.Add(lb);
+            }
+        }
+        private void fill_internet_packets_panel(FlowLayoutPanel panel) {
+            Database instance = Database.GetInstance();
+            Dictionary<string, object> keyValuePairs = new Dictionary<string, object>();
+            DataTable dt = instance.Query("SELECT * FROM packet p JOIN internetpacket i on p.packetid = i.packetid", keyValuePairs);
+            
+            foreach (DataRow dr in dt.Rows) {
+                Label lb = new Label();
+                lb.Text = dr["name"].ToString() + " | " + dr["price"] + " | " + dr["downloadspeed"] + "/" + dr["uploadspeed"];
+                lb.TextAlign = ContentAlignment.MiddleLeft;
+                lb.BorderStyle = BorderStyle.FixedSingle;
+                lb.AutoSize = false;
+                lb.Width = 220;
+                lb.Height = 30;
+                lb.TextAlign = ContentAlignment.MiddleCenter;
+                panel.Controls.Add(lb);
+            }
+        }
+
+        private void fill_tv_packets_panel(FlowLayoutPanel panel) {
+            Database instance = Database.GetInstance();
+            Dictionary<string, object> keyValuePairs = new Dictionary<string, object>();
+            DataTable dt = instance.Query("SELECT * FROM packet p JOIN tvpacket t on p.packetid = t.packetid", keyValuePairs);
+
+            foreach (DataRow dr in dt.Rows) {
+                Label lb = new Label();
+                lb.Text = dr["name"].ToString() + " | " + dr["price"] + " | " + dr["numberofchannels"];
+                lb.TextAlign = ContentAlignment.MiddleLeft;
+                lb.BorderStyle = BorderStyle.FixedSingle;
+                lb.AutoSize = false;
+                lb.Width = 220;
+                lb.Height = 30;
+                lb.TextAlign = ContentAlignment.MiddleCenter;
+                panel.Controls.Add(lb);
+            }
+        }
+
+        private void fill_comb_packets_panel(FlowLayoutPanel panel) {
+            Database instance = Database.GetInstance();
+            Dictionary<string, object> keyValuePairs = new Dictionary<string, object>();
+            DataTable dt = instance.Query("SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID", keyValuePairs);
+
+            foreach (DataRow dr in dt.Rows) {
+                Label lb = new Label();
+                lb.Text = dr["name"].ToString() + " | " + dr["price"] + " | " + dr["downloadspeed"] + "/" + dr["uploadspeed"] + " | " + dr["numberofchannels"];
+                lb.TextAlign = ContentAlignment.MiddleLeft;
+                lb.BorderStyle = BorderStyle.FixedSingle;
+                lb.AutoSize = false;
+                lb.Width = 220;
+                lb.Height = 30;
+                lb.TextAlign = ContentAlignment.MiddleCenter;
+                panel.Controls.Add(lb);
+            }
+        }
+
         #endregion
 
         #region Windows Form Designer generated code
@@ -80,9 +158,9 @@ namespace form_app {
             this.button1 = new System.Windows.Forms.Button();
             this.panelClients = new System.Windows.Forms.FlowLayoutPanel();
             this.label4 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panelTVPackets = new System.Windows.Forms.FlowLayoutPanel();
+            this.panelInternetPackets = new System.Windows.Forms.FlowLayoutPanel();
+            this.panelCombinedPackets = new System.Windows.Forms.FlowLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -104,13 +182,13 @@ namespace form_app {
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(98, 16);
             this.label2.TabIndex = 2;
-            /*try {
+            try {
                 this.label2.Text = "Provider: " + TextParser.Parse(configFilePath)["PROVIDER"];
             }
             catch(Exception ex) {
                 this.label2.Text = "Provider: NOT RECOGNIZED";
-            }*/
-            this.label2.Text = "Provider: NOT RECOGNIZED";
+            }
+            //this.label2.Text = "Provider: NOT RECOGNIZED";
             // 
             // input_username
             // 
@@ -181,6 +259,7 @@ namespace form_app {
             this.panelClients.Name = "panelClients";
             this.panelClients.Size = new System.Drawing.Size(197, 293);
             this.panelClients.TabIndex = 8;
+            fill_clients_panel(this.panelClients);
             // 
             // label4
             // 
@@ -190,28 +269,30 @@ namespace form_app {
             this.label4.Size = new System.Drawing.Size(47, 16);
             this.label4.TabIndex = 9;
             this.label4.Text = "Clients";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
-            // flowLayoutPanel1
+            // panelTVPackets
             // 
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(254, 146);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(227, 122);
-            this.flowLayoutPanel1.TabIndex = 10;
+            this.panelTVPackets.Location = new System.Drawing.Point(254, 146);
+            this.panelTVPackets.Name = "panelTVPackets";
+            this.panelTVPackets.Size = new System.Drawing.Size(227, 122);
+            this.panelTVPackets.TabIndex = 10;
+            fill_tv_packets_panel(panelTVPackets);
             // 
-            // flowLayoutPanel2
+            // panelInternetPackets
             // 
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(254, 312);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(227, 122);
-            this.flowLayoutPanel2.TabIndex = 11;
+            this.panelInternetPackets.Location = new System.Drawing.Point(254, 312);
+            this.panelInternetPackets.Name = "panelInternetPackets";
+            this.panelInternetPackets.Size = new System.Drawing.Size(227, 122);
+            this.panelInternetPackets.TabIndex = 11;
+            fill_internet_packets_panel(panelInternetPackets);
             // 
-            // flowLayoutPanel3
+            // panelCombinedPackets
             // 
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(527, 146);
-            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(227, 122);
-            this.flowLayoutPanel3.TabIndex = 12;
+            this.panelCombinedPackets.Location = new System.Drawing.Point(527, 146);
+            this.panelCombinedPackets.Name = "panelCombinedPackets";
+            this.panelCombinedPackets.Size = new System.Drawing.Size(227, 122);
+            this.panelCombinedPackets.TabIndex = 12;
+            fill_comb_packets_panel(panelCombinedPackets);
             // 
             // label3
             // 
@@ -248,9 +329,9 @@ namespace form_app {
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.flowLayoutPanel3);
-            this.Controls.Add(this.flowLayoutPanel2);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.panelCombinedPackets);
+            this.Controls.Add(this.panelInternetPackets);
+            this.Controls.Add(this.panelTVPackets);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.panelClients);
             this.Controls.Add(this.button1);
@@ -277,9 +358,9 @@ namespace form_app {
         private Button button1;
         private FlowLayoutPanel panelClients;
         private Label label4;
-        private FlowLayoutPanel flowLayoutPanel1;
-        private FlowLayoutPanel flowLayoutPanel2;
-        private FlowLayoutPanel flowLayoutPanel3;
+        private FlowLayoutPanel panelTVPackets;
+        private FlowLayoutPanel panelInternetPackets;
+        private FlowLayoutPanel panelCombinedPackets;
         private Label label3;
         private Label label5;
         private Label label6;

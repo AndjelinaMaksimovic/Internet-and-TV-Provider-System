@@ -31,7 +31,7 @@ namespace library.Database {
             catch(Exception ex) {
                 Console.Write(ex.Message);
             }
-            
+
         }
 
         /* *********************************************************************************************************
@@ -52,7 +52,6 @@ namespace library.Database {
         /* *********************************************************************************************************
          * Query
          * -------------------
-         * TO DO: Obezbediti parametarizaciju upita zbog bezbednosti i bolje strukture
          * ********************************************************************************************************* */
         public DataTable Query(string sql, Dictionary<string, object> queryParameters) {
             DataTable dt = new DataTable();

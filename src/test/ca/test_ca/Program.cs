@@ -9,9 +9,8 @@ namespace test_ca {
             
             Database db = Database.GetInstance();
             Dictionary<string, object> keyValuePairs = new Dictionary<string, object>();
-            keyValuePairs.Add("@desc", "%" + "r" + "%");
 
-            var x = db.Query("SELECT * FROM client where username LIKE @desc", keyValuePairs);
+            var x = db.Query("SELECT * FROM packet p JOIN combpacket c on p.packetid = c.packetid", keyValuePairs);
 
             foreach (DataRow row in x.Rows) {
                 foreach(var e in row.ItemArray) {
