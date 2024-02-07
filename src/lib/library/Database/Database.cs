@@ -48,6 +48,11 @@ namespace library.Database {
             return Instance;
         }
 
+        /* *********************************************************************************************************
+         * Query
+         * -------------------
+         * TO DO: Obezbediti parametarizaciju upita zbog bezbednosti i bolje strukture
+         * ********************************************************************************************************* */
         public DataTable Query(string sql) {
             DataTable dt = new DataTable();
             IDbCommand command = connection.CreateCommand();
