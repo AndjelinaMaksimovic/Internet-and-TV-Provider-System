@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Linq;
 using System.Text;
 using System.Data;
@@ -6,7 +6,7 @@ using System.Data.SQLite;       // Potrebno instalirati: References -> Manage Nu
 using System.Threading.Tasks;
 using System.Collections.Generic;
 
-namespace lib_solution {
+namespace library.Database {
 
     public sealed class Database {
 
@@ -29,9 +29,9 @@ namespace lib_solution {
          * -------------------
          * ********************************************************************************************************* */
         public static Database GetInstance() {
-            if(Instance == null) {
-                lock(_lock) {
-                    if(Instance == null) {
+            if (Instance == null) {
+                lock (_lock) {
+                    if (Instance == null) {
                         Instance = new Database();
                     }
                 }
