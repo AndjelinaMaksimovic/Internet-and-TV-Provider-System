@@ -27,6 +27,16 @@ namespace form_app {
 
 
         #region Custom helper functions
+
+        /* ********************************************************************
+         * input_textbox_Enter
+         * input_username_Leave
+         * input_firstname_Leave
+         * input_lastname_Leave
+         * ----------------------
+         * Metode se koriste kako bi se kreirao efekat placeholder teksta kod
+         * text box-ova
+         * ******************************************************************** */
         private void input_textbox_Enter(object sender, EventArgs e) {
             switch (((TextBox)sender).Text) {
                 case "username":
@@ -67,6 +77,9 @@ namespace form_app {
             }
         }
 
+        /* ********************************************************************
+         * Popunjava panel odvojen za klijente
+         * ******************************************************************** */
         private void fill_clients_panel(FlowLayoutPanel panel) {
             Database instance = Database.GetInstance();
             Dictionary<string, object> keyValuePairs = new Dictionary<string, object>();
@@ -87,6 +100,9 @@ namespace form_app {
                 panel.Controls.Add(lb);
             }
         }
+        /* ********************************************************************
+         * Popunjava panel odvojen internet pakete
+         * ******************************************************************** */
         private void fill_internet_packets_panel(FlowLayoutPanel panel) {
             Database instance = Database.GetInstance();
             Dictionary<string, object> keyValuePairs = new Dictionary<string, object>();
@@ -104,7 +120,9 @@ namespace form_app {
                 panel.Controls.Add(lb);
             }
         }
-
+        /* ********************************************************************
+         * Popunjava panel odvojen za tv pakete
+         * ******************************************************************** */
         private void fill_tv_packets_panel(FlowLayoutPanel panel) {
             Database instance = Database.GetInstance();
             Dictionary<string, object> keyValuePairs = new Dictionary<string, object>();
@@ -122,7 +140,9 @@ namespace form_app {
                 panel.Controls.Add(lb);
             }
         }
-
+        /* ********************************************************************
+         * Popunjava panel odvojen za kombinovane pakete
+         * ******************************************************************** */
         private void fill_comb_packets_panel(FlowLayoutPanel panel) {
             Database instance = Database.GetInstance();
             Dictionary<string, object> keyValuePairs = new Dictionary<string, object>();
@@ -150,43 +170,43 @@ namespace form_app {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.input_username = new System.Windows.Forms.TextBox();
-            this.input_firstname = new System.Windows.Forms.TextBox();
-            this.input_lastname = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.panelClients = new System.Windows.Forms.FlowLayoutPanel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.panelTVPackets = new System.Windows.Forms.FlowLayoutPanel();
-            this.panelInternetPackets = new System.Windows.Forms.FlowLayoutPanel();
-            this.panelCombinedPackets = new System.Windows.Forms.FlowLayoutPanel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.label_register_new_client          = new System.Windows.Forms.Label();
+            this.label_provider_name                = new System.Windows.Forms.Label();
+            this.input_username                     = new System.Windows.Forms.TextBox();
+            this.input_firstname                    = new System.Windows.Forms.TextBox();
+            this.input_lastname                     = new System.Windows.Forms.TextBox();
+            this.button_register_client             = new System.Windows.Forms.Button();
+            this.panelClients                       = new System.Windows.Forms.FlowLayoutPanel();
+            this.label_clients                      = new System.Windows.Forms.Label();
+            this.panelTVPackets                     = new System.Windows.Forms.FlowLayoutPanel();
+            this.panelInternetPackets               = new System.Windows.Forms.FlowLayoutPanel();
+            this.panelCombinedPackets               = new System.Windows.Forms.FlowLayoutPanel();
+            this.label_tv_packets                   = new System.Windows.Forms.Label();
+            this.label_internet_packets             = new System.Windows.Forms.Label();
+            this.label_comb_packets                 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // label_register_new_client
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 49);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(119, 16);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Register new client";
+            this.label_register_new_client.AutoSize = true;
+            this.label_register_new_client.Location = new System.Drawing.Point(12, 49);
+            this.label_register_new_client.Name = "label_register_new_client";
+            this.label_register_new_client.Size = new System.Drawing.Size(119, 16);
+            this.label_register_new_client.TabIndex = 1;
+            this.label_register_new_client.Text = "Register new client";
             // 
-            // label2
+            // label_provider_name
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(98, 16);
-            this.label2.TabIndex = 2;
+            this.label_provider_name.AutoSize = true;
+            this.label_provider_name.Location = new System.Drawing.Point(12, 9);
+            this.label_provider_name.Name = "label2";
+            this.label_provider_name.Size = new System.Drawing.Size(98, 16);
+            this.label_provider_name.TabIndex = 2;
             try {
-                this.label2.Text = "Provider: " + TextParser.Parse(configFilePath)["PROVIDER"];
+                this.label_provider_name.Text = "Provider: " + TextParser.Parse(configFilePath)["PROVIDER"];
             }
             catch(Exception ex) {
-                this.label2.Text = "Provider: NOT RECOGNIZED";
+                this.label_provider_name.Text = "Provider: NOT RECOGNIZED";
             }
             //this.label2.Text = "Provider: NOT RECOGNIZED";
             // 
@@ -241,17 +261,17 @@ namespace form_app {
             this.input_lastname.Enter += new System.EventHandler(this.input_textbox_Enter);
             this.input_lastname.Leave += new System.EventHandler(this.input_lastname_Leave);
             // 
-            // button1
+            // button_register_client
             // 
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(491, 79);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 30);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Register";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button_register_client.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_register_client.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_register_client.Location = new System.Drawing.Point(491, 79);
+            this.button_register_client.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button_register_client.Name = "button1";
+            this.button_register_client.Size = new System.Drawing.Size(100, 30);
+            this.button_register_client.TabIndex = 6;
+            this.button_register_client.Text = "Register";
+            this.button_register_client.UseVisualStyleBackColor = true;
             // 
             // panelClients
             // 
@@ -261,14 +281,14 @@ namespace form_app {
             this.panelClients.TabIndex = 8;
             fill_clients_panel(this.panelClients);
             // 
-            // label4
+            // label_clients
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 127);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(47, 16);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Clients";
+            this.label_clients.AutoSize = true;
+            this.label_clients.Location = new System.Drawing.Point(12, 127);
+            this.label_clients.Name = "label4";
+            this.label_clients.Size = new System.Drawing.Size(47, 16);
+            this.label_clients.TabIndex = 9;
+            this.label_clients.Text = "Clients";
             // 
             // panelTVPackets
             // 
@@ -294,54 +314,54 @@ namespace form_app {
             this.panelCombinedPackets.TabIndex = 12;
             fill_comb_packets_panel(panelCombinedPackets);
             // 
-            // label3
+            // label_tv_packets
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(251, 127);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 16);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "TV Packets";
+            this.label_tv_packets.AutoSize = true;
+            this.label_tv_packets.Location = new System.Drawing.Point(251, 127);
+            this.label_tv_packets.Name = "label3";
+            this.label_tv_packets.Size = new System.Drawing.Size(77, 16);
+            this.label_tv_packets.TabIndex = 13;
+            this.label_tv_packets.Text = "TV Packets";
             // 
-            // label5
+            // label_internet_packets
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(254, 290);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(101, 16);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Internet packets";
+            this.label_internet_packets.AutoSize = true;
+            this.label_internet_packets.Location = new System.Drawing.Point(254, 290);
+            this.label_internet_packets.Name = "label5";
+            this.label_internet_packets.Size = new System.Drawing.Size(101, 16);
+            this.label_internet_packets.TabIndex = 14;
+            this.label_internet_packets.Text = "Internet packets";
             // 
-            // label6
+            // label_comb_packets
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(524, 127);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(120, 16);
-            this.label6.TabIndex = 15;
-            this.label6.Text = "Combined packets";
+            this.label_comb_packets.AutoSize = true;
+            this.label_comb_packets.Location = new System.Drawing.Point(524, 127);
+            this.label_comb_packets.Name = "label6";
+            this.label_comb_packets.Size = new System.Drawing.Size(120, 16);
+            this.label_comb_packets.TabIndex = 15;
+            this.label_comb_packets.Text = "Combined packets";
             // 
-            // Form1
+            // TIM_01_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 480);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label_comb_packets);
+            this.Controls.Add(this.label_internet_packets);
+            this.Controls.Add(this.label_tv_packets);
             this.Controls.Add(this.panelCombinedPackets);
             this.Controls.Add(this.panelInternetPackets);
             this.Controls.Add(this.panelTVPackets);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label_clients);
             this.Controls.Add(this.panelClients);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.button_register_client);
             this.Controls.Add(this.input_lastname);
             this.Controls.Add(this.input_firstname);
             this.Controls.Add(this.input_username);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label_provider_name);
+            this.Controls.Add(this.label_register_new_client);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "Form1";
+            this.Name = "TIM_01_Form";
             this.Text = "ProviderApp";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -350,20 +370,20 @@ namespace form_app {
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label_register_new_client;
+        private System.Windows.Forms.Label label_provider_name;
         private System.Windows.Forms.TextBox input_username;
         private System.Windows.Forms.TextBox input_firstname;
         private System.Windows.Forms.TextBox input_lastname;
-        private Button button1;
+        private Button button_register_client;
         private FlowLayoutPanel panelClients;
-        private Label label4;
+        private Label label_clients;
         private FlowLayoutPanel panelTVPackets;
         private FlowLayoutPanel panelInternetPackets;
         private FlowLayoutPanel panelCombinedPackets;
-        private Label label3;
-        private Label label5;
-        private Label label6;
+        private Label label_tv_packets;
+        private Label label_internet_packets;
+        private Label label_comb_packets;
     }
 }
 
