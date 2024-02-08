@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace form_app {
-    public partial class Form1 : Form {
-        public Form1() {
+    public partial class ProviderApp : Form {
+        public ProviderApp() {
             InitializeComponent();
         }
 
