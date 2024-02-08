@@ -168,6 +168,7 @@ namespace form_app {
             this.providerName = new System.Windows.Forms.Label();
             this.filter_clients_tb = new System.Windows.Forms.TextBox();
             this.filter_clients_label = new System.Windows.Forms.Label();
+            this.button_create_packet = new System.Windows.Forms.Button();
             this.headerPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -275,7 +276,6 @@ namespace form_app {
             this.filter_clients_tb.Name = "filter_clients_tb";
             this.filter_clients_tb.Size = new System.Drawing.Size(129, 22);
             this.filter_clients_tb.TabIndex = 18;
-            this.filter_clients_tb.KeyUp += parse_keyup_filter_clients;
             // 
             // filter_clients_label
             // 
@@ -286,11 +286,21 @@ namespace form_app {
             this.filter_clients_label.TabIndex = 19;
             this.filter_clients_label.Text = "Filter clients:";
             // 
+            // button_create_packet
+            // 
+            this.button_create_packet.Location = new System.Drawing.Point(418, 380);
+            this.button_create_packet.Name = "button_create_packet";
+            this.button_create_packet.Size = new System.Drawing.Size(148, 41);
+            this.button_create_packet.TabIndex = 20;
+            this.button_create_packet.Text = "Create packet";
+            this.button_create_packet.UseVisualStyleBackColor = true;
+            // 
             // ProviderApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1059, 480);
+            this.Controls.Add(this.button_create_packet);
             this.Controls.Add(this.filter_clients_label);
             this.Controls.Add(this.filter_clients_tb);
             this.Controls.Add(this.headerPanel);
@@ -316,6 +326,7 @@ namespace form_app {
             this.PerformLayout();
 
             fill_components();
+
         }
 
         #endregion
@@ -332,6 +343,7 @@ namespace form_app {
         private Label providerName;
         private TextBox filter_clients_tb;
         private Label filter_clients_label;
+        private Button button_create_packet;
     }
 }
 
