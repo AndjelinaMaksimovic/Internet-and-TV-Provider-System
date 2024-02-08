@@ -42,7 +42,7 @@ namespace library.Other.LoggerFolder {
 
             foreach (var parameter in queryParameters) {
 
-                string parameterName = "@" + parameter.Key;
+                string parameterName = parameter.Key;
                 string parameterValue = parameter.Value?.ToString() ?? "";
 
                 replacedQuery = replacedQuery.Replace(parameterName, parameterValue);
