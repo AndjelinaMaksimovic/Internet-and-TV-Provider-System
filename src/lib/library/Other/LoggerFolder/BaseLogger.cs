@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 /* *********************************************************************************************************
  * Base Logger
  * --------------
- * Class that has a gield for an encapsulated object reference. The field type should be declared as a
+ * Class that has a field for an encapsulated object reference. The field type should be declared as a
  * logger interface so that if can contain both concrete logger and decorators.
  * The base logger decorator delegates all operations to the encapsulated object.
  * *********************************************************************************************************/
