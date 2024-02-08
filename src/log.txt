@@ -708,3 +708,4 @@
 08-Feb-24 11:30:58 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 1
 08-Feb-24 11:30:59 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 5
 08-Feb-24 11:30:59 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 6
+2/8/2024 11:45:29 PM - logged query : SELECT * FROM packet p JOIN combpacket c on p.packetid = c.packetid

@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 namespace library.Other.LoggerFolder {
     internal class ConcreteLogger : ILogger {
 
-        private readonly string fileName = "C:\\Users\\marij\\source\\repos\\tim-01\\log.txt";
+        private readonly string fileName = "../.. / .. / .. / .. / .. / log.txt";
 
         public void LogQuery(string query, Dictionary<string, object> queryParameters) {
             string logMessage;
