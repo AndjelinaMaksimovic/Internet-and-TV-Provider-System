@@ -15,7 +15,7 @@ namespace library.Database {
         private string configFilepath = "../../../../../config.txt";
 
         private ILogger _logger = null;
-        private string _fileName = "C:\\Users\\marij\\source\\repos\\tim-01\\log.txt";
+        private string _fileName = "../../../../../log.txt";
 
         /* *********************************************************************************************************
          * Private Constructor
@@ -28,7 +28,7 @@ namespace library.Database {
             }
 
             ILogger concreteLogger = new ConcreteLogger();
-            _logger = new BaseLogger(concreteLogger, _fileName);
+            _logger = new FileLogger(concreteLogger, _fileName);
 
             try {
                 string connectionString = TextParser.Parse(configFilepath)["CONNSTRING"];

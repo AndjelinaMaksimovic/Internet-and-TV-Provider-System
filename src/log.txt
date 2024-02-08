@@ -1,0 +1,10 @@
+08-Feb-24 8:24:17 PM - logged query : SELECT * FROM Client
+08-Feb-24 8:24:17 PM - logged query : SELECT * FROM packet p JOIN internetpacket i on p.packetid = i.packetid
+08-Feb-24 8:24:17 PM - logged query : SELECT * FROM packet p JOIN tvpacket t on p.packetid = t.packetid
+08-Feb-24 8:24:17 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+08-Feb-24 8:24:37 PM - logged query : SELECT * FROM Client WHERE username like @param1
+08-Feb-24 8:25:13 PM - logged query : SELECT * FROM Client WHERE username like @param1
+08-Feb-24 8:25:13 PM - logged query : SELECT * FROM Client WHERE username like @param1
+08-Feb-24 8:25:14 PM - logged query : SELECT * FROM Client WHERE username like @param1
+08-Feb-24 8:25:14 PM - logged query : SELECT * FROM Client WHERE username like @param1
+08-Feb-24 8:25:14 PM - logged query : SELECT * FROM Client WHERE username like @param1
