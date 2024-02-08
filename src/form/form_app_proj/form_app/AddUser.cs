@@ -7,84 +7,80 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using library.Database;
+
 
 namespace form_app
 {
     public partial class AddUser : Form
     {
+        private Database instance = null;
+
         public AddUser()
         {
             InitializeComponent();
+
+            instance = Database.GetInstance();
         }
+        
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //this.Hide();
-            
-        }
-
-        private void textBox1_Validated(object sender, EventArgs e)
-        {
-            
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
+        private void buttonRegisterUserClick(object sender, EventArgs e)
         {
             bool isValid = true; // Track overall validation status
+            string username = input_username.Text;
+            string firstName = input_firstname.Text;
+            string lastName = input_lastname.Text;
 
             // Validate name TextBox
-            if (string.IsNullOrWhiteSpace(textBox1.Text))
+            if (string.IsNullOrWhiteSpace(username))
             {
-                errorProvider1.SetError(textBox1, "Username is required.");
+                errorUsername.SetError(input_username, "Username is required.");
                 isValid = false;
             }
             else
             {
-                errorProvider1.SetError(textBox1, ""); // Clear error message
+                errorUsername.SetError(input_username, ""); // Clear error message
             }
 
-            // Validate email TextBox
-            if (string.IsNullOrWhiteSpace(textBox2.Text))
+            // Validate firstname TextBox
+            if (string.IsNullOrWhiteSpace(firstName))
             {
-                errorProvider2.SetError(textBox2, "First name is required.");
+                errorFirstName.SetError(input_firstname, "First name is required.");
                 isValid = false;
             }
             else
             {
-                errorProvider2.SetError(textBox2, ""); // Clear error message
+                errorFirstName.SetError(input_firstname, ""); // Clear error message
             }
 
-            // Validate password TextBox
-            if (string.IsNullOrWhiteSpace(textBox3.Text))
+            // Validate last name TextBox
+            if (string.IsNullOrWhiteSpace(lastName))
             {
-                errorProvider3.SetError(textBox3, "Last name is required.");
+                errorLastName.SetError(input_lastname, "Last name is required.");
                 isValid = false;
             }
             else
             {
-                errorProvider3.SetError(textBox3, ""); // Clear error message
+                errorLastName.SetError(input_lastname, ""); // Clear error message
             }
 
             if (isValid)
             {
-                // If all validations pass, proceed with further actions
-                MessageBox.Show("Form submitted successfully!");
+                string sql = "INSERT INTO Client(username, firstname, lastname) VALUES (@param1, @param2, @param3)";
+                Dictionary<string, object> keyValuePairs = new Dictionary<string, object>();
+                keyValuePairs.Add("@param1", username);
+                keyValuePairs.Add("@param2", firstName);
+                keyValuePairs.Add("@param3", lastName);
+
+                try {
+                    instance.Query(sql, keyValuePairs);
+                    MessageBox.Show("Query executed successfully!");
+                }
+                catch (Exception ex) {
+                    MessageBox.Show("Query did not execute successfully!");
+                }
+
+                this.Close();
             }
         }
     }

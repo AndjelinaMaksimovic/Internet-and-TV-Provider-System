@@ -53,7 +53,6 @@ namespace form_app {
             this.panelClients.Name = "panelClients";
             this.panelClients.Size = new System.Drawing.Size(215, 293);
             this.panelClients.TabIndex = 8;
-            //fill_clients_panel(this.panelClients);
             // 
             // label_clients
             // 
@@ -127,6 +126,7 @@ namespace form_app {
             this.button_register_client.TabIndex = 16;
             this.button_register_client.Text = "Register client";
             this.button_register_client.UseVisualStyleBackColor = true;
+            this.button_register_client.Click += new System.EventHandler(this.button_register_client_Click);
             // 
             // headerPanel
             // 
@@ -151,6 +151,7 @@ namespace form_app {
             this.filter_clients_tb.Name = "filter_clients_tb";
             this.filter_clients_tb.Size = new System.Drawing.Size(129, 22);
             this.filter_clients_tb.TabIndex = 18;
+            this.filter_clients_tb.KeyUp += new System.Windows.Forms.KeyEventHandler(this.parse_keyup_filter_clients);
             // 
             // filter_clients_label
             // 

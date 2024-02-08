@@ -15,8 +15,8 @@ namespace form_app {
 
         private readonly string configFilePath = "../../../../../config.txt";
         private Database instance = null;
-        private string selectedClientID = null;
-        private Color selectColor = Color.LightGreen;
+        private string selectedClientID = null;                 // decide which user is currently selected
+        private Color selectColor = Color.LightGreen;           // color used to display selected users and their packets
 
         public ProviderApp() {
             InitializeComponent();
@@ -61,7 +61,9 @@ namespace form_app {
                 panel.Controls.Add(lb);
             }
         }
-
+        /* ********************************************************************
+         * Promena boje selektovanih paketa i korisnika
+         * ******************************************************************** */
         private void clearAllSelections() {
             foreach (Label control in panelClients.Controls) {
                 control.BackColor = SystemColors.Control;
@@ -79,7 +81,9 @@ namespace form_app {
                 lb.BackColor = SystemColors.Control;
             }
         }
-
+        /* ********************************************************************
+         * Event selekcije korisnika
+         * ******************************************************************** */
         private void ClientLabel_Click(object sender, EventArgs e) {
 
             clearAllSelections();
@@ -193,6 +197,20 @@ namespace form_app {
             string sql = "SELECT * FROM Client WHERE username like @param1";
 
             fill_clients_panel(panelClients, sql, keyValuePairs);
+        }
+        /* ********************************************************************
+         * Poziva se nakon sto se zatvori prozor za dodavanje novog klijenta
+         * ******************************************************************** */
+        private void parse_register_client_form_closed(object sender, FormClosedEventArgs e) {
+            fill_clients_panel(panelClients, "SELECT * FROM Client", new Dictionary<string, object>());
+        }
+        /* ********************************************************************
+         * Event nakon klika dugmeta za dodavanje novog korisnika
+         * ******************************************************************** */
+        private void button_register_client_Click(object sender, EventArgs e) {
+            var newForm = new AddUser();
+            newForm.FormClosed += parse_register_client_form_closed;
+            newForm.ShowDialog();
         }
     }
 }

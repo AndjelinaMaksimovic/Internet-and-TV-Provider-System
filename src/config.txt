@@ -1,2 +1,2 @@
 PROVIDER # SBB_SQLite
-CONNSTRING # Data Source="C:\Projekat Ds\src\config.txt";
+CONNSTRING # Data Source=C:\Users\radov\Desktop\Dizajniranje_softvera\Projekat\ClonedProject\src\db\sbb_database.db;
