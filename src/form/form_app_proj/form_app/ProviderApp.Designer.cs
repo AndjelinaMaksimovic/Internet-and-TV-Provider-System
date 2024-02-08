@@ -154,6 +154,7 @@ namespace form_app {
             this.panelClients.Name = "panelClients";
             this.panelClients.Size = new System.Drawing.Size(195, 293);
             this.panelClients.TabIndex = 8;
+            fill_clients_panel(this.panelClients);
             // 
             // label_clients
             // 
