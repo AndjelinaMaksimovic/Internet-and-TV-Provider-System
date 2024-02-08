@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
 using library.Other;
+using library.Other.LoggerFolder;
 
 namespace library.Database {
 
@@ -13,6 +14,9 @@ namespace library.Database {
         private static readonly object _lock = new object(); // lock object that will be used to synchronize threads
         private string configFilepath = "../../../../../config.txt";
 
+        private ILogger _logger = null;
+        private string _fileName = "C:\\Users\\marij\\source\\repos\\tim-01\\log.txt";
+
         /* *********************************************************************************************************
          * Private Constructor
          * -------------------
@@ -22,7 +26,10 @@ namespace library.Database {
             if(connection != null && connection.State == ConnectionState.Open) {
                 connection.Close();
             }
-            
+
+            ILogger concreteLogger = new ConcreteLogger();
+            _logger = new BaseLogger(concreteLogger, _fileName);
+
             try {
                 string connectionString = TextParser.Parse(configFilepath)["CONNSTRING"];
                 connection = DatabaseConnectionFactory.CreateDatabaseConnection(connectionString);
@@ -70,6 +77,8 @@ namespace library.Database {
             using (IDataReader reader = command.ExecuteReader()) {
                 dt.Load(reader);
             }
+
+            _logger.LogQuery(sql, queryParameters);
 
             return dt;
         }
