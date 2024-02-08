@@ -124,7 +124,7 @@ namespace form_app {
             this.button_register_client.Name = "button_register_client";
             this.button_register_client.Size = new System.Drawing.Size(148, 41);
             this.button_register_client.TabIndex = 16;
-            this.button_register_client.Text = "Register new client";
+            this.button_register_client.Text = "Register client";
             this.button_register_client.UseVisualStyleBackColor = true;
             // 
             // headerPanel

@@ -15,6 +15,8 @@ namespace form_app {
 
         private readonly string configFilePath = "../../../../../config.txt";
         private Database instance = null;
+        private string selectedClientID = null;
+        private Color selectColor = Color.LightGreen;
 
         public ProviderApp() {
             InitializeComponent();
@@ -49,15 +51,62 @@ namespace form_app {
                 lb.AutoSize = false;
                 lb.Width = 120; // Adjust width as needed
                 lb.Height = 26;
+                lb.Tag = dr["clientid"];
+                if (selectedClientID != null && lb.Tag.ToString() == selectedClientID) {
+                    lb.BackColor = selectColor;
+                }
+                lb.Click += ClientLabel_Click;
+                lb.BorderStyle = BorderStyle.FixedSingle;
+                
+                panel.Controls.Add(lb);
+            }
+        }
 
-                // Add label and button to a panel
-                Panel clientPanel = new FlowLayoutPanel();
-                clientPanel.Controls.Add(lb);
-                clientPanel.AutoSize = true;
-                clientPanel.BorderStyle = BorderStyle.FixedSingle;
+        private void clearAllSelections() {
+            foreach (Label control in panelClients.Controls) {
+                control.BackColor = SystemColors.Control;
+            }
 
-                // Add panel containing label and button to the main panel
-                panel.Controls.Add(clientPanel);
+            foreach (Label lb in panelTVPackets.Controls) {
+                lb.BackColor = SystemColors.Control;
+            }
+
+            foreach (Label lb in panelInternetPackets.Controls) {
+                lb.BackColor = SystemColors.Control;
+            }
+
+            foreach (Label lb in panelCombinedPackets.Controls) {
+                lb.BackColor = SystemColors.Control;
+            }
+        }
+
+        private void ClientLabel_Click(object sender, EventArgs e) {
+
+            clearAllSelections();
+            
+            Label clickedLabel = (Label)sender;
+            clickedLabel.BackColor = selectColor;
+            this.selectedClientID = clickedLabel.Tag.ToString();
+
+            string sql = "SELECT * FROM ClientPacket WHERE clientid = @id";
+            Dictionary<string, object> keyValuePairs = new Dictionary<string, object>();
+            keyValuePairs.Add("@id", clickedLabel.Tag.ToString());
+
+            DataTable dt = instance.Query(sql, keyValuePairs);
+            foreach(DataRow dr in dt.Rows) {
+                var packetid = dr["packetid"].ToString();
+
+                foreach(Label lb in panelTVPackets.Controls) {
+                    if(lb.Tag.ToString() == packetid) lb.BackColor = selectColor;
+                }
+
+                foreach (Label lb in panelInternetPackets.Controls) {
+                    if (lb.Tag.ToString() == packetid) lb.BackColor = selectColor;
+                }
+
+                foreach (Label lb in panelCombinedPackets.Controls) {
+                    if (lb.Tag.ToString() == packetid) lb.BackColor = selectColor;
+                }
             }
         }
 
@@ -77,6 +126,7 @@ namespace form_app {
                 lb.Width = 160;
                 lb.Height = 30;
                 lb.TextAlign = ContentAlignment.MiddleCenter;
+                lb.Tag = dr["packetid"];
                 panel.Controls.Add(lb);
             }
         }
@@ -96,6 +146,7 @@ namespace form_app {
                 lb.AutoSize = false;
                 lb.Width = 160;
                 lb.Height = 30;
+                lb.Tag = dr["packetid"];
                 lb.TextAlign = ContentAlignment.MiddleCenter;
                 panel.Controls.Add(lb);
             }
@@ -116,6 +167,7 @@ namespace form_app {
                 lb.AutoSize = false;
                 lb.Width = 160;
                 lb.Height = 30;
+                lb.Tag = dr["packetid"];
                 lb.TextAlign = ContentAlignment.MiddleCenter;
                 panel.Controls.Add(lb);
             }
