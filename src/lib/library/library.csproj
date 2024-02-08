@@ -121,6 +121,10 @@
     <Compile Include="Database\IDatabaseConnection.cs" />
     <Compile Include="Database\ConnectionMySQL.cs" />
     <Compile Include="Database\ConnectionSQLite.cs" />
+    <Compile Include="Other\LoggerFolder\BaseLogger.cs" />
+    <Compile Include="Other\LoggerFolder\ConcreteLogger.cs" />
+    <Compile Include="Other\LoggerFolder\FileLogger.cs" />
+    <Compile Include="Other\LoggerFolder\ILogger.cs" />
     <Compile Include="Other\TextParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
