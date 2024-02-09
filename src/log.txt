@@ -1413,3 +1413,28 @@
 09-Feb-24 4:52:42 PM - logged query : SELECT * FROM Client
 09-Feb-24 4:53:17 PM - logged query : INSERT INTO Client(username, firstname, lastname) VALUES (nemanja.peric, Nemanja, Peric)
 09-Feb-24 4:53:18 PM - logged query : SELECT * FROM Client
+09-Feb-24 5:06:23 PM - logged query : SELECT * FROM Client
+09-Feb-24 5:06:23 PM - logged query : SELECT * FROM packet p JOIN internetpacket i on p.packetid = i.packetid
+09-Feb-24 5:06:23 PM - logged query : SELECT * FROM packet p JOIN tvpacket t on p.packetid = t.packetid
+09-Feb-24 5:06:23 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+09-Feb-24 5:06:25 PM - logged query : SELECT * FROM Client WHERE username LIKE %r%
+09-Feb-24 5:06:25 PM - logged query : SELECT * FROM Client WHERE username LIKE %r%
+09-Feb-24 5:06:26 PM - logged query : SELECT * FROM Client WHERE username LIKE %ra%
+09-Feb-24 5:06:26 PM - logged query : SELECT * FROM Client WHERE username LIKE %ra%
+09-Feb-24 5:06:26 PM - logged query : SELECT * FROM Client WHERE username LIKE %rad%
+09-Feb-24 5:06:26 PM - logged query : SELECT * FROM Client WHERE username LIKE %rad%
+09-Feb-24 5:06:27 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 7
+09-Feb-24 5:06:28 PM - logged query : SELECT * FROM Client WHERE username LIKE %ra%
+09-Feb-24 5:06:28 PM - logged query : SELECT * FROM Client WHERE username LIKE %ra%
+09-Feb-24 5:06:28 PM - logged query : SELECT * FROM Client WHERE username LIKE %r%
+09-Feb-24 5:06:28 PM - logged query : SELECT * FROM Client WHERE username LIKE %r%
+09-Feb-24 5:06:29 PM - logged query : SELECT * FROM Client
+09-Feb-24 5:06:29 PM - logged query : SELECT * FROM Client
+09-Feb-24 5:06:30 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 1
+09-Feb-24 5:12:33 PM - logged query : SELECT * FROM Client
+09-Feb-24 5:12:33 PM - logged query : SELECT * FROM packet p JOIN internetpacket i on p.packetid = i.packetid
+09-Feb-24 5:12:33 PM - logged query : SELECT * FROM packet p JOIN tvpacket t on p.packetid = t.packetid
+09-Feb-24 5:12:33 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+09-Feb-24 5:12:46 PM - logged query : SELECT * FROM Client
+09-Feb-24 5:13:01 PM - logged query : INSERT INTO Client (username, firstname, lastname) VALUES (milos.peric, Milos, Peric)
+09-Feb-24 5:13:02 PM - logged query : SELECT * FROM Client

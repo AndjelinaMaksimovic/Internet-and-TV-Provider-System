@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using library.AppLogic;
+using library.AppLogic.Interfaces;
 using library.Database;
 
 
@@ -15,11 +17,13 @@ namespace form_app
     public partial class AddUser : Form
     {
         private Database instance = null;
+        private IAppLogicFacade appLogic;
 
         public AddUser()
         {
             InitializeComponent();
 
+            appLogic = new AppLogic();
             instance = Database.GetInstance();
         }
         
@@ -66,14 +70,8 @@ namespace form_app
 
             if (isValid)
             {
-                string sql = "INSERT INTO Client(username, firstname, lastname) VALUES (@param1, @param2, @param3)";
-                Dictionary<string, object> keyValuePairs = new Dictionary<string, object>();
-                keyValuePairs.Add("@param1", username);
-                keyValuePairs.Add("@param2", firstName);
-                keyValuePairs.Add("@param3", lastName);
-
                 try {
-                    instance.Query(sql, keyValuePairs);
+                    appLogic.registerClient(username, firstName, lastName);
                     MessageBox.Show("Query executed successfully!");
                 }
                 catch (Exception ex) {

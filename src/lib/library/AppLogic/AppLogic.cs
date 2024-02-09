@@ -39,5 +39,16 @@ namespace library.AppLogic {
             }
             return returnValue;
         }
+
+        public void registerClient(string username, string firstName, string lastName) {
+            string sql = "INSERT INTO Client (username, firstname, lastname) VALUES (@param1, @param2, @param3)";
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+            parameters.Add("@param1", username);
+            parameters.Add("@param2", firstName);
+            parameters.Add("@param3", lastName);
+
+            _clientLogic.addNewClient(sql, parameters); // u slucaju da dodje do izuzetka delegira se do prozora forme
+        }
+
     }
 }

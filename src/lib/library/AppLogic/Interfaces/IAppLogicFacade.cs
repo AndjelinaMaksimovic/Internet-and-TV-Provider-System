@@ -9,6 +9,7 @@ namespace library.AppLogic.Interfaces {
 
         string getProviderName();
         IEnumerable<Client> getAllClients(string like);
+        void registerClient(string username, string firstName, string lastName);
 
     }
 }

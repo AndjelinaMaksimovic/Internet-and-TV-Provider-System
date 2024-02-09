@@ -30,7 +30,9 @@ namespace library.AppLogic {
             return clients;
         }
 
-
+        public void addNewClient(string sql, Dictionary<string , object> parameters) {
+            instance.Query(sql, parameters);    // u slucaju da dodje do izuzetka delegira se do prozora forme
+        }
 
     }
 }

@@ -207,12 +207,6 @@ namespace form_app {
          * Event handler za pretrazivanje klijenata po korisnickom imenu
          * ******************************************************************** */
         private void parse_keyup_filter_clients(object sender, KeyEventArgs e) {
-            
-            string text = this.filter_clients_tb.Text.Trim();
-            Dictionary<string, object> keyValuePairs = new Dictionary<string, object>();
-            keyValuePairs.Add("@param1", "%" + text + "%");
-            string sql = "SELECT * FROM Client WHERE username like @param1";
-
             fill_clients_panel();
         }
         /* ********************************************************************
