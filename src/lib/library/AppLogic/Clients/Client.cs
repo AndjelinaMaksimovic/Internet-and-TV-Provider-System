@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace library.AppLogic {
+namespace library.AppLogic.Clients {
     public class Client : IPrototype<Client> {
 
         private int clientID;

@@ -1,4 +1,6 @@
 ﻿using library.AppLogic.Interfaces;
+using library.AppLogic.Clients;
+using library.AppLogic.Packets;
 using library.Other;
 using System;
 using System.Collections.Generic;
@@ -50,5 +52,8 @@ namespace library.AppLogic {
             _clientLogic.addNewClient(sql, parameters); // u slucaju da dodje do izuzetka delegira se do prozora forme
         }
 
+        IEnumerable<Packet> IAppLogicFacade.getPacketsByType() {
+            throw new NotImplementedException();
+        }
     }
 }

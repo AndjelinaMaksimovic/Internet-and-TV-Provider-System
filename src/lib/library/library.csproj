@@ -113,10 +113,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppLogic\AppLogic.cs" />
-    <Compile Include="AppLogic\Client.cs" />
-    <Compile Include="AppLogic\ClientLogic.cs" />
+    <Compile Include="AppLogic\Clients\Client.cs" />
+    <Compile Include="AppLogic\Clients\ClientLogic.cs" />
     <Compile Include="AppLogic\Interfaces\IAppLogicFacade.cs" />
     <Compile Include="AppLogic\Interfaces\IPrototype.cs" />
+    <Compile Include="AppLogic\Packets\Packet.cs" />
+    <Compile Include="AppLogic\Packets\PacketLogic.cs" />
     <Compile Include="Database\Database.cs" />
     <Compile Include="Database\DatabaseConnectionFactory.cs" />
     <Compile Include="Database\IDatabaseConnection.cs" />

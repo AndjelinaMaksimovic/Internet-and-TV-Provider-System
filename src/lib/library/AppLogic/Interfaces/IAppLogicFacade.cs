@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using library.AppLogic.Clients;
+using library.AppLogic.Packets;
 
 namespace library.AppLogic.Interfaces {
     public interface IAppLogicFacade {
@@ -10,6 +12,6 @@ namespace library.AppLogic.Interfaces {
         string getProviderName();
         IEnumerable<Client> getAllClients(string like);
         void registerClient(string username, string firstName, string lastName);
-
+        IEnumerable<Packet> getPacketsByType();
     }
 }

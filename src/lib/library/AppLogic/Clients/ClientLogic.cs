@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using library.Database;
 
-namespace library.AppLogic {
+namespace library.AppLogic.Clients {
     public class ClientLogic {
 
         private Database.Database instance = null;
