@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using library.Other;
 using library.Database;
 using library.AppLogic.Interfaces;
+using library.AppLogic.Packets;
 
 namespace form_app {
     public partial class ProviderApp : Form {
@@ -36,7 +37,7 @@ namespace form_app {
             fill_clients_panel();
             fill_internet_packets_panel();
             fill_tv_packets_panel();
-            fill_comb_packets_panel(this.panelCombinedPackets);
+            fill_comb_packets_panel();
         }
 
         /* ********************************************************************
@@ -179,20 +180,23 @@ namespace form_app {
         /* ********************************************************************
          * Popunjava panel odvojen za kombinovane pakete
          * ******************************************************************** */
-        private void fill_comb_packets_panel(FlowLayoutPanel panel) {
-            Dictionary<string, object> keyValuePairs = new Dictionary<string, object>();
-            DataTable dt = instance.Query("SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID", keyValuePairs);
+        private void fill_comb_packets_panel() {
 
-            foreach (DataRow dr in dt.Rows) {
+            FlowLayoutPanel panel = this.panelCombinedPackets;
+            panel.Controls.Clear();
+
+            var x = appLogic.getPacketsByType(library.AppLogic.Packets.Packet.PacketType.COMBINED);
+            
+            foreach (var packet in x) {
                 Label lb = new Label();
-                lb.Text = dr["name"].ToString() + " | " + dr["price"] + " | " + dr["downloadspeed"] + "/" + dr["uploadspeed"] + " | " + dr["numberofchannels"];
-                lb.TextAlign = ContentAlignment.MiddleLeft;
+                lb.Text = packet.Name.ToString() + " | " + packet.Price.ToString() + " | " + packet.Data["numberOfChannels"].ToString() + " | " + packet.Data["downloadSpeed"].ToString() + "/" + packet.Data["uploadSpeed"].ToString();
+                lb.TextAlign = ContentAlignment.MiddleCenter;
                 lb.BorderStyle = BorderStyle.FixedSingle;
                 lb.AutoSize = false;
                 lb.Width = 160;
                 lb.Height = 30;
-                lb.Tag = dr["packetid"];
-                lb.TextAlign = ContentAlignment.MiddleCenter;
+                lb.Tag = packet.PacketID;
+
                 panel.Controls.Add(lb);
             }
         }

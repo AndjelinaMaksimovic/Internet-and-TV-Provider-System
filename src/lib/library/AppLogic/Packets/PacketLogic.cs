@@ -63,7 +63,27 @@ namespace library.AppLogic.Packets {
         }
 
         public IEnumerable<Packet> getCombinedPackets(string sql, Dictionary<string, object> parameters) {
-            return null; // TO DO
+
+            DataTable dt = instance.Query(sql, parameters);
+            List<Packet> packets = new List<Packet>();
+
+            foreach (DataRow dr in dt.Rows) {
+                int id = Convert.ToInt32(dr["packetid"]);
+                string name = Convert.ToString(dr["name"]);
+                double price = Convert.ToDouble(dr["price"]);
+                int channels = Convert.ToInt32(dr["numberofchannels"]);
+                int downSpeed = Convert.ToInt32(dr["downloadspeed"]);
+                int upSpeed = Convert.ToInt32(dr["uploadspeed"]);
+
+                Dictionary<string, int> data = new Dictionary<string, int>();
+                data.Add("numberOfChannels", channels);
+                data.Add("downloadSpeed", downSpeed);
+                data.Add("uploadSpeed", upSpeed);
+
+                packets.Add(new Packet(id, name, price, data));
+            }
+
+            return packets;
         }
 
     }

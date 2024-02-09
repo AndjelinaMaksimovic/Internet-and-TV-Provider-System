@@ -72,6 +72,8 @@ namespace library.AppLogic {
                     break;
 
                 case Packet.PacketType.COMBINED:
+                    sql = "SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID";
+                    returnValue = _packetLogic.getCombinedPackets(sql, parameters);
                     break;
 
                 default:
