@@ -50,3 +50,5 @@ Dekorator šablon se koristi u ovom projektu kako bi se dinamički dodala nova p
   <img src="./resources/images/facade.png" alt="Facade method logo" height=150>
 </div>
 
+U ovom projektu se koristi Facade šablon kako bi se obezbedio jednostavan i kohezivan interfejs za pristup složenom podsistemu, čime se olakšava korišćenje više komponenti iz jednog centralnog mesta. Metode kao što su _getProviderName()_, _getAllClients(string like)_ i _registerClient(string username, string firstName, string lastName)_ pružaju jednostavan interfejs za čitanje podataka o pružaocu usluge, dobijanje svih klijenata ili registrovanje novih klijenata.
+Ove metode delegiraju složene zadatke specijalizovanim klasama poput **ClientLogic** za rad sa klijentima i **PacketLogic** za rad sa paketima.
