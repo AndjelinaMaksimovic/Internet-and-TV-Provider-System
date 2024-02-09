@@ -24,5 +24,5 @@ Korišćen kako bi se na lepši način rešilo pitanje da li je potrebno napravi
   <img src="./resources/images/decorator.png" alt="Factory method logo" height=150>
 </div>
 
-Dekorator šablon se koristi u ovom projektu kako bi se dinamički dodala nova ponašanja logger objektima. To se postiže implementacijom omotačkih klasa koje sadrže ova dodatna ponašanja, omogućavajući fleksibilno proširenje funkcionalnosti logger-a. Ovime se postiže modularan i proširiv dizajn za funkcionalnost logger-a. Nova ponašanja mogu se lako uključiti u logger objekte, olakšavajući prilagođavanje i skalabilnost, uz poštovanje principa objekto-orijentisanog dizajna.
+Dekorator šablon se koristi u ovom projektu kako bi se dinamički dodala nova ponašanja **logger** objektima. To se postiže implementacijom **omotačkih** klasa koje sadrže ova dodatna ponašanja, omogućavajući fleksibilno proširenje funkcionalnosti logger-a. Ovime se postiže modularan i proširiv dizajn za funkcionalnost logger-a. Nova ponašanja mogu se lako uključiti u logger objekte, olakšavajući prilagođavanje i skalabilnost, uz poštovanje principa objekto-orijentisanog dizajna.
 
