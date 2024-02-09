@@ -9,21 +9,20 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using library.Other;
 using library.Database;
-using library.AppLogic;
+using library.AppLogic.Interfaces;
 
 namespace form_app {
     public partial class ProviderApp : Form {
 
-        private readonly string configFilePath = "../../../../../config.txt";
         private Database instance = null;
         private string selectedClientID = null;                 // decide which user is currently selected
         private Color selectColor = Color.LightGreen;           // color used to display selected users and their packets
-        private AppLogic logic = null;
+        private IAppLogicFacade appLogic = null;
 
-        public ProviderApp() {
+        public ProviderApp(IAppLogicFacade appLogicFacade) {
             InitializeComponent();
 
-            logic = new AppLogic();
+            appLogic = appLogicFacade;
             instance = Database.GetInstance();
             fill_components();
             this.filter_clients_tb.KeyUp += parse_keyup_filter_clients;
@@ -191,7 +190,7 @@ namespace form_app {
          * ******************************************************************** */
         private void fill_provider_name_label(Label labelref) {
             labelref.Text = "Provider: ";
-            try { labelref.Text += logic.getProviderName(); }
+            try { labelref.Text += appLogic.getProviderName(); }
             catch (Exception ex) {
                 Console.WriteLine(ex.Message);
                 labelref.Text += "NOT RECOGNIZED";

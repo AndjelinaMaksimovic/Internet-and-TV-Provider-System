@@ -1,4 +1,5 @@
-﻿using System;
+﻿using library.AppLogic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -13,8 +14,9 @@ namespace form_app {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ProviderApp());
-            //Application.Run(new AddUser());
+
+            ProviderApp winForm = new ProviderApp(new AppLogic());
+            Application.Run(winForm);
         }
     }
 }
