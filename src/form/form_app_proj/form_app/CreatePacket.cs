@@ -61,8 +61,8 @@ namespace form_app {
             
             TextBox packetName = new TextBox();
             TextBox packetPrice = new TextBox();
-            TextBox downloadSpeed = new TextBox();
-            TextBox uploadSpeed = new TextBox();
+            NumericUpDown downloadSpeed = new NumericUpDown();
+            NumericUpDown uploadSpeed = new NumericUpDown();
 
             Label name = new Label();
             name.Text = "Name";
@@ -79,13 +79,13 @@ namespace form_app {
             Label ds = new Label();
             ds.Text = "Download";
             ds.AutoSize = false;
-            ds.Width = 80;
+            ds.Width = 60;
             ds.TextAlign = ContentAlignment.MiddleLeft;
 
             Label us = new Label();
             us.Text = "Upload";
             us.AutoSize = false;
-            us.Width = 80;
+            us.Width = 60;
             us.TextAlign = ContentAlignment.MiddleLeft;
 
             panel_show_details.Controls.Add(packetName);    panel_show_details.Controls.Add(name);
@@ -101,7 +101,7 @@ namespace form_app {
 
             TextBox packetName = new TextBox();
             TextBox packetPrice = new TextBox();
-            TextBox numberOfChannels = new TextBox();
+            NumericUpDown numberOfChannels = new NumericUpDown();
 
             Label name = new Label();
             name.Text = "Name";
@@ -118,7 +118,7 @@ namespace form_app {
             Label channels = new Label();
             channels.Text = "Channels";
             channels.AutoSize = false;
-            channels.Width = 80;
+            channels.Width = 60;
             channels.TextAlign = ContentAlignment.MiddleLeft;
 
             panel_show_details.Controls.Add(packetName);        panel_show_details.Controls.Add(name);
