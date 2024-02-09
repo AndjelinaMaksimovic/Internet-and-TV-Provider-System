@@ -27,7 +27,7 @@ Korišćen kako bi se na lepši način rešilo pitanje da li je potrebno napravi
 *kreacioni patern*
 
 <div>
-  <img src="./resources/images/prototype.png" alt="Prototype method logo" height=150>
+  <img src="./resources/images/prototype.png" alt="Factory method logo" height=150>
 </div>
 
 Prototype patern se u okviru ovog projekta koristi kako bi se omogućilo efikasno kreiranje kopija objekata tipova _Client_ i _Packet_. Ovaj šablon omogućava kreiranje novih instanci objekata kroz kloniranje postojećih, umesto kreiranja novih objekata pozivanjem konstruktora. Unapređuje efikasnost i fleksiblnost kreiranja novih instanci objekata u okviru projekta, i doprinosi boljoj organizaciji i performansama aplikacije.
@@ -37,16 +37,8 @@ Prototype patern se u okviru ovog projekta koristi kako bi se omogućilo efikasn
 *strukturni patern*
 
 <div>
-  <img src="./resources/images/decorator.png" alt="Decorator method logo" height=150>
+  <img src="./resources/images/decorator.png" alt="Factory method logo" height=150>
 </div>
 
 Dekorator šablon se koristi u ovom projektu kako bi se dinamički dodala nova ponašanja **logger** objektima. To se postiže implementacijom **omotačkih** klasa koje sadrže ova dodatna ponašanja, omogućavajući fleksibilno proširenje funkcionalnosti logger-a. Ovime se postiže modularan i proširiv dizajn za funkcionalnost logger-a. Nova ponašanja mogu se lako uključiti u logger objekte, olakšavajući prilagođavanje i skalabilnost, uz poštovanje principa objekto-orijentisanog dizajna.
-
-* Facade 
-
-*strukturni patern*
-
-<div>
-  <img src="./resources/images/facade.png" alt="Facade method logo" height=150>
-</div>
 
