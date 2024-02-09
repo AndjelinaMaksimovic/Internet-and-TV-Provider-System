@@ -114,6 +114,7 @@
   <ItemGroup>
     <Compile Include="AppLogic\AppLogic.cs" />
     <Compile Include="AppLogic\Client.cs" />
+    <Compile Include="AppLogic\ClientLogic.cs" />
     <Compile Include="AppLogic\Interfaces\IAppLogicFacade.cs" />
     <Compile Include="AppLogic\Interfaces\IPrototype.cs" />
     <Compile Include="Database\Database.cs" />

@@ -32,8 +32,8 @@ namespace form_app {
          * Popunjava sve komponente na strani
          * ******************************************************************** */
         private void fill_components() {
-            fill_provider_name_label(this.providerName);
-            fill_clients_panel(this.panelClients, "SELECT * FROM Client", new Dictionary<string, object>());
+            fill_provider_name_label();
+            fill_clients_panel();
             fill_internet_packets_panel(this.panelInternetPackets);
             fill_tv_packets_panel(this.panelTVPackets);
             fill_comb_packets_panel(this.panelCombinedPackets);
@@ -42,18 +42,23 @@ namespace form_app {
         /* ********************************************************************
          * Popunjava panel za klijente
          * ******************************************************************** */
-        private void fill_clients_panel(FlowLayoutPanel panel, string sql, Dictionary<string, object> keyValuePairs) {
+        private void fill_clients_panel() {
+            FlowLayoutPanel panel = this.panelClients;
+            string like = this.filter_clients_tb.Text;
+
             panel.Controls.Clear();
-            DataTable dt = instance.Query(sql, keyValuePairs);
-            
-            foreach (DataRow dr in dt.Rows) {
+
+            var x = appLogic.getAllClients(like);
+
+            foreach (var client in x) {
                 Label lb = new Label(); // Create label for client name
-                lb.Text = dr["username"].ToString();
+                lb.Text = client.Username.ToString();
                 lb.TextAlign = ContentAlignment.MiddleCenter;
                 lb.AutoSize = false;
                 lb.Width = 120; // Adjust width as needed
                 lb.Height = 26;
-                lb.Tag = dr["clientid"];
+                lb.Tag = client.ClientID;
+                
                 if (selectedClientID != null && lb.Tag.ToString() == selectedClientID) {
                     lb.BackColor = selectColor;
                 }
@@ -188,7 +193,8 @@ namespace form_app {
         /* ********************************************************************
          * Popunjava naziv provajdera
          * ******************************************************************** */
-        private void fill_provider_name_label(Label labelref) {
+        private void fill_provider_name_label() {
+            Label labelref = this.providerName;
             labelref.Text = "Provider: ";
             try { labelref.Text += appLogic.getProviderName(); }
             catch (Exception ex) {
@@ -207,13 +213,13 @@ namespace form_app {
             keyValuePairs.Add("@param1", "%" + text + "%");
             string sql = "SELECT * FROM Client WHERE username like @param1";
 
-            fill_clients_panel(panelClients, sql, keyValuePairs);
+            fill_clients_panel();
         }
         /* ********************************************************************
          * Poziva se nakon sto se zatvori prozor za dodavanje novog klijenta
          * ******************************************************************** */
         private void parse_register_client_form_closed(object sender, FormClosedEventArgs e) {
-            fill_clients_panel(panelClients, "SELECT * FROM Client", new Dictionary<string, object>());
+            fill_clients_panel();
         }
         /* ********************************************************************
          * Event nakon klika dugmeta za dodavanje novog korisnika

@@ -8,6 +8,7 @@ namespace library.AppLogic.Interfaces {
     public interface IAppLogicFacade {
 
         string getProviderName();
+        IEnumerable<Client> getAllClients(string like);
 
     }
 }

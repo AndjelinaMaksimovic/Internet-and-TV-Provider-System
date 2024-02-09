@@ -1,22 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using library.Database;
+using library.AppLogic;
 
 namespace test_ca {
     internal class Program {
         static void Main(string[] args) {
-            
-            Database db = Database.GetInstance();
-            Dictionary<string, object> keyValuePairs = new Dictionary<string, object>();
 
-            var x = db.Query("SELECT * FROM packet p JOIN combpacket c on p.packetid = c.packetid", keyValuePairs);
+            AppLogic l = new AppLogic();
 
-            foreach (DataRow row in x.Rows) {
-                foreach(var e in row.ItemArray) {
-                    Console.Write(e + " ");
-                }
-                Console.WriteLine();
+            var x = l.getAllClients("");
+
+            foreach (var client in x) {
+                Console.WriteLine(client.ClientID + " " + client.Username + " " + client.FirstName + " " + client.LastName);
             }
 
             Console.Write("Press any key to continue...");

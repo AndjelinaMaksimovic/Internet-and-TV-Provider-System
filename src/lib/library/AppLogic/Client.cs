@@ -13,6 +13,7 @@ namespace library.AppLogic {
         private string firstName;
         private string lastName;
 
+        public int ClientID { get { return clientID; } }
         public string Username { get { return username; } set {  username = value; } }
         public string FirstName { get { return firstName; } set { firstName = value; } }
         public string LastName { get { return lastName; } set { lastName = value; } }
