@@ -212,5 +212,10 @@ namespace form_app {
             newForm.FormClosed += parse_register_client_form_closed;
             newForm.ShowDialog();
         }
+
+        private void button_create_packet_Click(object sender, EventArgs e) {
+            var newForm = new CreatePacket();
+            newForm.ShowDialog();
+        }
     }
 }

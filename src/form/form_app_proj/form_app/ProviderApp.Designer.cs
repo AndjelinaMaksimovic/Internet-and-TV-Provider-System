@@ -170,6 +170,7 @@ namespace form_app {
             this.button_create_packet.TabIndex = 20;
             this.button_create_packet.Text = "Create packet";
             this.button_create_packet.UseVisualStyleBackColor = true;
+            this.button_create_packet.Click += new System.EventHandler(this.button_create_packet_Click);
             // 
             // ProviderApp
             // 

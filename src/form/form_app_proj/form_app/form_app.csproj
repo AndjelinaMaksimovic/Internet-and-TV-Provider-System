@@ -74,6 +74,12 @@
     <Compile Include="AddUser.Designer.cs">
       <DependentUpon>AddUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="CreatePacket.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreatePacket.Designer.cs">
+      <DependentUpon>CreatePacket.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProviderApp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +90,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AddUser.resx">
       <DependentUpon>AddUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreatePacket.resx">
+      <DependentUpon>CreatePacket.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProviderApp.resx">
       <DependentUpon>ProviderApp.cs</DependentUpon>
