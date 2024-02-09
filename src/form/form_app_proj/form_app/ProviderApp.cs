@@ -87,8 +87,14 @@ namespace form_app {
         private void ClientLabel_Click(object sender, EventArgs e) {
 
             clearAllSelections();
-            
+
             Label clickedLabel = (Label)sender;
+
+            if (clickedLabel.Tag.ToString() == selectedClientID) {
+                selectedClientID = null;
+                return; // deselect
+            }
+
             clickedLabel.BackColor = selectColor;
             this.selectedClientID = clickedLabel.Tag.ToString();
 

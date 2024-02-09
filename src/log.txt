@@ -1104,3 +1104,128 @@
 09-Feb-24 2:48:53 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 5
 09-Feb-24 2:48:54 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 6
 09-Feb-24 2:48:54 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 7
+09-Feb-24 2:50:17 PM - logged query : SELECT * FROM Client
+09-Feb-24 2:50:17 PM - logged query : SELECT * FROM packet p JOIN internetpacket i on p.packetid = i.packetid
+09-Feb-24 2:50:17 PM - logged query : SELECT * FROM packet p JOIN tvpacket t on p.packetid = t.packetid
+09-Feb-24 2:50:17 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+09-Feb-24 2:51:02 PM - logged query : SELECT * FROM Client
+09-Feb-24 2:51:02 PM - logged query : SELECT * FROM packet p JOIN internetpacket i on p.packetid = i.packetid
+09-Feb-24 2:51:02 PM - logged query : SELECT * FROM packet p JOIN tvpacket t on p.packetid = t.packetid
+09-Feb-24 2:51:02 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+09-Feb-24 2:51:08 PM - logged query : SELECT * FROM Client
+09-Feb-24 2:51:12 PM - logged query : SELECT * FROM Client WHERE username like %r%
+09-Feb-24 2:51:12 PM - logged query : SELECT * FROM Client WHERE username like %r%
+09-Feb-24 2:51:12 PM - logged query : SELECT * FROM Client WHERE username like %ra%
+09-Feb-24 2:51:12 PM - logged query : SELECT * FROM Client WHERE username like %ra%
+09-Feb-24 2:51:13 PM - logged query : SELECT * FROM Client WHERE username like %rad%
+09-Feb-24 2:51:13 PM - logged query : SELECT * FROM Client WHERE username like %rad%
+09-Feb-24 2:51:14 PM - logged query : SELECT * FROM Client WHERE username like %ra%
+09-Feb-24 2:51:14 PM - logged query : SELECT * FROM Client WHERE username like %ra%
+09-Feb-24 2:51:14 PM - logged query : SELECT * FROM Client WHERE username like %r%
+09-Feb-24 2:51:14 PM - logged query : SELECT * FROM Client WHERE username like %r%
+09-Feb-24 2:51:14 PM - logged query : SELECT * FROM Client WHERE username like %%
+09-Feb-24 2:51:14 PM - logged query : SELECT * FROM Client WHERE username like %%
+09-Feb-24 2:51:15 PM - logged query : SELECT * FROM Client WHERE username like %ra%
+09-Feb-24 2:51:15 PM - logged query : SELECT * FROM Client WHERE username like %ra%
+09-Feb-24 2:51:15 PM - logged query : SELECT * FROM Client WHERE username like %ra%
+09-Feb-24 2:51:15 PM - logged query : SELECT * FROM Client WHERE username like %ra%
+09-Feb-24 2:51:15 PM - logged query : SELECT * FROM Client WHERE username like %rad%
+09-Feb-24 2:51:15 PM - logged query : SELECT * FROM Client WHERE username like %rad%
+09-Feb-24 2:51:16 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 7
+09-Feb-24 2:51:18 PM - logged query : SELECT * FROM Client WHERE username like %ra%
+09-Feb-24 2:51:18 PM - logged query : SELECT * FROM Client WHERE username like %ra%
+09-Feb-24 2:51:18 PM - logged query : SELECT * FROM Client WHERE username like %r%
+09-Feb-24 2:51:18 PM - logged query : SELECT * FROM Client WHERE username like %r%
+09-Feb-24 2:51:18 PM - logged query : SELECT * FROM Client WHERE username like %%
+09-Feb-24 2:51:18 PM - logged query : SELECT * FROM Client WHERE username like %%
+09-Feb-24 2:51:21 PM - logged query : SELECT * FROM Client WHERE username like %pe%
+09-Feb-24 2:51:21 PM - logged query : SELECT * FROM Client WHERE username like %pe%
+09-Feb-24 2:51:21 PM - logged query : SELECT * FROM Client WHERE username like %pe%
+09-Feb-24 2:51:21 PM - logged query : SELECT * FROM Client WHERE username like %pe%
+09-Feb-24 2:51:21 PM - logged query : SELECT * FROM Client WHERE username like %pera%
+09-Feb-24 2:51:21 PM - logged query : SELECT * FROM Client WHERE username like %pera%
+09-Feb-24 2:51:21 PM - logged query : SELECT * FROM Client WHERE username like %pera%
+09-Feb-24 2:51:21 PM - logged query : SELECT * FROM Client WHERE username like %pera%
+09-Feb-24 2:51:22 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 1
+09-Feb-24 2:51:23 PM - logged query : SELECT * FROM Client WHERE username like %per%
+09-Feb-24 2:51:23 PM - logged query : SELECT * FROM Client WHERE username like %per%
+09-Feb-24 2:51:24 PM - logged query : SELECT * FROM Client WHERE username like %pe%
+09-Feb-24 2:51:24 PM - logged query : SELECT * FROM Client WHERE username like %pe%
+09-Feb-24 2:51:24 PM - logged query : SELECT * FROM Client WHERE username like %p%
+09-Feb-24 2:51:24 PM - logged query : SELECT * FROM Client WHERE username like %p%
+09-Feb-24 2:51:24 PM - logged query : SELECT * FROM Client WHERE username like %%
+09-Feb-24 2:51:24 PM - logged query : SELECT * FROM Client WHERE username like %%
+09-Feb-24 2:51:25 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 1
+09-Feb-24 2:51:27 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 5
+09-Feb-24 2:51:27 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 5
+09-Feb-24 2:51:28 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 1
+09-Feb-24 2:51:29 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 5
+09-Feb-24 2:51:30 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 6
+09-Feb-24 2:51:30 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 7
+09-Feb-24 2:51:31 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 6
+09-Feb-24 2:51:31 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 1
+09-Feb-24 2:51:32 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 1
+09-Feb-24 2:52:56 PM - logged query : SELECT * FROM Client
+09-Feb-24 2:52:56 PM - logged query : SELECT * FROM packet p JOIN internetpacket i on p.packetid = i.packetid
+09-Feb-24 2:52:56 PM - logged query : SELECT * FROM packet p JOIN tvpacket t on p.packetid = t.packetid
+09-Feb-24 2:52:56 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+09-Feb-24 2:52:57 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 5
+09-Feb-24 2:52:58 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 1
+09-Feb-24 2:52:59 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 5
+09-Feb-24 2:53:02 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 1
+09-Feb-24 2:53:02 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 5
+09-Feb-24 2:53:03 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 6
+09-Feb-24 2:53:04 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 1
+09-Feb-24 2:53:08 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 5
+09-Feb-24 2:53:09 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 7
+09-Feb-24 2:53:09 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 1
+09-Feb-24 2:53:13 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 5
+09-Feb-24 2:53:14 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 1
+09-Feb-24 2:53:37 PM - logged query : SELECT * FROM Client
+09-Feb-24 2:53:37 PM - logged query : SELECT * FROM packet p JOIN internetpacket i on p.packetid = i.packetid
+09-Feb-24 2:53:37 PM - logged query : SELECT * FROM packet p JOIN tvpacket t on p.packetid = t.packetid
+09-Feb-24 2:53:37 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+09-Feb-24 2:53:38 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 1
+09-Feb-24 2:53:40 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 1
+09-Feb-24 2:53:42 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 5
+09-Feb-24 2:53:43 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 1
+09-Feb-24 2:53:45 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 1
+09-Feb-24 2:53:46 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 5
+09-Feb-24 2:53:48 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 6
+09-Feb-24 2:53:51 PM - logged query : SELECT * FROM Client WHERE username like %p%
+09-Feb-24 2:53:51 PM - logged query : SELECT * FROM Client WHERE username like %p%
+09-Feb-24 2:53:51 PM - logged query : SELECT * FROM Client WHERE username like %pe%
+09-Feb-24 2:53:51 PM - logged query : SELECT * FROM Client WHERE username like %pe%
+09-Feb-24 2:53:51 PM - logged query : SELECT * FROM Client WHERE username like %per%
+09-Feb-24 2:53:51 PM - logged query : SELECT * FROM Client WHERE username like %per%
+09-Feb-24 2:53:52 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 1
+09-Feb-24 2:53:54 PM - logged query : SELECT * FROM Client WHERE username like %pe%
+09-Feb-24 2:53:54 PM - logged query : SELECT * FROM Client WHERE username like %pe%
+09-Feb-24 2:53:54 PM - logged query : SELECT * FROM Client WHERE username like %p%
+09-Feb-24 2:53:54 PM - logged query : SELECT * FROM Client WHERE username like %p%
+09-Feb-24 2:53:54 PM - logged query : SELECT * FROM Client WHERE username like %%
+09-Feb-24 2:53:54 PM - logged query : SELECT * FROM Client WHERE username like %%
+09-Feb-24 2:53:57 PM - logged query : SELECT * FROM Client WHERE username like %pe%
+09-Feb-24 2:53:57 PM - logged query : SELECT * FROM Client WHERE username like %pe%
+09-Feb-24 2:53:57 PM - logged query : SELECT * FROM Client WHERE username like %pe%
+09-Feb-24 2:53:57 PM - logged query : SELECT * FROM Client WHERE username like %pe%
+09-Feb-24 2:53:57 PM - logged query : SELECT * FROM Client WHERE username like %pera%
+09-Feb-24 2:53:57 PM - logged query : SELECT * FROM Client WHERE username like %pera%
+09-Feb-24 2:53:57 PM - logged query : SELECT * FROM Client WHERE username like %pera%
+09-Feb-24 2:53:57 PM - logged query : SELECT * FROM Client WHERE username like %pera%
+09-Feb-24 2:53:58 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 1
+09-Feb-24 2:54:00 PM - logged query : SELECT * FROM Client WHERE username like %per%
+09-Feb-24 2:54:00 PM - logged query : SELECT * FROM Client WHERE username like %per%
+09-Feb-24 2:54:01 PM - logged query : SELECT * FROM Client WHERE username like %pe%
+09-Feb-24 2:54:01 PM - logged query : SELECT * FROM Client WHERE username like %pe%
+09-Feb-24 2:54:02 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 6
+09-Feb-24 2:54:02 PM - logged query : SELECT * FROM Client WHERE username like %p%
+09-Feb-24 2:54:02 PM - logged query : SELECT * FROM Client WHERE username like %p%
+09-Feb-24 2:54:03 PM - logged query : SELECT * FROM Client WHERE username like %%
+09-Feb-24 2:54:03 PM - logged query : SELECT * FROM Client WHERE username like %%
+09-Feb-24 2:54:06 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 1
+09-Feb-24 2:54:09 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 1
+09-Feb-24 2:54:10 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 5
+09-Feb-24 2:54:11 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 1
+09-Feb-24 2:54:12 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 5
+09-Feb-24 2:54:14 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 1
