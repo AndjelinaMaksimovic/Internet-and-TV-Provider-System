@@ -1476,3 +1476,27 @@
 09-Feb-24 6:46:45 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 19
 09-Feb-24 6:46:46 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 1
 09-Feb-24 6:46:53 PM - logged query : SELECT * FROM Client
+09-Feb-24 7:04:26 PM - logged query : SELECT * FROM Client
+09-Feb-24 7:06:11 PM - logged query : SELECT * FROM Client
+09-Feb-24 7:06:55 PM - logged query : SELECT * FROM Client
+09-Feb-24 7:06:55 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+09-Feb-24 7:06:55 PM - logged query : SELECT * FROM packet p JOIN tvpacket t on p.packetid = t.packetid
+09-Feb-24 7:06:55 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+09-Feb-24 7:09:05 PM - logged query : SELECT * FROM Client
+09-Feb-24 7:09:05 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+09-Feb-24 7:09:05 PM - logged query : SELECT * FROM packet p JOIN tvpacket t on p.packetid = t.packetid
+09-Feb-24 7:09:05 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+09-Feb-24 7:10:35 PM - logged query : SELECT * FROM Client
+09-Feb-24 7:10:35 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+09-Feb-24 7:10:35 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+09-Feb-24 7:11:27 PM - logged query : SELECT * FROM Client
+09-Feb-24 7:11:27 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+09-Feb-24 7:11:27 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+09-Feb-24 7:11:27 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+09-Feb-24 7:11:53 PM - logged query : SELECT * FROM Client
+09-Feb-24 7:11:53 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+09-Feb-24 7:11:53 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+09-Feb-24 7:11:53 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+09-Feb-24 7:11:56 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 1
+09-Feb-24 7:11:57 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 5
+09-Feb-24 7:11:58 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 1

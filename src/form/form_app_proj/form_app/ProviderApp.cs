@@ -34,8 +34,8 @@ namespace form_app {
         private void fill_components() {
             fill_provider_name_label();
             fill_clients_panel();
-            fill_internet_packets_panel(this.panelInternetPackets);
-            fill_tv_packets_panel(this.panelTVPackets);
+            fill_internet_packets_panel();
+            fill_tv_packets_panel();
             fill_comb_packets_panel(this.panelCombinedPackets);
         }
 
@@ -130,41 +130,48 @@ namespace form_app {
         /* ********************************************************************
          * Popunjava panel odvojen za internet pakete
          * ******************************************************************** */
-        private void fill_internet_packets_panel(FlowLayoutPanel panel) {
-            Dictionary<string, object> keyValuePairs = new Dictionary<string, object>();
-            DataTable dt = instance.Query("SELECT * FROM packet p JOIN internetpacket i on p.packetid = i.packetid", keyValuePairs);
+        private void fill_internet_packets_panel() {
 
-            foreach (DataRow dr in dt.Rows) {
+            FlowLayoutPanel panel = this.panelInternetPackets;
+            panel.Controls.Clear();
+
+            var x = appLogic.getPacketsByType(library.AppLogic.Packets.Packet.PacketType.INTERNET);
+
+            foreach (var packet in x) {
                 Label lb = new Label();
-                lb.Text = dr["name"].ToString() + " | " + dr["price"] + " | " + dr["downloadspeed"] + "/" + dr["uploadspeed"];
-                lb.TextAlign = ContentAlignment.MiddleLeft;
+                lb.Text = packet.Name.ToString() + " | " + packet.Price.ToString() + " | " + packet.Data["downloadSpeed"].ToString() + "/" + packet.Data["uploadSpeed"].ToString();
+                lb.TextAlign = ContentAlignment.MiddleCenter;
                 lb.BorderStyle = BorderStyle.FixedSingle;
                 lb.AutoSize = false;
                 lb.Width = 160;
                 lb.Height = 30;
-                lb.TextAlign = ContentAlignment.MiddleCenter;
-                lb.Tag = dr["packetid"];
+                lb.Tag = packet.PacketID;
+
                 panel.Controls.Add(lb);
             }
+
         }
 
         /* ********************************************************************
          * Popunjava panel odvojen za tv pakete
          * ******************************************************************** */
-        private void fill_tv_packets_panel(FlowLayoutPanel panel) {
-            Dictionary<string, object> keyValuePairs = new Dictionary<string, object>();
-            DataTable dt = instance.Query("SELECT * FROM packet p JOIN tvpacket t on p.packetid = t.packetid", keyValuePairs);
+        private void fill_tv_packets_panel() {
 
-            foreach (DataRow dr in dt.Rows) {
+            FlowLayoutPanel panel = this.panelTVPackets;
+            panel.Controls.Clear();
+
+            var x = appLogic.getPacketsByType(library.AppLogic.Packets.Packet.PacketType.TV);
+
+            foreach (var packet in x) {
                 Label lb = new Label();
-                lb.Text = dr["name"].ToString() + " | " + dr["price"] + " | " + dr["numberofchannels"];
-                lb.TextAlign = ContentAlignment.MiddleLeft;
+                lb.Text = packet.Name.ToString() + " | " + packet.Price.ToString() + " | " + packet.Data["numberOfChannels"].ToString();
+                lb.TextAlign = ContentAlignment.MiddleCenter;
                 lb.BorderStyle = BorderStyle.FixedSingle;
                 lb.AutoSize = false;
                 lb.Width = 160;
                 lb.Height = 30;
-                lb.Tag = dr["packetid"];
-                lb.TextAlign = ContentAlignment.MiddleCenter;
+                lb.Tag = packet.PacketID;
+
                 panel.Controls.Add(lb);
             }
         }

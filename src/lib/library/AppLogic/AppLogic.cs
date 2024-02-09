@@ -13,9 +13,11 @@ namespace library.AppLogic {
 
         private string _configFilepath = "../../../../../config.txt";
         private ClientLogic _clientLogic;
+        private PacketLogic _packetLogic;
 
         public AppLogic() {
             _clientLogic = new ClientLogic();
+            _packetLogic = new PacketLogic();
         }
 
         public string getProviderName() {
@@ -52,8 +54,31 @@ namespace library.AppLogic {
             _clientLogic.addNewClient(sql, parameters); // u slucaju da dodje do izuzetka delegira se do prozora forme
         }
 
-        IEnumerable<Packet> IAppLogicFacade.getPacketsByType() {
-            throw new NotImplementedException();
+        IEnumerable<Packet> IAppLogicFacade.getPacketsByType(Packet.PacketType type) {
+
+            IEnumerable<Packet> returnValue = null;
+            string sql = "";
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+
+            switch(type) {
+                case Packet.PacketType.INTERNET:
+                    sql = "SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID";
+                    returnValue = _packetLogic.getInternetPackets(sql, parameters);
+                    break;
+
+                case Packet.PacketType.TV:
+                    sql = "SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID";
+                    returnValue = _packetLogic.getTVPackets(sql, parameters);
+                    break;
+
+                case Packet.PacketType.COMBINED:
+                    break;
+
+                default:
+                    break;
+            }
+
+            return returnValue;
         }
     }
 }
