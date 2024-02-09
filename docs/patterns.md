@@ -1,4 +1,4 @@
-# Design patterns
+﻿# Design patterns
 
 ### Creational design patterns
 
@@ -8,7 +8,7 @@
   <img src="./resources/images/singleton.png" alt="Singleton logo" height=150>
 </div>
 
-Korscen za potrebe kreiranja konekcije sa bazom podataka kako bi se izbeglo visestruko pozivanje konstruktora klase i na taj nacin rezultovalo kreiranjem vise instanci klase _Database_. Umesto toga, instanca klase se moze dobiti pozivanjem medote _GetInstance_ koja ce samo vratiti instancu klase ukoliko je vec napravljena, odnosno kreirati instancu ukoliko se poziva prvi put. Da bi navedeno adekvatno radilo, konstruktor klase Database je privatan i poziva ga samo metoda _GetInstance_ ukoliko instanca nije kreirana.
+Korišćen za potrebe kreiranja konekcije sa bazom podataka kako bi se izbeglo višestruko pozivanje konstruktora klase i na taj način rezultovalo kreiranjem više različitih instanci klase _Database_. Umesto toga, instanca klase se može dobiti pozivanjem medote _GetInstance_ koja će samo vratiti instancu klase ukoliko je već napravljena, odnosno kreirati instancu ukoliko se poziva prvi put. Da bi prethodno navedeno ponašanje radilo adekvatno, konstruktor klase Database je privatan i poziva ga samo metoda _GetInstance_ ukoliko instanca nije već kreirana.
 
 * Factory Method
 
@@ -16,7 +16,7 @@ Korscen za potrebe kreiranja konekcije sa bazom podataka kako bi se izbeglo vise
   <img src="./resources/images/factory_method.png" alt="Factory method logo" height=150>
 </div>
 
-Koriscen kako bi se na lepsi nacin resilo pitanje da li je potrebno napraviti konekciju sa **SQLite** bazom podataka ili **MySQL** bazom podataka. Ova odluka se moze resiti i preko jednostavnih if naredbi ali nam je na ovaj nacin omoguceno da u buducnosti dodamo konekciju sa nekom novom bazom bez da menjamo postojeci kod vec samo dodavanjem nove klase koja ce obradjivati konekciju sa tom bazom. Takodje, od korisnika je na ovaj nacin sakriveno kako se uspostavlja konekcija i sa kojom bazom jer se sve navedeno radi u privatnom konstruktoru klase dok se potrebni podaci dobijaju iz konfiguracionog fajla.
+Korišćen kako bi se na lepši način rešilo pitanje da li je potrebno napraviti konekciju sa **SQLite** bazom podataka ili **MySQL** bazom podataka. Ova odluka se moze rešiti i preko jednostavnih _if_ naredbi, ali na ovaj način, omogućeno nam je da u budućnosti dodamo konekciju sa nekom novom bazom bez da menjamo postojeći kod, već samo dodavanjem nove klase koja ce obrađivati konekciju sa tom bazom. Takođe, od korisnika je na ovaj način sakriveno kako se uspostavlja konekcija i sa kojom bazom, jer se sve navedeno radi u privatnom konstruktoru klase dok se potrebni podaci dobijaju iz konfiguracionog fajla.
 
 * Decorator 
 
@@ -24,5 +24,5 @@ Koriscen kako bi se na lepsi nacin resilo pitanje da li je potrebno napraviti ko
   <img src="./resources/images/decorator.png" alt="Factory method logo" height=150>
 </div>
 
-Koriscen kako bi se dodalo novo ponasanje na logger objekte, koristeci wrapper klasu koja sadrzi ponasanja.
+Dekorator šablon se koristi u ovom projektu kako bi se dinamički dodala nova ponašanja logger objektima. To se postiže implementacijom omotačkih klasa koje sadrže ova dodatna ponašanja, omogućavajući fleksibilno proširenje funkcionalnosti logger-a. Ovime se postiže modularan i proširiv dizajn za funkcionalnost logger-a. Nova ponašanja mogu se lako uključiti u logger objekte, olakšavajući prilagođavanje i skalabilnost, uz poštovanje principa objekto-orijentisanog dizajna.
 
