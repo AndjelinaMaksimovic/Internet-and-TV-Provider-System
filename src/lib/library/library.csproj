@@ -112,6 +112,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppLogic\AppLogic.cs" />
+    <Compile Include="AppLogic\Client.cs" />
+    <Compile Include="AppLogic\Interfaces\IAppLogicFacade.cs" />
     <Compile Include="Database\Database.cs" />
     <Compile Include="Database\DatabaseConnectionFactory.cs" />
     <Compile Include="Database\IDatabaseConnection.cs" />

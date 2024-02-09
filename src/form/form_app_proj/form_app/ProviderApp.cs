@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using library.Other;
 using library.Database;
+using library.AppLogic;
 
 namespace form_app {
     public partial class ProviderApp : Form {
@@ -17,10 +18,12 @@ namespace form_app {
         private Database instance = null;
         private string selectedClientID = null;                 // decide which user is currently selected
         private Color selectColor = Color.LightGreen;           // color used to display selected users and their packets
+        private AppLogic logic = null;
 
         public ProviderApp() {
             InitializeComponent();
 
+            logic = new AppLogic();
             instance = Database.GetInstance();
             fill_components();
             this.filter_clients_tb.KeyUp += parse_keyup_filter_clients;
@@ -188,8 +191,11 @@ namespace form_app {
          * ******************************************************************** */
         private void fill_provider_name_label(Label labelref) {
             labelref.Text = "Provider: ";
-            try { labelref.Text += TextParser.Parse(configFilePath)["PROVIDER"]; }
-            catch (Exception ex) { labelref.Text += "NOT RECOGNIZED"; }
+            try { labelref.Text += logic.getProviderName(); }
+            catch (Exception ex) {
+                Console.WriteLine(ex.Message);
+                labelref.Text += "NOT RECOGNIZED";
+            }
         }
 
         /* ********************************************************************
