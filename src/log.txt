@@ -1903,3 +1903,11 @@
 2/10/2024 11:39:27 AM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
 2/10/2024 11:39:28 AM - logged query : SELECT * FROM Client
 2/10/2024 11:39:28 AM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON p.packetid = cp.packetid WHERE cp.clientid = 1
+2/10/2024 12:16:33 PM - logged query : SELECT * FROM Client
+2/10/2024 12:16:33 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+2/10/2024 12:16:33 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+2/10/2024 12:16:33 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+2/10/2024 12:16:34 PM - logged query : SELECT * FROM Client
+2/10/2024 12:16:34 PM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON p.packetid = cp.packetid WHERE cp.clientid = 1
+2/10/2024 12:16:37 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 1
+2/10/2024 12:16:37 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 5

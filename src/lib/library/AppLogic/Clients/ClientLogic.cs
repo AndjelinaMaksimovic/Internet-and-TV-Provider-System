@@ -29,7 +29,21 @@ namespace library.AppLogic.Clients {
 
             return clients;
         }
+        /*
+        public IEnumerable<Packet> getPacketsForClient(string sql, Dictionary<string, object> parameters) {
+            List<Packet> packets = new List<Packet>();
 
+            DataTable dt = instance.Query(sql, parameters);
+            foreach (DataRow dr in dt.Rows) {
+                int clientId = Convert.ToInt32(dr["clientid"]);
+                int packetId = Convert.ToInt32(dr["packetid"]);
+     
+                packets.Add(new Packet(clientId, packetId));
+            }
+
+            return packets;
+        }
+        */
         public void addNewClient(string sql, Dictionary<string , object> parameters) {
             instance.Query(sql, parameters);    // u slucaju da dodje do izuzetka delegira se do prozora forme
         }

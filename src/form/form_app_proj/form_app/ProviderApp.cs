@@ -106,11 +106,17 @@ namespace form_app {
             clickedLabel.BackColor = selectColor;
             this.selectedClientID = clickedLabel.Tag.ToString();
 
+            
             string sql = "SELECT * FROM ClientPacket WHERE clientid = @id";
             Dictionary<string, object> keyValuePairs = new Dictionary<string, object>();
             keyValuePairs.Add("@id", clickedLabel.Tag.ToString());
 
             DataTable dt = instance.Query(sql, keyValuePairs);
+            
+
+            //var x = appLogic.getPacketsForClient(this.selectedClientID);
+
+            
             foreach(DataRow dr in dt.Rows) {
                 var packetid = dr["packetid"].ToString();
 

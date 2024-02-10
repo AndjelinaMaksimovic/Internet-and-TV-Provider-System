@@ -36,6 +36,7 @@ namespace library.AppLogic {
                     sql += " WHERE username LIKE @param1";
                     parameters.Add("@param1", "%" + like + "%");
                 }
+               // sql += " ORDER BY username ASC";
                 returnValue = _clientLogic.getAllClients(sql, parameters);
             }
             catch(Exception ex) {
@@ -131,6 +132,23 @@ namespace library.AppLogic {
                     break;
             }
         }
+        /*
+        public IEnumerable<Packet> getPacketsForClient(int clientid) {
+
+            IEnumerable<Packet> returnValue = null;
+            try {
+                string sql = "SELECT * FROM ClientPacket WHERE clientid = @id";
+                Dictionary<string, object> keyValuePairs = new Dictionary<string, object>();
+                keyValuePairs.Add("@id", clientid);
+
+                returnValue = _clientLogic.getPacketsForClient(sql, keyValuePairs);
+            }
+            catch (Exception ex) {
+                Console.WriteLine(ex.Message);
+            }
+            return returnValue;
+        }
+        */
 
     }
 }

@@ -11,6 +11,7 @@ namespace library.AppLogic.Interfaces {
 
         string getProviderName();
         IEnumerable<Client> getAllClients(string like);
+        //IEnumerable<Packet> getPacketsForClient(int clientid);
         void registerClient(string username, string firstName, string lastName);
         IEnumerable<Packet> getPacketsByType(Packet.PacketType type);
         void createNewPacket(string name, double price, Packet.PacketType type, Dictionary<string, object> data);
