@@ -16,13 +16,18 @@ namespace form_app {
     public partial class ProviderApp : Form {
 
         private Database instance = null;
-        private string selectedClientID = null;                 // decide which user is currently selected
-        private Color selectColor = Color.LightGreen;           // color used to display selected users and their packets
         private IAppLogicFacade appLogic = null;
+        private string selectedClientID = null;                 // decide which user is currently selected
+        private IEnumerable<Packet> packetsForSelectedClient = null;   // list of packets for currently selected user
+        private Color selectColor = Color.LightGreen;           // color used to display selected users and their packets
+        private string selectedPacketID = null;                 // decide which packet is currently selected
+        private Color selectPacketColor = Color.DarkGreen;      // color used to display selected packets
+        
 
         public ProviderApp(IAppLogicFacade appLogicFacade) {
             InitializeComponent();
 
+            packetsForSelectedClient = new List<Packet>();
             appLogic = appLogicFacade;
             instance = Database.GetInstance();
             fill_components();
@@ -100,28 +105,18 @@ namespace form_app {
 
             if (clickedLabel.Tag.ToString() == selectedClientID) {
                 selectedClientID = null;
+                packetsForSelectedClient = null;
                 return; // deselect
             }
 
             clickedLabel.BackColor = selectColor;
             this.selectedClientID = clickedLabel.Tag.ToString();
 
-            /*
-            string sql = "SELECT * FROM ClientPacket WHERE clientid = @id";
-            Dictionary<string, object> keyValuePairs = new Dictionary<string, object>();
-            keyValuePairs.Add("@id", clickedLabel.Tag.ToString());
+            packetsForSelectedClient = appLogic.getPacketsForClient(Convert.ToInt32(this.selectedClientID));
 
-            DataTable dt = instance.Query(sql, keyValuePairs);
-            */
-
-            var x = appLogic.getPacketsForClient(Convert.ToInt32(this.selectedClientID));
-
-            /*
-            foreach(DataRow dr in dt.Rows) {
-                var packetid = dr["packetid"].ToString();
-            }*/
-            foreach (var pair in x) {
-                var packetid = pair.Item2.ToString();
+          
+            foreach (var packet in packetsForSelectedClient) {
+                var packetid = packet.PacketID.ToString();
 
                 foreach (Label lb in panelTVPackets.Controls) {
                     if (lb.Tag.ToString() == packetid) lb.BackColor = selectColor;

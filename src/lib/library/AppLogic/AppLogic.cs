@@ -133,11 +133,11 @@ namespace library.AppLogic {
             }
         }
         
-        public IEnumerable<Tuple<int, int>> getPacketsForClient(int clientid) {
+        public IEnumerable<Packet> getPacketsForClient(int clientid) {
 
-            IEnumerable<Tuple<int, int>> returnValue = null;
+            IEnumerable<Packet> returnValue = null;
             try {
-                string sql = "SELECT * FROM ClientPacket WHERE clientid = @id";
+                string sql = "SELECT * FROM ClientPacket cp JOIN Packet p ON cp.packetid = p.packetid WHERE clientid = @id";
                 Dictionary<string, object> keyValuePairs = new Dictionary<string, object>();
                 keyValuePairs.Add("@id", clientid);
 

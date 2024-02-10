@@ -31,19 +31,21 @@ namespace library.AppLogic.Clients {
             return clients;
         }
         
-        public IEnumerable<Tuple<int, int>> getPacketsForClient(string sql, Dictionary<string, object> parameters) {
+        public IEnumerable<Packet> getPacketsForClient(string sql, Dictionary<string, object> parameters) {
             
-            List<Tuple<int, int>> pairs = new List<Tuple<int, int>>();
+            List<Packet> packets = new List<Packet>();
 
             DataTable dt = instance.Query(sql, parameters);
             foreach (DataRow dr in dt.Rows) {
                 int clientId = Convert.ToInt32(dr["clientid"]);
                 int packetId = Convert.ToInt32(dr["packetid"]);
-     
-                pairs.Add(new Tuple<int, int>(clientId, packetId));
+                string name = Convert.ToString(dr["name"]);
+                double price = Convert.ToDouble(dr["price"]);
+
+                packets.Add(new Packet(packetId, name, price));
             }
 
-            return pairs;
+            return packets;
         }
         
         public void addNewClient(string sql, Dictionary<string , object> parameters) {
