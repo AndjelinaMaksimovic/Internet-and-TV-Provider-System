@@ -40,7 +40,7 @@ Prototype patern se u okviru ovog projekta koristi kako bi se omogućilo efikasn
   <img src="./resources/images/builder.png" alt="Prototype method logo" height=150>
 </div>
 
-Builder dizajn obrazac omogućava fleksibilnu i čistu izgradnju složenih objekata _Packet_, čime se izbegava nepotrebna složenost i smanjuje kod za korisnike koji konstruišu pakete. Implementira se kroz separaciju konstrukcije i reprezentacije, tako što razdvaja proces konstrukcije objekata _Packet_ od njihove interne reprezentacije. Svaki konkretki builder **InternetPacketBuilder**, **TVPacketBuilder**, i **CombinedPacketBuilder** definiše kako se konkretan tip paketa gradi, dok _DirectorPacketBuilder_ koordinira opisanim procesom.
+Builder dizajn obrazac omogućava fleksibilnu i čistu izgradnju i konfiguraciju složenih objekata _Packet_, čime se izbegava nepotrebna složenost i smanjuje kod za korisnike koji konstruišu pakete. Implementira se kroz separaciju konstrukcije i reprezentacije, tako što razdvaja proces konstrukcije objekata _Packet_ od njihove interne reprezentacije. Svaki konkretki builder **InternetPacketBuilder**, **TVPacketBuilder**, i **CombinedPacketBuilder** definiše kako se konkretan tip paketa gradi, dok _DirectorPacketBuilder_ koordinira opisanim procesom.
 
 * Decorator 
 
