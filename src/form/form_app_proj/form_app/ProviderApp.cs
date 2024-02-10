@@ -17,19 +17,26 @@ namespace form_app {
     public partial class ProviderApp : Form {
 
         private IAppLogicFacade appLogic = null;
+        
         private string selectedClientID = null;                         // decide which user is currently selected
+        private IEnumerable<Client> clients = null;                     // list of clients. Updated when new client is registered
         private IEnumerable<Packet> packetsForSelectedClient = null;    // list of packets for currently selected user
         private Color selectColor = Color.LightGreen;                   // color used to display selected users and their packets
         private string selectedPacketID = null;                         // decide which packet is currently selected
         private Color selectPacketColor = Color.DarkGreen;              // color used to display selected packets
-        private IEnumerable<Client> clients = null;                     // list of clients
 
+        /* ********************************************************************
+         * Konstruktor
+         * Inicijalizacija komponenti
+         * Izvrsava upit kako bi bili dostupni svi klijenti
+         * Popunjava sve komponente
+         * ******************************************************************** */
         public ProviderApp(IAppLogicFacade appLogicFacade) {
             InitializeComponent();
 
-            packetsForSelectedClient = new List<Packet>();
             appLogic = appLogicFacade;
             clients = appLogic.getAllClients("");
+            packetsForSelectedClient = new List<Packet>();
 
             fill_components();
             this.filter_clients_tb.KeyUp += parse_keyup_filter_clients;
@@ -101,6 +108,8 @@ namespace form_app {
         }
         /* ********************************************************************
          * Event selekcije korisnika
+         * Na klik odredjenog korisnika iz prikaza selektuju se paketi koji su
+         * mu dostupni. Ukoliko je korisnik vec selektovan onda se deselektuje.
          * ******************************************************************** */
         private void ClientLabel_Click(object sender, EventArgs e) {
 
@@ -324,20 +333,25 @@ namespace form_app {
             clients = appLogic.getAllClients("");
             fill_clients_panel();
         }
+        /* ********************************************************************
+         * Poziva se nakon sto se zatvori prozor za dodavanje novog paketa
+         * ******************************************************************** */
         private void parse_create_packet_form_closed(object sender, FormClosedEventArgs e) {
             fill_internet_packets_panel();
             fill_tv_packets_panel();
             fill_comb_packets_panel();
         }
         /* ********************************************************************
-         * Event nakon klika dugmeta za dodavanje novog korisnika
+         * Event klika dugmeta za dodavanje novog korisnika
          * ******************************************************************** */
         private void button_register_client_Click(object sender, EventArgs e) {
             var newForm = new AddUser();
             newForm.FormClosed += parse_register_client_form_closed;
             newForm.ShowDialog();
         }
-
+        /* ********************************************************************
+         * Event klika dugmeta za dodavanje novog paketa
+         * ******************************************************************** */
         private void button_create_packet_Click(object sender, EventArgs e) {
             var newForm = new CreatePacket();
             newForm.FormClosed += parse_create_packet_form_closed;
