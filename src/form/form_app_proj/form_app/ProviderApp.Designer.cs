@@ -86,7 +86,7 @@ namespace form_app {
             this.panelCombinedPackets.AutoScroll = true;
             this.panelCombinedPackets.Location = new System.Drawing.Point(792, 128);
             this.panelCombinedPackets.Name = "panelCombinedPackets";
-            this.panelCombinedPackets.Size = new System.Drawing.Size(227, 187);
+            this.panelCombinedPackets.Size = new System.Drawing.Size(246, 187);
             this.panelCombinedPackets.TabIndex = 12;
             // 
             // label_tv_packets
@@ -134,7 +134,7 @@ namespace form_app {
             this.headerPanel.Controls.Add(this.providerName);
             this.headerPanel.Location = new System.Drawing.Point(26, 12);
             this.headerPanel.Name = "headerPanel";
-            this.headerPanel.Size = new System.Drawing.Size(993, 71);
+            this.headerPanel.Size = new System.Drawing.Size(1012, 71);
             this.headerPanel.TabIndex = 17;
             // 
             // providerName
@@ -187,7 +187,7 @@ namespace form_app {
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1050, 480);
+            this.ClientSize = new System.Drawing.Size(1062, 480);
             this.Controls.Add(this.button_activate_deactivate_packets);
             this.Controls.Add(this.button_create_packet);
             this.Controls.Add(this.filter_clients_label);

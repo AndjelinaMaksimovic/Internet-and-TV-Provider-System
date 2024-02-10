@@ -247,7 +247,7 @@ namespace form_app {
         }
 
         private void button_activate_deactivate_packets_Click(object sender, EventArgs e) {
-            var newForm = new ActivateDeactivatePackets();
+            var newForm = new ActivateDeactivatePackets(appLogic);
             newForm.ShowDialog();
         }
     }
