@@ -245,5 +245,10 @@ namespace form_app {
             newForm.FormClosed += parse_create_packet_form_closed;
             newForm.ShowDialog();
         }
+
+        private void button_activate_deactivate_packets_Click(object sender, EventArgs e) {
+            var newForm = new ActivateDeactivatePackets();
+            newForm.ShowDialog();
+        }
     }
 }

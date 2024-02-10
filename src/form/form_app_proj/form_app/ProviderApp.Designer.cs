@@ -43,6 +43,7 @@ namespace form_app {
             this.filter_clients_tb = new System.Windows.Forms.TextBox();
             this.filter_clients_label = new System.Windows.Forms.Label();
             this.button_create_packet = new System.Windows.Forms.Button();
+            this.button_activate_deactivate_packets = new System.Windows.Forms.Button();
             this.headerPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -172,11 +173,22 @@ namespace form_app {
             this.button_create_packet.UseVisualStyleBackColor = true;
             this.button_create_packet.Click += new System.EventHandler(this.button_create_packet_Click);
             // 
+            // button_activate_deactivate_packets
+            // 
+            this.button_activate_deactivate_packets.Location = new System.Drawing.Point(581, 348);
+            this.button_activate_deactivate_packets.Name = "button_activate_deactivate_packets";
+            this.button_activate_deactivate_packets.Size = new System.Drawing.Size(148, 41);
+            this.button_activate_deactivate_packets.TabIndex = 21;
+            this.button_activate_deactivate_packets.Text = "Activate/deactivate";
+            this.button_activate_deactivate_packets.UseVisualStyleBackColor = true;
+            this.button_activate_deactivate_packets.Click += new System.EventHandler(this.button_activate_deactivate_packets_Click);
+            // 
             // ProviderApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1050, 480);
+            this.Controls.Add(this.button_activate_deactivate_packets);
             this.Controls.Add(this.button_create_packet);
             this.Controls.Add(this.filter_clients_label);
             this.Controls.Add(this.filter_clients_tb);
@@ -219,6 +231,8 @@ namespace form_app {
         private TextBox filter_clients_tb;
         private Label filter_clients_label;
         private Button button_create_packet;
+        private Button button1;
+        private Button button_activate_deactivate_packets;
     }
 }
 
