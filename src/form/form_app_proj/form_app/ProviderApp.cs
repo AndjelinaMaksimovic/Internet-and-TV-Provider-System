@@ -226,6 +226,11 @@ namespace form_app {
         private void parse_register_client_form_closed(object sender, FormClosedEventArgs e) {
             fill_clients_panel();
         }
+        private void parse_create_packet_form_closed(object sender, FormClosedEventArgs e) {
+            fill_internet_packets_panel();
+            fill_tv_packets_panel();
+            fill_comb_packets_panel();
+        }
         /* ********************************************************************
          * Event nakon klika dugmeta za dodavanje novog korisnika
          * ******************************************************************** */
@@ -237,6 +242,7 @@ namespace form_app {
 
         private void button_create_packet_Click(object sender, EventArgs e) {
             var newForm = new CreatePacket();
+            newForm.FormClosed += parse_create_packet_form_closed;
             newForm.ShowDialog();
         }
     }

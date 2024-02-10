@@ -54,7 +54,7 @@ namespace library.AppLogic {
             _clientLogic.addNewClient(sql, parameters); // u slucaju da dodje do izuzetka delegira se do prozora forme
         }
 
-        IEnumerable<Packet> IAppLogicFacade.getPacketsByType(Packet.PacketType type) {
+        public IEnumerable<Packet> getPacketsByType(Packet.PacketType type) {
 
             IEnumerable<Packet> returnValue = null;
             string sql = "";
@@ -82,5 +82,55 @@ namespace library.AppLogic {
 
             return returnValue;
         }
+
+        public Packet getPacketByName(string name) {
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+            string sql = "SELECT * FROM Packet WHERE name = @param1";
+            parameters.Add("@param1", name);
+
+            return _packetLogic.getByName(sql, parameters);
+        }
+
+        public void createNewPacket(string name, double price, Packet.PacketType type, Dictionary<string, object> data) {
+            string sql1;
+            string sql2;
+            Dictionary<string, object> parameters1 = new Dictionary<string, object>();
+            Dictionary<string, object> parameters2 = new Dictionary<string, object>();
+
+            sql1 = "INSERT INTO Packet (name, price) VALUES (@param1, @param2)";
+            parameters1.Add("@param1", name);
+            parameters1.Add("@param2", price);
+            _packetLogic.insert(sql1, parameters1);   // moguc izuzetak ukoliko ime nije unique
+            
+            int newPacketID = getPacketByName(name).PacketID;
+            switch (type) {
+                case Packet.PacketType.INTERNET:
+                    sql2 = "INSERT INTO InternetPacket (packetid, downloadspeed, uploadspeed) VALUES (@param1, @param2, @param3)";
+                    parameters2.Add("@param1", newPacketID);
+                    parameters2.Add("@param2", data["downloadSpeed"]);
+                    parameters2.Add("@param3", data["uploadSpeed"]);
+                    _packetLogic.insert(sql2, parameters2);
+                    break;
+
+                case Packet.PacketType.TV:
+                    sql2 = "INSERT INTO TVPacket (packetid, numberOfChannels) VALUES (@param1, @param2)";
+                    parameters2.Add("@param1", newPacketID);
+                    parameters2.Add("@param2", data["numberOfChannels"]);
+                    _packetLogic.insert(sql2, parameters2);
+                    break;
+
+                case Packet.PacketType.COMBINED:
+                    sql2 = "INSERT INTO CombPacket (packetid, internetpacketid, tvpacketid) VALUES (@param1, @param2, @param3)";
+                    parameters2.Add("@param1", newPacketID);
+                    parameters2.Add("@param2", getPacketByName(data["internetpacketname"].ToString()).PacketID);
+                    parameters2.Add("@param3", getPacketByName(data["tvpacketname"].ToString()).PacketID);
+                    _packetLogic.insert(sql2, parameters2);
+                    break;
+
+                default:
+                    break;
+            }
+        }
+
     }
 }

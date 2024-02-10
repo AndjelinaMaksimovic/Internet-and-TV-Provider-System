@@ -13,5 +13,7 @@ namespace library.AppLogic.Interfaces {
         IEnumerable<Client> getAllClients(string like);
         void registerClient(string username, string firstName, string lastName);
         IEnumerable<Packet> getPacketsByType(Packet.PacketType type);
+        void createNewPacket(string name, double price, Packet.PacketType type, Dictionary<string, object> data);
+        Packet getPacketByName(string name);
     }
 }

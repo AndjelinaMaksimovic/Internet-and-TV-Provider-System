@@ -69,7 +69,7 @@ namespace form_app {
             this.panelTVPackets.AutoScroll = true;
             this.panelTVPackets.Location = new System.Drawing.Point(273, 128);
             this.panelTVPackets.Name = "panelTVPackets";
-            this.panelTVPackets.Size = new System.Drawing.Size(227, 187);
+            this.panelTVPackets.Size = new System.Drawing.Size(250, 187);
             this.panelTVPackets.TabIndex = 10;
             // 
             // panelInternetPackets
@@ -77,7 +77,7 @@ namespace form_app {
             this.panelInternetPackets.AutoScroll = true;
             this.panelInternetPackets.Location = new System.Drawing.Point(532, 128);
             this.panelInternetPackets.Name = "panelInternetPackets";
-            this.panelInternetPackets.Size = new System.Drawing.Size(227, 187);
+            this.panelInternetPackets.Size = new System.Drawing.Size(251, 187);
             this.panelInternetPackets.TabIndex = 11;
             // 
             // panelCombinedPackets

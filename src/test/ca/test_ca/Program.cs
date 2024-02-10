@@ -9,12 +9,11 @@ namespace test_ca {
 
             AppLogic l = new AppLogic();
 
-            var x = l.getAllClients("");
+            var x = l.getPacketByName("NET 100");
 
-            foreach (var client in x) {
-                Console.WriteLine(client.ClientID + " " + client.Username + " " + client.FirstName + " " + client.LastName);
+            if (x != null) {
+                Console.WriteLine(x);
             }
-
             Console.Write("Press any key to continue...");
             Console.ReadKey();
         }

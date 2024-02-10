@@ -7,17 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using library.AppLogic;
+using library.AppLogic.Interfaces;
 using library.Database;
 
 namespace form_app {
     public partial class CreatePacket : Form {
 
-        private Database instance = null;
+        private IAppLogicFacade _appLogic = null;
 
         public CreatePacket() {
             InitializeComponent();
+            _appLogic = new AppLogic();
 
-            instance = Database.GetInstance();
             fill_cb_packet_types();
         }
 
@@ -58,11 +60,24 @@ namespace form_app {
         private void show_internet_packet_creation_dialog() {
 
             panel_show_details.Controls.Clear();
-            
+
             TextBox packetName = new TextBox();
-            TextBox packetPrice = new TextBox();
-            NumericUpDown downloadSpeed = new NumericUpDown();
-            NumericUpDown uploadSpeed = new NumericUpDown();
+            NumericUpDown packetPrice = new NumericUpDown();                
+            NumericUpDown downloadSpeed = new NumericUpDown();  
+            NumericUpDown uploadSpeed = new NumericUpDown();    
+
+            packetPrice.Minimum = 0;
+            packetPrice.Maximum = 20000;
+            packetPrice.DecimalPlaces = 2;
+
+            downloadSpeed.Maximum = 1000;
+            uploadSpeed.Maximum = 1000;
+
+            panel_show_details.Tag = "internetPacket";
+            packetName.Tag = "packetName";
+            packetPrice.Tag = "packetPrice";
+            downloadSpeed.Tag = "downloadSpeed";
+            uploadSpeed.Tag = "uploadSpeed";
 
             Label name = new Label();
             name.Text = "Name";
@@ -100,8 +115,19 @@ namespace form_app {
             panel_show_details.Controls.Clear();
 
             TextBox packetName = new TextBox();
-            TextBox packetPrice = new TextBox();
+            NumericUpDown packetPrice = new NumericUpDown();
             NumericUpDown numberOfChannels = new NumericUpDown();
+
+            packetPrice.Minimum = 0;
+            packetPrice.Maximum = 20000;
+            packetPrice.DecimalPlaces = 2;
+
+            numberOfChannels.Maximum = 10000;
+
+            panel_show_details.Tag = "tvPacket";
+            packetName.Tag = "packetName";
+            packetPrice.Tag = "packetPrice";
+            numberOfChannels.Tag = "numberOfChannels";
 
             Label name = new Label();
             name.Text = "Name";
@@ -132,9 +158,19 @@ namespace form_app {
             panel_show_details.Controls.Clear();
 
             TextBox packetName = new TextBox();
-            TextBox packetPrice = new TextBox();
+            NumericUpDown packetPrice = new NumericUpDown();
             ComboBox internetPacket = new ComboBox();
             ComboBox tvPacket = new ComboBox();
+
+            packetPrice.Minimum = 0;
+            packetPrice.Maximum = 20000;
+            packetPrice.DecimalPlaces = 2;
+
+            panel_show_details.Tag = "combinedPacket";
+            packetName.Tag = "packetName";
+            packetPrice.Tag = "packetPrice";
+            internetPacket.Tag = "internetPacketComboBox";
+            tvPacket.Tag = "tvPacketComboBox";
 
             internetPacket.DropDownStyle = ComboBoxStyle.DropDownList;
             tvPacket.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -180,27 +216,189 @@ namespace form_app {
             createButton.Cursor = Cursors.Arrow;
 
             createButton.Click += (sender, e) => {
-                this.Close();
+                query_create_packet(panelRef);
             };
 
             panelRef.Controls.Add(createButton);
         }
 
-        private void fill_available_internet_packets(ComboBox reference) {
-            Dictionary<string, object> keyValuePairs = new Dictionary<string, object>();
-            DataTable dt = instance.Query("SELECT * FROM packet p JOIN internetpacket i on p.packetid = i.packetid", keyValuePairs);
+        private void query_create_packet(Panel panelReference) {
+            string selectedPanel = panelReference.Tag.ToString();
 
-            foreach (DataRow dr in dt.Rows) {
-                reference.Items.Add(dr["name"]);
+            switch(selectedPanel) {
+                case "internetPacket":
+                    query_create_packet_internetPacket(panelReference);
+                    break;
+
+                case "tvPacket":
+                    query_create_packet_tvPacket(panelReference);
+                    break;
+
+                case "combinedPacket":
+                    query_create_packet_combinedPacket(panelReference);
+                    break;
+
+                default:
+                    break;
+            }
+        }
+
+        private void query_create_packet_internetPacket(Panel panelReference) {
+            string packetName = null;
+            double packetPrice = 0.0;
+            int downloadSpeed = 0;
+            int uploadSpeed = 0;
+            
+            foreach(Control control in panelReference.Controls) {
+
+                if(control.Tag == null) continue;
+
+                switch(control.Tag.ToString()) {
+                    case "packetName":
+                        packetName = control.Text;
+                        break;
+
+                    case "packetPrice":
+                        packetPrice = Convert.ToDouble(control.Text);
+                        break;
+
+                    case "downloadSpeed":
+                        downloadSpeed = Convert.ToInt32(control.Text);
+                        break;
+
+                    case "uploadSpeed":
+                        uploadSpeed = Convert.ToInt32(control.Text);
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+
+            //label_debug.Text = packetName + " " + packetPrice + " " + downloadSpeed + " " + uploadSpeed;
+            
+            Dictionary<string, object> data = new Dictionary<string, object>();
+            data.Add("downloadSpeed", downloadSpeed);
+            data.Add("uploadSpeed", uploadSpeed);
+            try {
+                _appLogic.createNewPacket(packetName, packetPrice, library.AppLogic.Packets.Packet.PacketType.INTERNET, data);
+                MessageBox.Show("Query executed successfully!");
+            }
+            catch(Exception ex) {
+                Console.WriteLine(ex.Message);
+                MessageBox.Show("Query did not execute successfully!");
+            }
+
+            closeFrom();
+        }
+
+        private void query_create_packet_tvPacket(Panel panelReference) {
+            string packetName = null;
+            double packetPrice = 0.0;
+            int numberOfChannels = 0;
+
+            foreach (Control control in panelReference.Controls) {
+
+                if (control.Tag == null) continue;
+
+                switch (control.Tag.ToString()) {
+                    case "packetName":
+                        packetName = control.Text;
+                        break;
+
+                    case "packetPrice":
+                        packetPrice = Convert.ToDouble(control.Text);
+                        break;
+
+                    case "numberOfChannels":
+                        numberOfChannels = Convert.ToInt32(control.Text);
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+
+            //label_debug.Text = packetName + " " + packetPrice + " " + numberOfChannels;
+            Dictionary<string, object> data = new Dictionary<string, object>();
+            data.Add("numberOfChannels", numberOfChannels);
+            try {
+                _appLogic.createNewPacket(packetName, packetPrice, library.AppLogic.Packets.Packet.PacketType.TV, data);
+                MessageBox.Show("Query executed successfully!");
+            }
+            catch (Exception ex) {
+                Console.WriteLine(ex.Message);
+                MessageBox.Show("Query did not execute successfully!");
+            }
+
+            closeFrom();
+        }
+
+        private void query_create_packet_combinedPacket(Panel panelReference) {
+            string packetName = null;
+            double packetPrice = 0.0;
+            string internetPacketName = null;
+            string tvPacketName = null;
+
+            foreach (Control control in panelReference.Controls) {
+
+                if (control.Tag == null) continue;
+
+                switch (control.Tag.ToString()) {
+                    case "packetName":
+                        packetName = control.Text;
+                        break;
+
+                    case "packetPrice":
+                        packetPrice = Convert.ToDouble(control.Text);
+                        break;
+
+                    case "internetPacketComboBox":
+                        internetPacketName = control.Text;
+                        break;
+
+                    case "tvPacketComboBox":
+                        tvPacketName = control.Text;
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+
+            //label_debug.Text = packetName + " " + packetPrice + " " + internetPacketName + " " + tvPacketName;
+            Dictionary<string, object> data = new Dictionary<string, object>();
+            data.Add("internetpacketname", internetPacketName);
+            data.Add("tvpacketname", tvPacketName);
+            try {
+                _appLogic.createNewPacket(packetName, packetPrice, library.AppLogic.Packets.Packet.PacketType.COMBINED, data);
+                MessageBox.Show("Query executed successfully!");
+            }
+            catch (Exception ex) {
+                Console.WriteLine(ex.Message);
+                MessageBox.Show("Query did not execute successfully!");
+            }
+
+            closeFrom();
+        }
+
+        private void closeFrom() {
+            this.Close();
+        }
+
+        private void fill_available_internet_packets(ComboBox reference) {
+            var x = _appLogic.getPacketsByType(library.AppLogic.Packets.Packet.PacketType.INTERNET);
+
+            foreach (var packet in x) {
+                reference.Items.Add(packet.Name);
             }
         }
 
         private void fill_available_tv_packets(ComboBox reference) {
-            Dictionary<string, object> keyValuePairs = new Dictionary<string, object>();
-            DataTable dt = instance.Query("SELECT * FROM packet p JOIN tvpacket t on p.packetid = t.packetid", keyValuePairs);
+            var x = _appLogic.getPacketsByType(library.AppLogic.Packets.Packet.PacketType.TV);
 
-            foreach (DataRow dr in dt.Rows) {
-                reference.Items.Add(dr["name"]);
+            foreach (var packet in x) {
+                reference.Items.Add(packet.Name);
             }
         }
     }

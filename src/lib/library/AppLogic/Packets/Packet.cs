@@ -42,5 +42,9 @@ namespace library.AppLogic.Packets {
         }
 
         #endregion
+
+        public override string ToString() {
+            return this.packetID + " " + this.name + " " + this.price;
+        }
     }
 }
