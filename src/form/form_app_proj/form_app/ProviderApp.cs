@@ -17,11 +17,11 @@ namespace form_app {
 
         private Database instance = null;
         private IAppLogicFacade appLogic = null;
-        private string selectedClientID = null;                 // decide which user is currently selected
-        private IEnumerable<Packet> packetsForSelectedClient = null;   // list of packets for currently selected user
-        private Color selectColor = Color.LightGreen;           // color used to display selected users and their packets
-        private string selectedPacketID = null;                 // decide which packet is currently selected
-        private Color selectPacketColor = Color.DarkGreen;      // color used to display selected packets
+        private string selectedClientID = null;                         // decide which user is currently selected
+        private IEnumerable<Packet> packetsForSelectedClient = null;    // list of packets for currently selected user
+        private Color selectColor = Color.LightGreen;                   // color used to display selected users and their packets
+        private string selectedPacketID = null;                         // decide which packet is currently selected
+        private Color selectPacketColor = Color.DarkGreen;              // color used to display selected packets
 
 
         public ProviderApp(IAppLogicFacade appLogicFacade) {
