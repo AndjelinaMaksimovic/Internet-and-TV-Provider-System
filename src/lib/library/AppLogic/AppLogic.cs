@@ -132,10 +132,10 @@ namespace library.AppLogic {
                     break;
             }
         }
-        /*
-        public IEnumerable<Packet> getPacketsForClient(int clientid) {
+        
+        public IEnumerable<Tuple<int, int>> getPacketsForClient(int clientid) {
 
-            IEnumerable<Packet> returnValue = null;
+            IEnumerable<Tuple<int, int>> returnValue = null;
             try {
                 string sql = "SELECT * FROM ClientPacket WHERE clientid = @id";
                 Dictionary<string, object> keyValuePairs = new Dictionary<string, object>();
@@ -148,7 +148,7 @@ namespace library.AppLogic {
             }
             return returnValue;
         }
-        */
+        
 
     }
 }

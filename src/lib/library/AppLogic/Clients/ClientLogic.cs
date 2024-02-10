@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using library.Database;
+using library.AppLogic.Packets;
 
 namespace library.AppLogic.Clients {
     public class ClientLogic {
@@ -29,21 +30,22 @@ namespace library.AppLogic.Clients {
 
             return clients;
         }
-        /*
-        public IEnumerable<Packet> getPacketsForClient(string sql, Dictionary<string, object> parameters) {
-            List<Packet> packets = new List<Packet>();
+        
+        public IEnumerable<Tuple<int, int>> getPacketsForClient(string sql, Dictionary<string, object> parameters) {
+            
+            List<Tuple<int, int>> pairs = new List<Tuple<int, int>>();
 
             DataTable dt = instance.Query(sql, parameters);
             foreach (DataRow dr in dt.Rows) {
                 int clientId = Convert.ToInt32(dr["clientid"]);
                 int packetId = Convert.ToInt32(dr["packetid"]);
      
-                packets.Add(new Packet(clientId, packetId));
+                pairs.Add(new Tuple<int, int>(clientId, packetId));
             }
 
-            return packets;
+            return pairs;
         }
-        */
+        
         public void addNewClient(string sql, Dictionary<string , object> parameters) {
             instance.Query(sql, parameters);    // u slucaju da dodje do izuzetka delegira se do prozora forme
         }

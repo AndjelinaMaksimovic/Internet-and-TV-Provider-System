@@ -1911,3 +1911,81 @@
 2/10/2024 12:16:34 PM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON p.packetid = cp.packetid WHERE cp.clientid = 1
 2/10/2024 12:16:37 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 1
 2/10/2024 12:16:37 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 5
+2/10/2024 12:57:27 PM - logged query : SELECT * FROM Client
+2/10/2024 12:57:27 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+2/10/2024 12:57:27 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+2/10/2024 12:57:27 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+2/10/2024 12:57:37 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 1
+2/10/2024 12:57:42 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 5
+2/10/2024 12:57:46 PM - logged query : SELECT * FROM Client WHERE username LIKE %p%
+2/10/2024 12:57:46 PM - logged query : SELECT * FROM Client WHERE username LIKE %p%
+2/10/2024 12:57:46 PM - logged query : SELECT * FROM Client WHERE username LIKE %pe%
+2/10/2024 12:57:46 PM - logged query : SELECT * FROM Client WHERE username LIKE %pe%
+2/10/2024 12:57:48 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 1
+2/10/2024 12:57:49 PM - logged query : SELECT * FROM Client WHERE username LIKE %p%
+2/10/2024 12:57:49 PM - logged query : SELECT * FROM Client WHERE username LIKE %p%
+2/10/2024 12:57:50 PM - logged query : SELECT * FROM Client
+2/10/2024 12:57:50 PM - logged query : SELECT * FROM Client
+2/10/2024 12:57:50 PM - logged query : SELECT * FROM Client
+2/10/2024 12:57:50 PM - logged query : SELECT * FROM Client
+2/10/2024 12:57:50 PM - logged query : SELECT * FROM Client
+2/10/2024 12:57:50 PM - logged query : SELECT * FROM Client
+2/10/2024 12:57:57 PM - logged query : SELECT * FROM Client
+2/10/2024 12:58:12 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+2/10/2024 12:58:12 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+2/10/2024 12:58:16 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+2/10/2024 12:58:16 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+2/10/2024 12:58:16 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+2/10/2024 12:58:18 PM - logged query : SELECT * FROM Client
+2/10/2024 12:58:18 PM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON p.packetid = cp.packetid WHERE cp.clientid = 1
+2/10/2024 12:58:21 PM - logged query : SELECT * FROM Client WHERE username LIKE %milos.markovic%
+2/10/2024 12:58:21 PM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON p.packetid = cp.packetid WHERE cp.clientid = 5
+2/10/2024 12:58:27 PM - logged query : SELECT * FROM Client WHERE username LIKE %milos.markovic%
+2/10/2024 12:58:27 PM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON p.packetid = cp.packetid WHERE cp.clientid = 5
+2/10/2024 12:58:29 PM - logged query : SELECT * FROM Client WHERE username LIKE %pera.peric%
+2/10/2024 12:58:29 PM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON p.packetid = cp.packetid WHERE cp.clientid = 1
+2/10/2024 12:58:43 PM - logged query : SELECT * FROM Client
+2/10/2024 12:58:43 PM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON p.packetid = cp.packetid WHERE cp.clientid = 1
+2/10/2024 12:58:46 PM - logged query : SELECT * FROM Client
+2/10/2024 12:58:46 PM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON p.packetid = cp.packetid WHERE cp.clientid = 1
+2/10/2024 12:58:50 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 1
+2/10/2024 12:59:00 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 1
+2/10/2024 12:59:06 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+2/10/2024 12:59:06 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+2/10/2024 12:59:06 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+2/10/2024 12:59:09 PM - logged query : SELECT * FROM Client
+2/10/2024 12:59:20 PM - logged query : SELECT * FROM Client
+2/10/2024 12:59:20 PM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON p.packetid = cp.packetid WHERE cp.clientid = 1
+2/10/2024 12:59:44 PM - logged query : SELECT * FROM Client
+2/10/2024 12:59:55 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+2/10/2024 12:59:55 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+2/10/2024 12:59:56 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+2/10/2024 12:59:56 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+2/10/2024 12:59:56 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+2/10/2024 1:07:58 PM - logged query : SELECT * FROM Client
+2/10/2024 1:07:58 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+2/10/2024 1:07:58 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+2/10/2024 1:07:58 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+2/10/2024 1:07:59 PM - logged query : SELECT * FROM Client
+2/10/2024 1:07:59 PM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON p.packetid = cp.packetid WHERE cp.clientid = 1
+2/10/2024 1:08:07 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 1
+2/10/2024 1:08:33 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 5
+2/10/2024 1:08:34 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 1
+2/10/2024 1:34:06 PM - logged query : SELECT * FROM Client
+2/10/2024 1:34:06 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+2/10/2024 1:34:06 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+2/10/2024 1:34:06 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+2/10/2024 1:34:07 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 1
+2/10/2024 1:34:08 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 5
+2/10/2024 1:34:09 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 6
+2/10/2024 1:34:10 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 5
+2/10/2024 1:34:10 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 1
+2/10/2024 1:34:14 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 5
+2/10/2024 1:34:15 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 6
+2/10/2024 1:34:16 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 5
+2/10/2024 1:34:16 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 1
+2/10/2024 1:34:16 PM - logged query : SELECT * FROM ClientPacket WHERE clientid = 6
+2/10/2024 1:34:17 PM - logged query : SELECT * FROM Client
+2/10/2024 1:34:17 PM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON p.packetid = cp.packetid WHERE cp.clientid = 1
+2/10/2024 1:34:19 PM - logged query : SELECT * FROM Client WHERE username LIKE %milos.markovic%
+2/10/2024 1:34:19 PM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON p.packetid = cp.packetid WHERE cp.clientid = 5

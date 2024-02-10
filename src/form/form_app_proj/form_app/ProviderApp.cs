@@ -106,22 +106,25 @@ namespace form_app {
             clickedLabel.BackColor = selectColor;
             this.selectedClientID = clickedLabel.Tag.ToString();
 
-            
+            /*
             string sql = "SELECT * FROM ClientPacket WHERE clientid = @id";
             Dictionary<string, object> keyValuePairs = new Dictionary<string, object>();
             keyValuePairs.Add("@id", clickedLabel.Tag.ToString());
 
             DataTable dt = instance.Query(sql, keyValuePairs);
-            
+            */
 
-            //var x = appLogic.getPacketsForClient(this.selectedClientID);
+            var x = appLogic.getPacketsForClient(Convert.ToInt32(this.selectedClientID));
 
-            
+            /*
             foreach(DataRow dr in dt.Rows) {
                 var packetid = dr["packetid"].ToString();
+            }*/
+            foreach (var pair in x) {
+                var packetid = pair.Item2.ToString();
 
-                foreach(Label lb in panelTVPackets.Controls) {
-                    if(lb.Tag.ToString() == packetid) lb.BackColor = selectColor;
+                foreach (Label lb in panelTVPackets.Controls) {
+                    if (lb.Tag.ToString() == packetid) lb.BackColor = selectColor;
                 }
 
                 foreach (Label lb in panelInternetPackets.Controls) {
@@ -132,6 +135,8 @@ namespace form_app {
                     if (lb.Tag.ToString() == packetid) lb.BackColor = selectColor;
                 }
             }
+
+            
         }
 
         /* ********************************************************************
