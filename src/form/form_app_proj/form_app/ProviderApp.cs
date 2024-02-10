@@ -175,6 +175,8 @@ namespace form_app {
          * ******************************************************************** */
         private void PacketLabel_Click(object sender, EventArgs e) {
 
+            if (selectedClientID == null) return;
+
             clearSelectedPacket();
             this.btnDeactivate.Visible = false;
             this.btnActivate.Visible = false;
