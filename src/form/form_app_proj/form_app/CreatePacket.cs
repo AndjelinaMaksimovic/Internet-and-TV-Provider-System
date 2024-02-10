@@ -158,7 +158,7 @@ namespace form_app {
             panel_show_details.Controls.Clear();
 
             TextBox packetName = new TextBox();
-            TextBox packetPrice = new TextBox();
+            NumericUpDown packetPrice = new NumericUpDown();
             ComboBox internetPacket = new ComboBox();
             ComboBox tvPacket = new ComboBox();
 
