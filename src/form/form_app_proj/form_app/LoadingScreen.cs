@@ -28,12 +28,14 @@ namespace form_app {
 
         private void Timer_Tick(object sender, EventArgs e) {
             progress++;
-            progressBar.Value = progress;
-            loading_label.Text = "Loading... " + progress + "%";
 
-            if (progress >= 100) {
+            if (progress > 100) {
                 timer.Stop();
                 SwitchForm();
+            }
+            else {
+                progressBar.Value = progress;
+                loading_label.Text = "Loading... " + progress + "%";
             }
         }
 
