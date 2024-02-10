@@ -2309,3 +2309,30 @@
 2/10/2024 3:35:14 PM - logged query : DELETE FROM ClientPacket WHERE clientID = 1 AND packetID = 2
 2/10/2024 3:35:14 PM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON cp.packetid = p.packetid WHERE clientid = 1
 2/10/2024 3:35:15 PM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON cp.packetid = p.packetid WHERE clientid = 6
+2/10/2024 3:36:13 PM - logged query : SELECT * FROM Client
+2/10/2024 3:36:13 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+2/10/2024 3:36:13 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+2/10/2024 3:36:13 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+2/10/2024 3:36:15 PM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON cp.packetid = p.packetid WHERE clientid = 1
+2/10/2024 3:36:23 PM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON cp.packetid = p.packetid WHERE clientid = 6
+2/10/2024 4:51:28 PM - logged query : SELECT * FROM Client
+2/10/2024 4:51:28 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+2/10/2024 4:51:28 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+2/10/2024 4:51:28 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+2/10/2024 4:51:29 PM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON cp.packetid = p.packetid WHERE clientid = 1
+2/10/2024 4:51:31 PM - logged query : INSERT INTO ClientPacket (clientId, packetId) VALUES (1, 5)
+2/10/2024 4:51:31 PM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON cp.packetid = p.packetid WHERE clientid = 1
+2/10/2024 4:51:34 PM - logged query : DELETE FROM ClientPacket WHERE clientID = 1 AND packetID = 5
+2/10/2024 4:51:34 PM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON cp.packetid = p.packetid WHERE clientid = 1
+2/10/2024 4:51:35 PM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON cp.packetid = p.packetid WHERE clientid = 5
+2/10/2024 4:51:36 PM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON cp.packetid = p.packetid WHERE clientid = 1
+2/10/2024 4:51:38 PM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON cp.packetid = p.packetid WHERE clientid = 5
+2/10/2024 4:51:43 PM - logged query : INSERT INTO ClientPacket (clientId, packetId) VALUES (5, 2)
+2/10/2024 4:51:43 PM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON cp.packetid = p.packetid WHERE clientid = 5
+2/10/2024 4:51:44 PM - logged query : INSERT INTO ClientPacket (clientId, packetId) VALUES (5, 11)
+2/10/2024 4:51:44 PM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON cp.packetid = p.packetid WHERE clientid = 5
+2/10/2024 4:51:45 PM - logged query : DELETE FROM ClientPacket WHERE clientID = 5 AND packetID = 2
+2/10/2024 4:51:45 PM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON cp.packetid = p.packetid WHERE clientid = 5
+2/10/2024 4:51:46 PM - logged query : DELETE FROM ClientPacket WHERE clientID = 5 AND packetID = 11
+2/10/2024 4:51:46 PM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON cp.packetid = p.packetid WHERE clientid = 5
+2/10/2024 4:51:47 PM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON cp.packetid = p.packetid WHERE clientid = 1

@@ -320,10 +320,6 @@ namespace form_app {
             newForm.ShowDialog();
         }
 
-        private void button_activate_deactivate_packets_Click(object sender, EventArgs e) {
-            var newForm = new ActivateDeactivatePackets(appLogic);
-            newForm.ShowDialog();
-        }
         /* ********************************************************************
          * Aktivacija / Deaktivacija paketa za korisnika
          * ******************************************************************** */
