@@ -15,8 +15,8 @@ namespace form_app {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            ProviderApp winForm = new ProviderApp(new AppLogic());
-            Application.Run(winForm);
+            LoadingScreen loadingScreen = new LoadingScreen();
+            Application.Run(loadingScreen);
         }
     }
 }
