@@ -11,28 +11,28 @@ using library.Other;
 using library.Database;
 using library.AppLogic.Interfaces;
 using library.AppLogic.Packets;
+using library.AppLogic.Clients;
 
 namespace form_app {
     public partial class ProviderApp : Form {
 
-        private Database instance = null;
         private IAppLogicFacade appLogic = null;
         private string selectedClientID = null;                         // decide which user is currently selected
         private IEnumerable<Packet> packetsForSelectedClient = null;    // list of packets for currently selected user
         private Color selectColor = Color.LightGreen;                   // color used to display selected users and their packets
         private string selectedPacketID = null;                         // decide which packet is currently selected
         private Color selectPacketColor = Color.DarkGreen;              // color used to display selected packets
-
+        private IEnumerable<Client> clients = null;                     // list of clients
 
         public ProviderApp(IAppLogicFacade appLogicFacade) {
             InitializeComponent();
 
             packetsForSelectedClient = new List<Packet>();
             appLogic = appLogicFacade;
-            instance = Database.GetInstance();
+            clients = appLogic.getAllClients("");
+
             fill_components();
             this.filter_clients_tb.KeyUp += parse_keyup_filter_clients;
-
             this.btnDeactivate.Click += DeactivateButton_Click;
             this.btnActivate.Click += ActivateButton_Click;
         }
@@ -53,13 +53,10 @@ namespace form_app {
          * ******************************************************************** */
         private void fill_clients_panel() {
             FlowLayoutPanel panel = this.panelClients;
-            string like = this.filter_clients_tb.Text;
 
             panel.Controls.Clear();
 
-            var x = appLogic.getAllClients(like);
-
-            foreach (var client in x) {
+            foreach (var client in clients) {
                 Label lb = new Label(); // Create label for client name
                 lb.Text = client.Username.ToString();
                 lb.TextAlign = ContentAlignment.MiddleCenter;
@@ -294,12 +291,37 @@ namespace form_app {
          * Event handler za pretrazivanje klijenata po korisnickom imenu
          * ******************************************************************** */
         private void parse_keyup_filter_clients(object sender, KeyEventArgs e) {
-            fill_clients_panel();
+            FlowLayoutPanel panel = this.panelClients;
+            string like = this.filter_clients_tb.Text;
+
+            panel.Controls.Clear();
+
+            foreach (var client in clients) {
+                if (!client.Username.ToString().ToLower().Contains(like.ToLower())) continue;
+
+                Label lb = new Label(); // Create label for client name
+                lb.Text = client.Username.ToString();
+                lb.TextAlign = ContentAlignment.MiddleCenter;
+                lb.AutoSize = false;
+                lb.Width = 120; // Adjust width as needed
+                lb.Height = 26;
+                lb.Tag = client.ClientID;
+
+                if (selectedClientID != null && lb.Tag.ToString() == selectedClientID) {
+                    lb.BackColor = selectColor;
+                }
+                lb.Click += ClientLabel_Click;
+                lb.BorderStyle = BorderStyle.FixedSingle;
+
+                panel.Controls.Add(lb);
+            }
+
         }
         /* ********************************************************************
          * Poziva se nakon sto se zatvori prozor za dodavanje novog klijenta
          * ******************************************************************** */
         private void parse_register_client_form_closed(object sender, FormClosedEventArgs e) {
+            clients = appLogic.getAllClients("");
             fill_clients_panel();
         }
         private void parse_create_packet_form_closed(object sender, FormClosedEventArgs e) {
