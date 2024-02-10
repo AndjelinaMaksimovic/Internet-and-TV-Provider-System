@@ -42,7 +42,7 @@ namespace library.AppLogic {
                     sql += " WHERE username LIKE @param1";
                     parameters.Add("@param1", "%" + like + "%");
                 }
-               // sql += " ORDER BY username ASC";
+                sql += " ORDER BY username ASC";
                 returnValue = _clientLogic.getAllClients(sql, parameters);
             }
             catch(Exception ex) {
