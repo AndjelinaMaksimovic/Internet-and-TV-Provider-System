@@ -26,7 +26,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.choose_packet_type_cb = new System.Windows.Forms.ComboBox();
             this.panel_show_details = new System.Windows.Forms.FlowLayoutPanel();
-            this.label_debug = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -57,21 +56,11 @@
             this.panel_show_details.Size = new System.Drawing.Size(273, 237);
             this.panel_show_details.TabIndex = 2;
             // 
-            // label_debug
-            // 
-            this.label_debug.AutoSize = true;
-            this.label_debug.Location = new System.Drawing.Point(149, 397);
-            this.label_debug.Name = "label_debug";
-            this.label_debug.Size = new System.Drawing.Size(44, 16);
-            this.label_debug.TabIndex = 3;
-            this.label_debug.Text = "label2";
-            // 
             // CreatePacket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(615, 480);
-            this.Controls.Add(this.label_debug);
             this.Controls.Add(this.panel_show_details);
             this.Controls.Add(this.choose_packet_type_cb);
             this.Controls.Add(this.label1);
@@ -91,6 +80,5 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox choose_packet_type_cb;
         private System.Windows.Forms.FlowLayoutPanel panel_show_details;
-        private System.Windows.Forms.Label label_debug;
     }
 }

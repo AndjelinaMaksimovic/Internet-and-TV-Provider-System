@@ -275,6 +275,11 @@ namespace form_app {
                 }
             }
 
+            if(packetName == "") {
+                MessageBox.Show("Please enter packet name!");
+                return;
+            }
+
             //label_debug.Text = packetName + " " + packetPrice + " " + downloadSpeed + " " + uploadSpeed;
             
             Dictionary<string, object> data = new Dictionary<string, object>();
@@ -317,6 +322,11 @@ namespace form_app {
                     default:
                         break;
                 }
+            }
+
+            if(packetName == "") {
+                MessageBox.Show("Please enter packet name!");
+                return;
             }
 
             //label_debug.Text = packetName + " " + packetPrice + " " + numberOfChannels;
@@ -370,6 +380,22 @@ namespace form_app {
             Dictionary<string, object> data = new Dictionary<string, object>();
             data.Add("internetpacketname", internetPacketName);
             data.Add("tvpacketname", tvPacketName);
+
+            if(packetName == "") {
+                MessageBox.Show("Please enter packet name!");
+                return;
+            }
+
+            if (internetPacketName == "") { // nije selektovan internet paket
+                MessageBox.Show("Please select Internet packet!");
+                return;
+            }
+
+            if(tvPacketName == "") { // nije selektovan tv paket
+                MessageBox.Show("Please select TV packet!");
+                return;
+            }
+
             try {
                 _appLogic.createNewPacket(packetName, packetPrice, library.AppLogic.Packets.Packet.PacketType.COMBINED, data);
                 MessageBox.Show("Query executed successfully!");
