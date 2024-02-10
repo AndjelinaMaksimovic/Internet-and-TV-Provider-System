@@ -7,6 +7,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
+using System.Management.Instrumentation;
+using library.Database;
 
 namespace library.AppLogic {
     public class AppLogic : IAppLogicFacade {
@@ -15,7 +18,10 @@ namespace library.AppLogic {
         private ClientLogic _clientLogic;
         private PacketLogic _packetLogic;
 
+        private Database.Database instance = null;
+
         public AppLogic() {
+            instance = Database.Database.GetInstance();
             _clientLogic = new ClientLogic();
             _packetLogic = new PacketLogic();
         }
@@ -148,7 +154,32 @@ namespace library.AppLogic {
             }
             return returnValue;
         }
-        
 
+        public void activatePacket(int clientid, int packetid) {
+            try {
+                string sql = "INSERT INTO ClientPacket (clientId, packetId) VALUES (@clientID, @packetID)";
+                Dictionary<string, object> parameters = new Dictionary<string, object>();
+                parameters.Add("@clientID", clientid);
+                parameters.Add("@packetID", packetid);
+
+                instance.Query(sql, parameters);
+            }
+            catch (Exception ex) {
+                Console.WriteLine(ex.Message);
+            }
+        }
+        public void deactivatePacket(int clientid, int packetid) {
+            try {
+                string sql = "DELETE FROM ClientPacket WHERE clientID = @clientID AND packetID = @packetID";
+                Dictionary<string, object> parameters = new Dictionary<string, object>();
+                parameters.Add("@clientID", clientid);
+                parameters.Add("@packetID", packetid);
+
+                instance.Query(sql, parameters);
+            }
+            catch (Exception ex) {
+                Console.WriteLine(ex.Message);
+            }
+        }
     }
 }

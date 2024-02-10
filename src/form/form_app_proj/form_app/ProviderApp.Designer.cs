@@ -44,6 +44,8 @@ namespace form_app {
             this.filter_clients_label = new System.Windows.Forms.Label();
             this.button_create_packet = new System.Windows.Forms.Button();
             this.button_activate_deactivate_packets = new System.Windows.Forms.Button();
+            this.btnDeactivate = new System.Windows.Forms.Button();
+            this.btnActivate = new System.Windows.Forms.Button();
             this.headerPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -181,13 +183,40 @@ namespace form_app {
             this.button_activate_deactivate_packets.TabIndex = 21;
             this.button_activate_deactivate_packets.Text = "Activate/deactivate";
             this.button_activate_deactivate_packets.UseVisualStyleBackColor = true;
+            this.button_activate_deactivate_packets.Visible = false;
             this.button_activate_deactivate_packets.Click += new System.EventHandler(this.button_activate_deactivate_packets_Click);
+            // 
+            // btnDeactivate
+            // 
+            this.btnDeactivate.BackColor = System.Drawing.SystemColors.Info;
+            this.btnDeactivate.Location = new System.Drawing.Point(581, 348);
+            this.btnDeactivate.Name = "btnDeactivate";
+            this.btnDeactivate.Size = new System.Drawing.Size(148, 41);
+            this.btnDeactivate.TabIndex = 23;
+            this.btnDeactivate.Text = "Deactivate packet";
+            this.btnDeactivate.UseVisualStyleBackColor = false;
+            this.btnDeactivate.Visible = false;
+            
+            // 
+            // btnActivate
+            // 
+            this.btnActivate.BackColor = System.Drawing.SystemColors.Info;
+            this.btnActivate.Location = new System.Drawing.Point(581, 348);
+            this.btnActivate.Name = "btnActivate";
+            this.btnActivate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btnActivate.Size = new System.Drawing.Size(148, 41);
+            this.btnActivate.TabIndex = 24;
+            this.btnActivate.Text = "Activate packet";
+            this.btnActivate.UseVisualStyleBackColor = false;
+            this.btnActivate.Visible = false;
             // 
             // ProviderApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1062, 480);
+            this.Controls.Add(this.btnActivate);
+            this.Controls.Add(this.btnDeactivate);
             this.Controls.Add(this.button_activate_deactivate_packets);
             this.Controls.Add(this.button_create_packet);
             this.Controls.Add(this.filter_clients_label);
@@ -216,6 +245,10 @@ namespace form_app {
 
         }
 
+        private void BtnDeactivate_Click(object sender, EventArgs e) {
+            throw new NotImplementedException();
+        }
+
         #endregion
         private FlowLayoutPanel panelClients;
         private Label label_clients;
@@ -233,6 +266,8 @@ namespace form_app {
         private Button button_create_packet;
         private Button button1;
         private Button button_activate_deactivate_packets;
+        private Button btnDeactivate;
+        private Button btnActivate;
     }
 }
 

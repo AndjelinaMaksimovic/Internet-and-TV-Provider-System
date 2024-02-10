@@ -22,7 +22,7 @@ namespace form_app {
         private Color selectColor = Color.LightGreen;           // color used to display selected users and their packets
         private string selectedPacketID = null;                 // decide which packet is currently selected
         private Color selectPacketColor = Color.DarkGreen;      // color used to display selected packets
-        
+
 
         public ProviderApp(IAppLogicFacade appLogicFacade) {
             InitializeComponent();
@@ -32,6 +32,9 @@ namespace form_app {
             instance = Database.GetInstance();
             fill_components();
             this.filter_clients_tb.KeyUp += parse_keyup_filter_clients;
+
+            this.btnDeactivate.Click += DeactivateButton_Click;
+            this.btnActivate.Click += ActivateButton_Click;
         }
 
         /* ********************************************************************
@@ -64,13 +67,13 @@ namespace form_app {
                 lb.Width = 120; // Adjust width as needed
                 lb.Height = 26;
                 lb.Tag = client.ClientID;
-                
+
                 if (selectedClientID != null && lb.Tag.ToString() == selectedClientID) {
                     lb.BackColor = selectColor;
                 }
                 lb.Click += ClientLabel_Click;
                 lb.BorderStyle = BorderStyle.FixedSingle;
-                
+
                 panel.Controls.Add(lb);
             }
         }
@@ -78,20 +81,25 @@ namespace form_app {
          * Promena boje selektovanih paketa i korisnika
          * ******************************************************************** */
         private void clearAllSelections() {
+            this.btnDeactivate.Visible = false;
+            this.btnActivate.Visible = false;
             foreach (Label control in panelClients.Controls) {
                 control.BackColor = SystemColors.Control;
             }
 
             foreach (Label lb in panelTVPackets.Controls) {
                 lb.BackColor = SystemColors.Control;
+               
             }
 
             foreach (Label lb in panelInternetPackets.Controls) {
                 lb.BackColor = SystemColors.Control;
+           
             }
 
             foreach (Label lb in panelCombinedPackets.Controls) {
                 lb.BackColor = SystemColors.Control;
+                
             }
         }
         /* ********************************************************************
@@ -114,7 +122,7 @@ namespace form_app {
 
             packetsForSelectedClient = appLogic.getPacketsForClient(Convert.ToInt32(this.selectedClientID));
 
-          
+
             foreach (var packet in packetsForSelectedClient) {
                 var packetid = packet.PacketID.ToString();
 
@@ -131,9 +139,66 @@ namespace form_app {
                 }
             }
 
-            
-        }
 
+        }
+        /* ********************************************************************
+         * Promena selektovanog paketa
+         * ******************************************************************** */
+        private void clearSelectedPacket() {
+
+            foreach (Label lb in panelTVPackets.Controls) {
+                if (lb.Tag.ToString() == selectedPacketID) {
+                    lb.BackColor = SystemColors.Control;
+                    if (packetsForSelectedClient != null && packetsForSelectedClient.Any(packet => packet.PacketID.ToString() == selectedPacketID))
+                        lb.BackColor = selectColor;
+                }
+            }
+
+            foreach (Label lb in panelInternetPackets.Controls) {
+                if (lb.Tag.ToString() == selectedPacketID) {
+                    lb.BackColor = SystemColors.Control;
+                    if (packetsForSelectedClient != null && packetsForSelectedClient.Any(packet => packet.PacketID.ToString() == selectedPacketID))
+                        lb.BackColor = selectColor;
+                }
+            }
+
+            foreach (Label lb in panelCombinedPackets.Controls) {
+                if (lb.Tag.ToString() == selectedPacketID) {
+                    lb.BackColor = SystemColors.Control;
+                    if (packetsForSelectedClient != null && packetsForSelectedClient.Any(packet => packet.PacketID.ToString() == selectedPacketID))
+                        lb.BackColor = selectColor;
+                }
+            }
+        }
+        /* ********************************************************************
+         * Event selekcije paketa
+         * ******************************************************************** */
+        private void PacketLabel_Click(object sender, EventArgs e) {
+
+            clearSelectedPacket();
+            this.btnDeactivate.Visible = false;
+            this.btnActivate.Visible = false;
+
+            Label clickedLabel = (Label)sender;
+
+            if (clickedLabel.Tag.ToString() == selectedPacketID) {
+                selectedPacketID = null;
+                return; // deselect
+            }
+
+            clickedLabel.BackColor = selectPacketColor;
+            this.selectedPacketID = clickedLabel.Tag.ToString();
+
+            // Ako klijent vec ima ovaj paket, prikazi dugme da Deaktivira paket
+            if (selectedClientID != null && packetsForSelectedClient.Any(packet => packet.PacketID.ToString() == selectedPacketID)) {
+                this.btnDeactivate.Visible = true;
+            }
+            // else, prikazi dugme da Aktivira paket
+            else if(selectedClientID != null) {
+                this.btnActivate.Visible = true;
+            }
+        }
+        
         /* ********************************************************************
          * Popunjava panel odvojen za internet pakete
          * ******************************************************************** */
@@ -153,6 +218,7 @@ namespace form_app {
                 lb.Width = 160;
                 lb.Height = 30;
                 lb.Tag = packet.PacketID;
+                lb.Click += PacketLabel_Click;
 
                 panel.Controls.Add(lb);
             }
@@ -178,6 +244,7 @@ namespace form_app {
                 lb.Width = 160;
                 lb.Height = 30;
                 lb.Tag = packet.PacketID;
+                lb.Click += PacketLabel_Click;
 
                 panel.Controls.Add(lb);
             }
@@ -202,6 +269,7 @@ namespace form_app {
                 lb.Width = 160;
                 lb.Height = 30;
                 lb.Tag = packet.PacketID;
+                lb.Click += PacketLabel_Click;
 
                 panel.Controls.Add(lb);
             }
@@ -256,5 +324,50 @@ namespace form_app {
             var newForm = new ActivateDeactivatePackets(appLogic);
             newForm.ShowDialog();
         }
+        /* ********************************************************************
+         * Aktivacija / Deaktivacija paketa za korisnika
+         * ******************************************************************** */
+        private void DeactivateButton_Click(object sender, EventArgs e) {
+            Label selectedPacketLabel = panelClients.Controls.OfType<Label>().FirstOrDefault(lbl => lbl.Tag.ToString() == selectedPacketID);
+            if (selectedPacketLabel != null) {
+                selectedPacketLabel.BackColor = SystemColors.Control;
+            }
+
+            appLogic.deactivatePacket(Convert.ToInt32(selectedClientID), Convert.ToInt32(selectedPacketID));
+
+            // Refreshovan prikaz nakon deaktivacije
+
+            if (sender is Button deactivateButton) {
+                deactivateButton.Visible = false;
+            }
+
+            Label selectedClientLabel = panelClients.Controls.OfType<Label>().FirstOrDefault(lbl => lbl.Tag.ToString() == selectedClientID);
+            if (selectedClientLabel != null) {
+                ClientLabel_Click(selectedClientLabel, EventArgs.Empty);
+                ClientLabel_Click(selectedClientLabel, EventArgs.Empty);
+            }
+        }
+        private void ActivateButton_Click(object sender, EventArgs e) {
+            Label selectedPacketLabel = panelClients.Controls.OfType<Label>().FirstOrDefault(lbl => lbl.Tag.ToString() == selectedPacketID);
+            if (selectedPacketLabel != null) {
+                selectedPacketLabel.BackColor = SystemColors.Control;
+            }
+
+            appLogic.activatePacket(Convert.ToInt32(selectedClientID), Convert.ToInt32(selectedPacketID));
+
+
+            // Refreshovan prikaz nakon aktivacije
+
+            if (sender is Button activateButton) {
+                activateButton.Visible = false; 
+            }
+
+            Label selectedClientLabel = panelClients.Controls.OfType<Label>().FirstOrDefault(lbl => lbl.Tag.ToString() == selectedClientID);
+            if (selectedClientLabel != null) {
+                ClientLabel_Click(selectedClientLabel, EventArgs.Empty);
+                ClientLabel_Click(selectedClientLabel, EventArgs.Empty);
+            }
+        }
+
     }
 }

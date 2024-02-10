@@ -16,5 +16,7 @@ namespace library.AppLogic.Interfaces {
         IEnumerable<Packet> getPacketsByType(Packet.PacketType type);
         void createNewPacket(string name, double price, Packet.PacketType type, Dictionary<string, object> data);
         Packet getPacketByName(string name);
+        void activatePacket(int clientid, int packetid);
+        void deactivatePacket(int clientid, int packetid);
     }
 }
