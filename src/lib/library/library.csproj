@@ -116,9 +116,15 @@
     <Compile Include="AppLogic\Clients\Client.cs" />
     <Compile Include="AppLogic\Clients\ClientLogic.cs" />
     <Compile Include="AppLogic\Interfaces\IAppLogicFacade.cs" />
+    <Compile Include="AppLogic\Interfaces\IPacketBuilder.cs" />
     <Compile Include="AppLogic\Interfaces\IPrototype.cs" />
+    <Compile Include="AppLogic\Packets\CombinedPacketBuilder.cs" />
+    <Compile Include="AppLogic\Packets\DirectorPacketBuilder.cs" />
+    <Compile Include="AppLogic\Packets\InternetPacketBuilder.cs" />
     <Compile Include="AppLogic\Packets\Packet.cs" />
+    <Compile Include="AppLogic\Packets\PacketBuilder.cs" />
     <Compile Include="AppLogic\Packets\PacketLogic.cs" />
+    <Compile Include="AppLogic\Packets\TVPacketBuilder.cs" />
     <Compile Include="Database\Database.cs" />
     <Compile Include="Database\DatabaseConnectionFactory.cs" />
     <Compile Include="Database\IDatabaseConnection.cs" />

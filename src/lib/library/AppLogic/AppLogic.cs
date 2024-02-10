@@ -20,16 +20,24 @@ namespace library.AppLogic {
 
         private Database.Database instance = null;
 
+        /* ***************************************************************
+         * Konstruktor
+         * *************************************************************** */
         public AppLogic() {
             instance = Database.Database.GetInstance();
             _clientLogic = new ClientLogic();
             _packetLogic = new PacketLogic();
         }
 
+        /* ***************************************************************
+         * 
+         * *************************************************************** */
         public string getProviderName() {
             return TextParser.Parse(_configFilepath)["PROVIDER"];
         }
-
+        /* ***************************************************************
+         * 
+         * *************************************************************** */
         public IEnumerable<Client> getAllClients(string like) {
 
             IEnumerable<Client> returnValue = null;
@@ -50,7 +58,9 @@ namespace library.AppLogic {
             }
             return returnValue;
         }
-
+        /* ***************************************************************
+         * 
+         * *************************************************************** */
         public void registerClient(string username, string firstName, string lastName) {
             string sql = "INSERT INTO Client (username, firstname, lastname) VALUES (@param1, @param2, @param3)";
             Dictionary<string, object> parameters = new Dictionary<string, object>();
@@ -60,7 +70,9 @@ namespace library.AppLogic {
 
             _clientLogic.addNewClient(sql, parameters); // u slucaju da dodje do izuzetka delegira se do prozora forme
         }
-
+        /* ***************************************************************
+         * 
+         * *************************************************************** */
         public IEnumerable<Packet> getPacketsByType(Packet.PacketType type) {
 
             IEnumerable<Packet> returnValue = null;
@@ -89,7 +101,9 @@ namespace library.AppLogic {
 
             return returnValue;
         }
-
+        /* ***************************************************************
+         * 
+         * *************************************************************** */
         public Packet getPacketByName(string name) {
             Dictionary<string, object> parameters = new Dictionary<string, object>();
             string sql = "SELECT * FROM Packet WHERE name = @param1";
@@ -97,7 +111,9 @@ namespace library.AppLogic {
 
             return _packetLogic.getByName(sql, parameters);
         }
-
+        /* ***************************************************************
+         * 
+         * *************************************************************** */
         public void createNewPacket(string name, double price, Packet.PacketType type, Dictionary<string, object> data) {
             string sql1;
             string sql2;
@@ -138,7 +154,9 @@ namespace library.AppLogic {
                     break;
             }
         }
-        
+        /* ***************************************************************
+         * 
+         * *************************************************************** */
         public IEnumerable<Packet> getPacketsForClient(int clientid) {
 
             IEnumerable<Packet> returnValue = null;
@@ -154,7 +172,9 @@ namespace library.AppLogic {
             }
             return returnValue;
         }
-
+        /* ***************************************************************
+         * 
+         * *************************************************************** */
         public void activatePacket(int clientid, int packetid) {
             try {
                 string sql = "INSERT INTO ClientPacket (clientId, packetId) VALUES (@clientID, @packetID)";
@@ -168,6 +188,9 @@ namespace library.AppLogic {
                 Console.WriteLine(ex.Message);
             }
         }
+        /* ***************************************************************
+         * 
+         * *************************************************************** */
         public void deactivatePacket(int clientid, int packetid) {
             try {
                 string sql = "DELETE FROM ClientPacket WHERE clientID = @clientID AND packetID = @packetID";

@@ -11,10 +11,12 @@ namespace library.AppLogic.Packets {
     public class PacketLogic {
 
         private Database.Database instance = null;
+        private DirectorPacketBuilder director;
 
         public PacketLogic() {
         
             instance = Database.Database.GetInstance();
+            director = new DirectorPacketBuilder(Packet.PacketType.INTERNET);
 
         }
 
@@ -22,6 +24,7 @@ namespace library.AppLogic.Packets {
 
             DataTable dt = instance.Query(sql, parameters);
             List<Packet> packets = new List<Packet>();
+            director.changeBuilder(Packet.PacketType.INTERNET);
 
             foreach (DataRow dr in dt.Rows) {
                 int id = Convert.ToInt32(dr["packetid"]);
@@ -30,11 +33,7 @@ namespace library.AppLogic.Packets {
                 int downSpeed = Convert.ToInt32(dr["downloadspeed"]);
                 int upSpeed = Convert.ToInt32(dr["uploadspeed"]);
 
-                Dictionary<string, int> data = new Dictionary<string, int>();
-                data.Add("downloadSpeed", downSpeed);
-                data.Add("uploadSpeed", upSpeed);
-
-                packets.Add(new Packet(id, name, price, data));
+                packets.Add(director.make(id, name, price, downSpeed, upSpeed, -1));
             }
 
             return packets;
@@ -45,6 +44,7 @@ namespace library.AppLogic.Packets {
 
             DataTable dt = instance.Query(sql, parameters);
             List<Packet> packets = new List<Packet>();
+            director.changeBuilder(Packet.PacketType.TV);
 
             foreach (DataRow dr in dt.Rows) {
                 int id = Convert.ToInt32(dr["packetid"]);
@@ -52,10 +52,7 @@ namespace library.AppLogic.Packets {
                 double price = Convert.ToDouble(dr["price"]);
                 int channels = Convert.ToInt32(dr["numberofchannels"]);
 
-                Dictionary<string, int> data = new Dictionary<string, int>();
-                data.Add("numberOfChannels", channels);
-
-                packets.Add(new Packet(id, name, price, data));
+                packets.Add(director.make(id, name, price, -1, -1, channels));
             }
 
             return packets;
@@ -66,6 +63,7 @@ namespace library.AppLogic.Packets {
 
             DataTable dt = instance.Query(sql, parameters);
             List<Packet> packets = new List<Packet>();
+            director.changeBuilder(Packet.PacketType.COMBINED);
 
             foreach (DataRow dr in dt.Rows) {
                 int id = Convert.ToInt32(dr["packetid"]);
@@ -75,12 +73,7 @@ namespace library.AppLogic.Packets {
                 int downSpeed = Convert.ToInt32(dr["downloadspeed"]);
                 int upSpeed = Convert.ToInt32(dr["uploadspeed"]);
 
-                Dictionary<string, int> data = new Dictionary<string, int>();
-                data.Add("numberOfChannels", channels);
-                data.Add("downloadSpeed", downSpeed);
-                data.Add("uploadSpeed", upSpeed);
-
-                packets.Add(new Packet(id, name, price, data));
+                packets.Add(director.make(id, name, price, downSpeed, upSpeed, channels));
             }
 
             return packets;

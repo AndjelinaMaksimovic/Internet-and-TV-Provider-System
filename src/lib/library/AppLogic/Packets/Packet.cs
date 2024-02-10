@@ -20,6 +20,9 @@ namespace library.AppLogic.Packets {
         public double Price { get => price; set => price = value; }
         public Dictionary<string, int> Data { get => data; set => data = value; }
 
+        public Packet() {
+            data = new Dictionary<string, int>();
+        }
 
         public Packet(int packetID, string name, double price, Dictionary<string, int> data=null) { 
             this.packetID = packetID;
