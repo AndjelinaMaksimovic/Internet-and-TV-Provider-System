@@ -32,6 +32,16 @@ Korišćen kako bi se na lepši način rešilo pitanje da li je potrebno napravi
 
 Prototype patern se u okviru ovog projekta koristi kako bi se omogućilo efikasno kreiranje kopija objekata tipova _Client_ i _Packet_. Ovaj šablon omogućava kreiranje novih instanci objekata kroz kloniranje postojećih, umesto kreiranja novih objekata pozivanjem konstruktora. Unapređuje efikasnost i fleksiblnost kreiranja novih instanci objekata u okviru projekta, i doprinosi boljoj organizaciji i performansama aplikacije.
 
+* Builder
+
+*kreacioni patern*
+
+<div>
+  <img src="./resources/images/builder.png" alt="Prototype method logo" height=150>
+</div>
+
+Builder dizajn obrazac omogućava fleksibilnu i čistu izgradnju složenih objekata _Packet_, čime se izbegava nepotrebna složenost i smanjuje kod za korisnike koji konstruišu pakete. Implementira se kroz separaciju konstrukcije i reprezentacije, tako što razdvaja proces konstrukcije objekata _Packet_ od njihove interne reprezentacije. Svaki konkretki builder **InternetPacketBuilder**, **TVPacketBuilder**, i **CombinedPacketBuilder** definiše kako se konkretan tip paketa gradi, dok _DirectorPacketBuilder_ koordinira opisanim procesom.
+
 * Decorator 
 
 *strukturni patern*
