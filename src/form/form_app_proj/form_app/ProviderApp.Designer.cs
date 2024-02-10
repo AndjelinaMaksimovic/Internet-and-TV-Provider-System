@@ -53,7 +53,7 @@ namespace form_app {
             // 
             this.panelClients.AutoScroll = true;
             this.panelClients.Location = new System.Drawing.Point(20, 104);
-            this.panelClients.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelClients.Margin = new System.Windows.Forms.Padding(2);
             this.panelClients.Name = "panelClients";
             this.panelClients.Size = new System.Drawing.Size(161, 238);
             this.panelClients.TabIndex = 8;
@@ -73,7 +73,7 @@ namespace form_app {
             // 
             this.panelTVPackets.AutoScroll = true;
             this.panelTVPackets.Location = new System.Drawing.Point(205, 104);
-            this.panelTVPackets.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelTVPackets.Margin = new System.Windows.Forms.Padding(2);
             this.panelTVPackets.Name = "panelTVPackets";
             this.panelTVPackets.Size = new System.Drawing.Size(188, 152);
             this.panelTVPackets.TabIndex = 10;
@@ -82,7 +82,7 @@ namespace form_app {
             // 
             this.panelInternetPackets.AutoScroll = true;
             this.panelInternetPackets.Location = new System.Drawing.Point(399, 104);
-            this.panelInternetPackets.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelInternetPackets.Margin = new System.Windows.Forms.Padding(2);
             this.panelInternetPackets.Name = "panelInternetPackets";
             this.panelInternetPackets.Size = new System.Drawing.Size(188, 152);
             this.panelInternetPackets.TabIndex = 11;
@@ -91,7 +91,7 @@ namespace form_app {
             // 
             this.panelCombinedPackets.AutoScroll = true;
             this.panelCombinedPackets.Location = new System.Drawing.Point(594, 104);
-            this.panelCombinedPackets.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelCombinedPackets.Margin = new System.Windows.Forms.Padding(2);
             this.panelCombinedPackets.Name = "panelCombinedPackets";
             this.panelCombinedPackets.Size = new System.Drawing.Size(184, 152);
             this.panelCombinedPackets.TabIndex = 12;
@@ -132,7 +132,7 @@ namespace form_app {
             // button_register_client
             // 
             this.button_register_client.Location = new System.Drawing.Point(205, 283);
-            this.button_register_client.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button_register_client.Margin = new System.Windows.Forms.Padding(2);
             this.button_register_client.Name = "button_register_client";
             this.button_register_client.Size = new System.Drawing.Size(111, 33);
             this.button_register_client.TabIndex = 16;
@@ -144,7 +144,7 @@ namespace form_app {
             // 
             this.headerPanel.Controls.Add(this.providerName);
             this.headerPanel.Location = new System.Drawing.Point(20, 10);
-            this.headerPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.headerPanel.Margin = new System.Windows.Forms.Padding(2);
             this.headerPanel.Name = "headerPanel";
             this.headerPanel.Size = new System.Drawing.Size(759, 58);
             this.headerPanel.TabIndex = 17;
@@ -162,7 +162,7 @@ namespace form_app {
             // filter_clients_tb
             // 
             this.filter_clients_tb.Location = new System.Drawing.Point(84, 359);
-            this.filter_clients_tb.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.filter_clients_tb.Margin = new System.Windows.Forms.Padding(2);
             this.filter_clients_tb.Name = "filter_clients_tb";
             this.filter_clients_tb.Size = new System.Drawing.Size(98, 20);
             this.filter_clients_tb.TabIndex = 18;
@@ -180,8 +180,9 @@ namespace form_app {
             // 
             // button_create_packet
             // 
+            this.button_create_packet.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button_create_packet.Location = new System.Drawing.Point(320, 283);
-            this.button_create_packet.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button_create_packet.Margin = new System.Windows.Forms.Padding(2);
             this.button_create_packet.Name = "button_create_packet";
             this.button_create_packet.Size = new System.Drawing.Size(111, 33);
             this.button_create_packet.TabIndex = 20;
@@ -192,8 +193,9 @@ namespace form_app {
             // btnDeactivate
             // 
             this.btnDeactivate.BackColor = System.Drawing.SystemColors.Info;
+            this.btnDeactivate.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnDeactivate.Location = new System.Drawing.Point(436, 283);
-            this.btnDeactivate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDeactivate.Margin = new System.Windows.Forms.Padding(2);
             this.btnDeactivate.Name = "btnDeactivate";
             this.btnDeactivate.Size = new System.Drawing.Size(111, 33);
             this.btnDeactivate.TabIndex = 23;
@@ -204,8 +206,9 @@ namespace form_app {
             // btnActivate
             // 
             this.btnActivate.BackColor = System.Drawing.SystemColors.Info;
+            this.btnActivate.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnActivate.Location = new System.Drawing.Point(436, 283);
-            this.btnActivate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnActivate.Margin = new System.Windows.Forms.Padding(2);
             this.btnActivate.Name = "btnActivate";
             this.btnActivate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.btnActivate.Size = new System.Drawing.Size(111, 33);
@@ -236,7 +239,7 @@ namespace form_app {
             this.Controls.Add(this.panelClients);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ProviderApp";

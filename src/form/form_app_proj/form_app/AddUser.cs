@@ -20,10 +20,29 @@ namespace form_app
         public AddUser()
         {
             InitializeComponent();
-
+            close_on_esc();
             appLogic = new AppLogic();
         }
-        
+
+        private void closeFrom()
+        {
+            this.Close();
+        }
+
+
+        private void close_on_esc()
+        {
+            this.KeyPreview = true;
+            this.KeyDown += AddUser_KeyDown;
+        }
+
+        private void AddUser_KeyDown(object sender, KeyEventArgs e)
+        {
+                if (e.KeyCode == Keys.Escape)
+                {
+                    closeFrom();
+                }
+        }
 
         private void buttonRegisterUserClick(object sender, EventArgs e)
         {

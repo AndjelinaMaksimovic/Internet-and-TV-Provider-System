@@ -18,8 +18,14 @@ namespace form_app {
         public CreatePacket() {
             InitializeComponent();
             _appLogic = new AppLogic();
-
+            close_on_esc();
             fill_cb_packet_types();
+        }
+
+        private void close_on_esc()
+        {
+            this.KeyPreview = true;
+            this.KeyDown += CreatePacket_KeyDown;
         }
 
         private void fill_cb_packet_types() {
@@ -409,6 +415,14 @@ namespace form_app {
 
         private void closeFrom() {
             this.Close();
+        }
+
+        private void CreatePacket_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                closeFrom();
+            }
         }
 
         private void fill_available_internet_packets(ComboBox reference) {
