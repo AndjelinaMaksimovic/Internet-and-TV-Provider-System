@@ -9,7 +9,7 @@ namespace library.AppLogic.Packets {
         private Packet packet = null;
 
         public TVPacketBuilder() {
-            packet = new Packet();
+         
         }
 
         public override Packet getProduct() {

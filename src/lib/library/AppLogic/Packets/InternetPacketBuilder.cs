@@ -10,7 +10,7 @@ namespace library.AppLogic.Packets {
         private Packet packet = null;
 
         public InternetPacketBuilder() {
-            packet = new Packet();
+         
         }
 
         public override Packet getProduct() {
