@@ -9,14 +9,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using library.AppLogic;
 using library.AppLogic.Interfaces;
-using library.Database;
 
 
 namespace form_app
 {
     public partial class AddUser : Form
     {
-        private Database instance = null;
         private IAppLogicFacade appLogic;
 
         public AddUser()
@@ -24,7 +22,6 @@ namespace form_app
             InitializeComponent();
 
             appLogic = new AppLogic();
-            instance = Database.GetInstance();
         }
         
 
@@ -75,6 +72,7 @@ namespace form_app
                     MessageBox.Show("Query executed successfully!");
                 }
                 catch (Exception ex) {
+                    Console.WriteLine(ex.Message);
                     MessageBox.Show("Query did not execute successfully!");
                 }
 

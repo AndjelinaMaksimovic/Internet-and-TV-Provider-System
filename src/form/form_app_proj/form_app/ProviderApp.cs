@@ -7,8 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using library.Other;
-using library.Database;
 using library.AppLogic.Interfaces;
 using library.AppLogic.Packets;
 using library.AppLogic.Clients;
