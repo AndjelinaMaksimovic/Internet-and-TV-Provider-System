@@ -131,7 +131,7 @@ namespace form_app {
         private void show_combined_packet_creation_dialog() {
             panel_show_details.Controls.Clear();
 
-            TextBox packetName = new TextBox();
+            TextBox packetName = new TextBox(); 
             TextBox packetPrice = new TextBox();
             ComboBox internetPacket = new ComboBox();
             ComboBox tvPacket = new ComboBox();
