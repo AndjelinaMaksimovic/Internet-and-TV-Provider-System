@@ -65,12 +65,20 @@ Ove metode delegiraju složene zadatke specijalizovanim klasama poput **ClientLo
 
 * Command
 
+*paterni ponašanja*
+
 <div>
   <img src="./resources/images/command.png" alt="Command method logo" height=150>
 </div>
 
-U ovom projektu se koristi Command šablon kako bi se razdvojilo pozivanje aktiviranja i deaktiviranja paketa od objekata koji ih izvrsavaju. Time je postignuta veca fleksibilnost i prosirivost, omogucavajuci lako dodavanje novih akcija.
+U ovom projektu se koristi Command šablon kako bi se razdvojilo pozivanje aktiviranja i deaktiviranja paketa od objekata koji ih izvršavaju. Time je postignuta veća fleksibilnost i proširivost, omogućavajući lako dodavanje novih akcija.
 
-_TO DO_
+* Memento
 
-_minimum jos 1 od behavioural patterna osim Iterator-a_
+*paterni ponašanja*
+
+<div>
+  <img src="./resources/images/memento.png" alt="Memento method logo" height=150>
+</div>
+
+U ovom projektu se koristi Memento šablon ponašanja za simuliranje Undo&Redo komandi.
