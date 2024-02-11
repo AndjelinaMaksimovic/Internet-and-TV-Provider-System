@@ -1,2 +1,2 @@
-PROVIDER # MTS
-CONNSTRING # Data Source=C:\Users\AsuS\source\repos\tim-01\zavrsni\src\db\mts_database.db;
+PROVIDER # A1
+CONNSTRING # Data Source=C:\Users\radov\Desktop\Dizajniranje_softvera\Projekat\ClonedProject\src\db\a1_database.db;

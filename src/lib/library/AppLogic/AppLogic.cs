@@ -213,14 +213,25 @@ namespace library.AppLogic {
         /* ***************************************************************
          * 
          * *************************************************************** */
+
+        public Packet getPacketByID(int id) {
+            return _packetLogic.getByID(id);
+        }
+        public Client getClientByID(int id) {
+            return _clientLogic.getByID(id);
+        }
+        public Client getClientByUsername(string username) {
+            return _clientLogic.getByUsername(username);
+        }
+
         public void activatePacket(int clientid, int packetid) {
             _commandActivatePacket.Execute(clientid, packetid);
 
             Dictionary<string, object> snapshotParameters = new Dictionary<string, object>();
             snapshotParameters.Add("type", "INSERT");
             snapshotParameters.Add("table", "CLIENTPACKET");
-            snapshotParameters.Add("clientID", clientid);
-            snapshotParameters.Add("packetID", packetid);
+            snapshotParameters.Add("clientName", getClientByID(clientid).Username);
+            snapshotParameters.Add("packetName", getPacketByID(packetid).Name);
             _snapshotMaker.CreateSnapshot(snapshotParameters);
         }
         /* ***************************************************************
@@ -231,8 +242,8 @@ namespace library.AppLogic {
             Dictionary<string, object> snapshotParameters = new Dictionary<string, object>();
             snapshotParameters.Add("type", "DELETE");
             snapshotParameters.Add("table", "CLIENTPACKET");
-            snapshotParameters.Add("clientID", clientid);
-            snapshotParameters.Add("packetID", packetid);
+            snapshotParameters.Add("clientName", getClientByID(clientid).Username);
+            snapshotParameters.Add("packetName", getPacketByID(packetid).Name);
             _snapshotMaker.CreateSnapshot(snapshotParameters);
         }
 

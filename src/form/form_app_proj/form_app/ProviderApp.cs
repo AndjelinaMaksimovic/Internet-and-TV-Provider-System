@@ -18,10 +18,12 @@ namespace form_app {
         private IAppLogicFacade appLogic = null;
         
         private string selectedClientID = null;                         // decide which user is currently selected
+        private string selectedPacketID = null;                         // decide which packet is currently selected
+
         private IEnumerable<Client> clients = null;                     // list of clients. Updated when new client is registered
         private IEnumerable<Packet> packetsForSelectedClient = null;    // list of packets for currently selected user
+        
         private Color selectColor = Color.LightGreen;                   // color used to display selected users and their packets
-        private string selectedPacketID = null;                         // decide which packet is currently selected
         private Color selectPacketColor = Color.DarkGreen;              // color used to display selected packets
 
         /* **************************** FORM COLOR ************************************* */
@@ -76,7 +78,6 @@ namespace form_app {
         private void Form_KeyDown(object sender, KeyEventArgs e) {
             if (e.Control && e.KeyCode == Keys.Z) { // Check if Ctrl+Z is pressed
                 Undo();
-                //e.Handled = true;
             }
 
             if(e.Control && e.KeyCode == Keys.Y) {
@@ -89,22 +90,32 @@ namespace form_app {
             appLogic.restorePreviousState();
             
             clearAllSelections();
-            selectedClientID = null;
-            selectedPacketID = null;
             clients = appLogic.getAllClients("");
+            selectedPacketID = null;
 
             fill_components();
+
+            if (selectedClientID != null) {
+                Label selectedClientLabel = panelClients.Controls.OfType<Label>().FirstOrDefault(lbl => lbl.Tag.ToString() == selectedClientID);
+                ClientLabel_Click(selectedClientLabel, EventArgs.Empty);
+                ClientLabel_Click(selectedClientLabel, EventArgs.Empty);
+            }
         }
 
         private void Redo() {
             appLogic.redoPrevouslyRestoredState();
 
             clearAllSelections();
-            selectedClientID = null;
-            selectedPacketID = null;
             clients = appLogic.getAllClients("");
+            selectedPacketID = null;
 
             fill_components();
+
+            if (selectedClientID != null) {
+                Label selectedClientLabel = panelClients.Controls.OfType<Label>().FirstOrDefault(lbl => lbl.Tag.ToString() == selectedClientID);
+                ClientLabel_Click(selectedClientLabel, EventArgs.Empty);
+                ClientLabel_Click(selectedClientLabel, EventArgs.Empty);
+            }
         }
 
         /* ********************************************************************
@@ -121,9 +132,6 @@ namespace form_app {
         /* ********************************************************************
          * Popunjava panel za klijente
          * ******************************************************************** */
-
-
-
         private void fill_clients_panel() {
             FlowLayoutPanel panel = this.panelClients;
 
@@ -154,7 +162,9 @@ namespace form_app {
             Label lb = sender as Label;
             lb.BackColor = Color.LightGray;
         }
-
+        /* ********************************************************************
+        * Hover efekat kod panela za klijente
+        * ******************************************************************** */
         private void Lb_MouseLeave(object sender, EventArgs e) {
             Label lb = (Label)sender;
             if(selectedClientID != null && lb.Tag.ToString() == selectedClientID) {
@@ -171,6 +181,7 @@ namespace form_app {
         private void clearAllSelections() {
             this.btnDeactivate.Visible = false;
             this.btnActivate.Visible = false;
+            
             foreach (Label control in panelClients.Controls) {
                 control.BackColor = SystemColors.Control;
             }
@@ -178,20 +189,16 @@ namespace form_app {
             foreach (Label lb in panelTVPackets.Controls) {
                 lb.BackColor = SystemColors.Control;
                 lb.ForeColor = SystemColors.ControlText;
-               
             }
 
             foreach (Label lb in panelInternetPackets.Controls) {
                 lb.BackColor = SystemColors.Control;
                 lb.ForeColor = SystemColors.ControlText;
-           
             }
 
             foreach (Label lb in panelCombinedPackets.Controls) {
                 lb.BackColor = SystemColors.Control;
                 lb.ForeColor= SystemColors.ControlText;
-
-                
             }
         }
         /* ********************************************************************
@@ -457,7 +464,7 @@ namespace form_app {
         }
 
         /* ********************************************************************
-         * Aktivacija / Deaktivacija paketa za korisnika
+         * Deaktivacija paketa za korisnika
          * ******************************************************************** */
         private void DeactivateButton_Click(object sender, EventArgs e) {
             Label selectedPacketLabel = panelClients.Controls.OfType<Label>().FirstOrDefault(lbl => lbl.Tag.ToString() == selectedPacketID);
@@ -478,8 +485,12 @@ namespace form_app {
             if (selectedClientLabel != null) {
                 ClientLabel_Click(selectedClientLabel, EventArgs.Empty);
                 ClientLabel_Click(selectedClientLabel, EventArgs.Empty);
+                selectedPacketID = null;
             }
         }
+        /* ********************************************************************
+         * Aktivacija paketa za korisnika
+         * ******************************************************************** */
         private void ActivateButton_Click(object sender, EventArgs e) {
             Label selectedPacketLabel = panelClients.Controls.OfType<Label>().FirstOrDefault(lbl => lbl.Tag.ToString() == selectedPacketID);
             if (selectedPacketLabel != null) {
@@ -500,14 +511,19 @@ namespace form_app {
             if (selectedClientLabel != null) {
                 ClientLabel_Click(selectedClientLabel, EventArgs.Empty);
                 ClientLabel_Click(selectedClientLabel, EventArgs.Empty);
+                selectedPacketID = null;
             }
         }
-
+        /* ********************************************************************
+         * Undo button click handler
+         * ******************************************************************** */
         private void picUndo_Click(object sender, EventArgs e) {
             Undo();
         }
-
-        private void pictureBox1_Click(object sender, EventArgs e) {
+        /* ********************************************************************
+         * Redo button click handler
+         * ******************************************************************** */
+        private void picRedo_Click(object sender, EventArgs e) {
             Redo();
         }
     }

@@ -34,26 +34,29 @@ namespace library.AppLogic.Memento {
                     else if(table == "packet") {
 
                         int id_paketa = aLogic.getPacketByName(parameters["name"].ToString()).PacketID;
-                        sql = "DELETE FROM Packet WHERE PacketID = @param1";
-                        keyValuePairs.Add("@param1", id_paketa);
-                        executeSQL(sql, keyValuePairs);
-
                         string packetType = parameters["packetType"].ToString().ToLower();
                         string sql1;
                         string tabela;
 
-                        if(packetType == "internet") { tabela = "internetpacket"; }
-                        else if(packetType == "tv") { tabela = "tvpacket"; }
-                        else if(packetType == "combined") { tabela = "combpacket"; }
+                        if (packetType == "internet") { tabela = "internetpacket"; }
+                        else if (packetType == "tv") { tabela = "tvpacket"; }
+                        else if (packetType == "combined") { tabela = "combpacket"; }
                         else { tabela = "NO_TABLE"; }
 
+                        sql = "DELETE FROM Packet WHERE PacketID = @param1";
                         sql1 = "DELETE FROM " + tabela + " WHERE packetid = @param1";
-                        executeSQL(sql1, keyValuePairs);
+                        keyValuePairs.Add("@param1", id_paketa);
+
+                        executeSQL(sql1, keyValuePairs);    // prvo brise iz tabele internetpacket, tvpacket, combpacket pa onda iz tabele packet
+                        executeSQL(sql, keyValuePairs);
                     }
                     else if(table == "clientpacket") {
+                        int packetID = aLogic.getPacketByName(parameters["packetName"].ToString()).PacketID;
+                        int clientID = aLogic.getClientByUsername(parameters["clientName"].ToString()).ClientID;
+
                         sql = "DELETE FROM ClientPacket WHERE ClientID = @param1 AND PacketID = @param2";
-                        keyValuePairs.Add("@param1", parameters["clientID"].ToString());
-                        keyValuePairs.Add("@param2", parameters["packetID"].ToString());
+                        keyValuePairs.Add("@param1", clientID);
+                        keyValuePairs.Add("@param2", packetID);
                         executeSQL(sql, keyValuePairs);
                     }
                     else {
@@ -63,9 +66,12 @@ namespace library.AppLogic.Memento {
 
                 case "delete":  // delete moze biti samo nad tabelom ClientPacket
                     if(table == "clientpacket") {
+                        int packetID = aLogic.getPacketByName(parameters["packetName"].ToString()).PacketID;
+                        int clientID = aLogic.getClientByUsername(parameters["clientName"].ToString()).ClientID;
+
                         sql = "INSERT INTO ClientPacket (ClientID, PacketID) VALUES (@param1, @param2)";
-                        keyValuePairs.Add("@param1", parameters["clientID"].ToString());
-                        keyValuePairs.Add("@param2", parameters["packetID"].ToString());
+                        keyValuePairs.Add("@param1", clientID);
+                        keyValuePairs.Add("@param2", packetID);
                         executeSQL(sql, keyValuePairs);
                     }
                     else {
@@ -131,9 +137,13 @@ namespace library.AppLogic.Memento {
 
                     }
                     else if (table == "clientpacket") {
+
+                        int packetID = aLogic.getPacketByName(parameters["packetName"].ToString()).PacketID;
+                        int clientID = aLogic.getClientByUsername(parameters["clientName"].ToString()).ClientID;
+
                         sql = "INSERT INTO ClientPacket(clientid, packetid) VALUES(@param1, @param2)";
-                        keyValuePairs.Add("@param1", parameters["clientID"].ToString());
-                        keyValuePairs.Add("@param2", parameters["packetID"].ToString());
+                        keyValuePairs.Add("@param1", clientID);
+                        keyValuePairs.Add("@param2", packetID);
                         executeSQL(sql, keyValuePairs);
                     }
                     else {
@@ -143,9 +153,12 @@ namespace library.AppLogic.Memento {
 
                 case "delete":  // delete moze biti samo nad tabelom ClientPacket
                     if (table == "clientpacket") {
+                        int packetID = aLogic.getPacketByName(parameters["packetName"].ToString()).PacketID;
+                        int clientID = aLogic.getClientByUsername(parameters["clientName"].ToString()).ClientID;
+
                         sql = "DELETE FROM ClientPacket WHERE ClientID = @param1 AND PacketID = @param2";
-                        keyValuePairs.Add("@param1", parameters["clientID"].ToString());
-                        keyValuePairs.Add("@param2", parameters["packetID"].ToString());
+                        keyValuePairs.Add("@param1", clientID);
+                        keyValuePairs.Add("@param2", packetID);
                         executeSQL(sql, keyValuePairs);
                     }
                     else {

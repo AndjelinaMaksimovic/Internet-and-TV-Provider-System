@@ -48,6 +48,36 @@ namespace library.AppLogic.Clients {
             return packets;
         }
         
+        public Client getByID(int id) {
+            string sql = "SELECT * FROM Client WHERE clientid = @param1";
+            Dictionary<string, object> keyValuePairs = new Dictionary<string, object>();
+            keyValuePairs.Add("@param1", id);
+
+            DataTable dt = instance.Query(sql, keyValuePairs);
+
+            if (dt.Rows.Count == 0) return null;
+
+            DataRow dr = dt.Rows[0];
+            Dictionary<string, int> data = new Dictionary<string, int>();
+            
+            return new Client(Convert.ToInt32(dr["clientid"].ToString()), dr["username"].ToString(), dr["firstname"].ToString(), dr["lastname"].ToString());
+        }
+
+        public Client getByUsername(string username) {
+            string sql = "SELECT * FROM Client WHERE username = @param1";
+            Dictionary<string, object> keyValuePairs = new Dictionary<string, object>();
+            keyValuePairs.Add("@param1", username);
+
+            DataTable dt = instance.Query(sql, keyValuePairs);
+
+            if (dt.Rows.Count == 0) return null;
+
+            DataRow dr = dt.Rows[0];
+            Dictionary<string, int> data = new Dictionary<string, int>();
+
+            return new Client(Convert.ToInt32(dr["clientid"].ToString()), dr["username"].ToString(), dr["firstname"].ToString(), dr["lastname"].ToString());
+        }
+
         public void addNewClient(string sql, Dictionary<string , object> parameters) {
             instance.Query(sql, parameters);    // u slucaju da dodje do izuzetka delegira se do prozora forme
         }

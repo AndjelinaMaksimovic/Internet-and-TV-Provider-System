@@ -46,12 +46,12 @@ namespace form_app {
             this.button_create_packet = new System.Windows.Forms.Button();
             this.btnDeactivate = new System.Windows.Forms.Button();
             this.btnActivate = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.picRedo = new System.Windows.Forms.PictureBox();
             this.picUndo = new System.Windows.Forms.PictureBox();
             this.label_undo = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.headerPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picRedo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picUndo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -217,16 +217,16 @@ namespace form_app {
             this.btnActivate.UseVisualStyleBackColor = false;
             this.btnActivate.Visible = false;
             // 
-            // pictureBox1
+            // picRedo
             // 
-            this.pictureBox1.Image = global::form_app.Properties.Resources.redo_img_small;
-            this.pictureBox1.InitialImage = global::form_app.Properties.Resources.redo_img_small;
-            this.pictureBox1.Location = new System.Drawing.Point(945, 348);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(54, 41);
-            this.pictureBox1.TabIndex = 26;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.picRedo.Image = global::form_app.Properties.Resources.redo_img_small;
+            this.picRedo.InitialImage = global::form_app.Properties.Resources.redo_img_small;
+            this.picRedo.Location = new System.Drawing.Point(945, 348);
+            this.picRedo.Name = "picRedo";
+            this.picRedo.Size = new System.Drawing.Size(54, 41);
+            this.picRedo.TabIndex = 26;
+            this.picRedo.TabStop = false;
+            this.picRedo.Click += new System.EventHandler(this.picRedo_Click);
             // 
             // picUndo
             // 
@@ -270,7 +270,7 @@ namespace form_app {
             this.ClientSize = new System.Drawing.Size(1061, 480);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label_undo);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.picRedo);
             this.Controls.Add(this.picUndo);
             this.Controls.Add(this.btnActivate);
             this.Controls.Add(this.btnDeactivate);
@@ -297,7 +297,7 @@ namespace form_app {
             this.Text = "TIM1 Provider App";
             this.headerPanel.ResumeLayout(false);
             this.headerPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picRedo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picUndo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -327,7 +327,7 @@ namespace form_app {
         private Button btnDeactivate;
         private Button btnActivate;
         private PictureBox picUndo;
-        private PictureBox pictureBox1;
+        private PictureBox picRedo;
         private Label label_undo;
         private Label label1;
     }

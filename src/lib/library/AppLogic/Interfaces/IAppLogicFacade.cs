@@ -20,5 +20,8 @@ namespace library.AppLogic.Interfaces {
         void deactivatePacket(int clientid, int packetid);
         void restorePreviousState();
         void redoPrevouslyRestoredState();
+        Packet getPacketByID(int id);
+        Client getClientByID(int id);
+        Client getClientByUsername(string username);
     }
 }

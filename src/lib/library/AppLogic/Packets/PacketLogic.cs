@@ -95,6 +95,21 @@ namespace library.AppLogic.Packets {
             return new Packet(Convert.ToInt32(dr["packetid"].ToString()), dr["name"].ToString(), Convert.ToDouble(dr["price"].ToString()), data);
         }
 
+        public Packet getByID(int id) {
+            string sql = "SELECT * FROM Packet WHERE PacketID = @param1";
+            Dictionary<string, object> keyValuePairs = new Dictionary<string, object>();
+            keyValuePairs.Add("@param1", id);
+
+            DataTable dt = instance.Query(sql, keyValuePairs);
+
+            if(dt.Rows.Count == 0) return null;
+
+            DataRow dr = dt.Rows[0];
+            Dictionary<string, int> data = new Dictionary<string, int>();
+
+            return new Packet(Convert.ToInt32(dr["packetid"].ToString()), dr["name"].ToString(), Convert.ToDouble(dr["price"].ToString()), data);
+        }
+
         public void insert(string sql, Dictionary<string, object> parameters) {
             instance.Query(sql, parameters); // moguc izuzetak ukoliko ime nije unique
         }
