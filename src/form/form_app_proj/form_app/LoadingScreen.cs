@@ -34,6 +34,7 @@ namespace form_app {
                 SwitchForm();
             }
             else {
+                progressBar.PerformStep();
                 progressBar.Value = progress;
                 loading_label.Text = "Loading... " + progress + "%";
             }
