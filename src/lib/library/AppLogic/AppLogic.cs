@@ -35,7 +35,7 @@ namespace library.AppLogic {
             _packetLogic = new PacketLogic();
             _commandActivatePacket=new ActivatePacketCommand(instance);
             _commandDeactivatePacket = new DeactivatePacketCommand(instance);
-            _snapshotMaker = new Snapshot(instance);
+            _snapshotMaker = new Snapshot(instance, this);
         }
 
         /* ***************************************************************
@@ -83,6 +83,8 @@ namespace library.AppLogic {
             snapshotParameters.Add("type", "INSERT");
             snapshotParameters.Add("table", "CLIENT");
             snapshotParameters.Add("username", username);
+            snapshotParameters.Add("firstName", firstName);
+            snapshotParameters.Add("lastName", lastName);
             _snapshotMaker.CreateSnapshot(snapshotParameters); // ako iznad pukne nece doci do ovog dela
         }
         /* ***************************************************************
@@ -145,6 +147,8 @@ namespace library.AppLogic {
             Dictionary<string, object> snapshotParameters = new Dictionary<string, object>();
             snapshotParameters.Add("type", "INSERT");
             snapshotParameters.Add("table", "PACKET");
+            snapshotParameters.Add("name", name);
+            snapshotParameters.Add("price", price);
             snapshotParameters.Add("packetID", newPacketID);
 
             switch (type) {
@@ -155,6 +159,8 @@ namespace library.AppLogic {
                     parameters2.Add("@param3", data["uploadSpeed"]);
                     _packetLogic.insert(sql2, parameters2);
 
+                    snapshotParameters.Add("downloadSpeed", data["downloadSpeed"]);
+                    snapshotParameters.Add("uploadSpeed", data["uploadSpeed"]);
                     snapshotParameters.Add("packetType", "INTERNET");
                     break;
 
@@ -164,6 +170,7 @@ namespace library.AppLogic {
                     parameters2.Add("@param2", data["numberOfChannels"]);
                     _packetLogic.insert(sql2, parameters2);
 
+                    snapshotParameters.Add("numberOfChannels", data["numberOfChannels"]);
                     snapshotParameters.Add("packetType", "TV");
                     break;
 
@@ -174,6 +181,8 @@ namespace library.AppLogic {
                     parameters2.Add("@param3", getPacketByName(data["tvpacketname"].ToString()).PacketID);
                     _packetLogic.insert(sql2, parameters2);
 
+                    snapshotParameters.Add("internetPacketName", data["internetpacketname"].ToString());
+                    snapshotParameters.Add("tvPacketName", data["tvpacketname"].ToString());
                     snapshotParameters.Add("packetType", "COMBINED");
                     break;
 
@@ -229,6 +238,10 @@ namespace library.AppLogic {
 
         public void restorePreviousState() {
             _snapshotMaker.RestoreSnapshot();
+        }
+
+        public void redoPrevouslyRestoredState() {
+            _snapshotMaker.RedoSnapshot();
         }
     }
 }

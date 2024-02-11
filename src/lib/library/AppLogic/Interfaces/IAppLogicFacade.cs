@@ -19,5 +19,6 @@ namespace library.AppLogic.Interfaces {
         void activatePacket(int clientid, int packetid);
         void deactivatePacket(int clientid, int packetid);
         void restorePreviousState();
+        void redoPrevouslyRestoredState();
     }
 }

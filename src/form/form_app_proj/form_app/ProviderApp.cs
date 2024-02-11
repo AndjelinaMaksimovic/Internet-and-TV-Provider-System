@@ -50,12 +50,27 @@ namespace form_app {
                 Undo();
                 //e.Handled = true;
             }
+
+            if(e.Control && e.KeyCode == Keys.Y) {
+                Redo();
+            }
         }
 
         // Method to perform undo action
         private void Undo() {
             appLogic.restorePreviousState();
             
+            clearAllSelections();
+            selectedClientID = null;
+            selectedPacketID = null;
+            clients = appLogic.getAllClients("");
+
+            fill_components();
+        }
+
+        private void Redo() {
+            appLogic.redoPrevouslyRestoredState();
+
             clearAllSelections();
             selectedClientID = null;
             selectedPacketID = null;
