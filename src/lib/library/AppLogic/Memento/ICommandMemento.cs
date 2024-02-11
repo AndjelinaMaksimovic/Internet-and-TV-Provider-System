@@ -8,6 +8,6 @@ namespace library.AppLogic.Memento {
     internal interface ICommandMemento {
 
         void undo();
-
+        void redo();
     }
 }

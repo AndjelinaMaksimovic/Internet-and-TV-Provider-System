@@ -21,13 +21,10 @@ namespace library.AppLogic.Memento {
             string sql;
             Dictionary<string, object> keyValuePairs = new Dictionary<string, object>();
 
-            //Console.WriteLine(type + " " + table);
-
             switch(type) {
                 case "insert":  // insert moze biti nad tabelom Client, Packet, ClientPacket
-                    //Console.WriteLine("INSERT");
+                    
                     if (table == "client") {
-                        //Console.WriteLine(" INTO CLIENT");
                         sql = "DELETE FROM Client WHERE username = @param1";
                         keyValuePairs.Add("@param1", parameters["username"].ToString());
                         executeSQL(sql, keyValuePairs);
@@ -36,6 +33,18 @@ namespace library.AppLogic.Memento {
                         sql = "DELETE FROM Packet WHERE PacketID = @param1";
                         keyValuePairs.Add("@param1", parameters["packetID"].ToString());
                         executeSQL(sql, keyValuePairs);
+
+                        string packetType = parameters["packetType"].ToString().ToLower();
+                        string sql1;
+                        string tabela;
+
+                        if(packetType == "internet") { tabela = "internetpacket"; }
+                        else if(packetType == "tv") { tabela = "tvpacket"; }
+                        else if(packetType == "combined") { tabela = "combpacket"; }
+                        else { tabela = "NO_TABLE"; }
+
+                        sql1 = "DELETE FROM " + tabela + " WHERE packetid = @param1";
+                        executeSQL(sql1, keyValuePairs);
                     }
                     else if(table == "clientpacket") {
                         sql = "DELETE FROM ClientPacket WHERE ClientID = @param1 AND PacketID = @param2";
@@ -63,6 +72,10 @@ namespace library.AppLogic.Memento {
                 default:
                     break;
             }
+        }
+
+        public void redo() {
+            undo();
         }
 
         private void executeSQL(string sql, Dictionary<string, object> parameters) {

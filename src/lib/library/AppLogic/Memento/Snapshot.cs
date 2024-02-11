@@ -7,22 +7,25 @@ using System.Threading.Tasks;
 namespace library.AppLogic.Memento {
     internal class Snapshot {
 
-        private Stack<ConcreteCommand> commands;
+        private Stack<ConcreteCommand> commandsUndo;
+        private Stack<ConcreteCommand> commandsRedo;
         private Database.Database instance;
 
         public Snapshot(Database.Database instance) {
-            this.commands = new Stack<ConcreteCommand>();
+            this.commandsUndo = new Stack<ConcreteCommand>();
+            this.commandsRedo = new Stack<ConcreteCommand>();
             this.instance = instance;
         }
 
         public void CreateSnapshot(Dictionary<string, object> parameters) {
-            this.commands.Push(new ConcreteCommand(parameters, instance));
+            this.commandsUndo.Push(new ConcreteCommand(parameters, instance));
         }
 
         public void RestoreSnapshot() {
-            if(commands.Count == 0) return;
+            if(commandsUndo.Count == 0) return;
 
-            ConcreteCommand command = commands.Pop();
+            ConcreteCommand command = commandsUndo.Pop();
+            commandsRedo.Push(command);
             command.undo();
         }
 
