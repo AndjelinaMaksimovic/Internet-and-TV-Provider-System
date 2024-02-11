@@ -10,10 +10,14 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Management.Instrumentation;
 using library.Database;
+using System.Windows.Input;
+using library.AppLogic.Commands;
 
 namespace library.AppLogic {
     public class AppLogic : IAppLogicFacade {
 
+        private IPacketCommand _commandActivatePacket;
+        private IPacketCommand _commandDeactivatePacket;
         private string _configFilepath = "../../../../../config.txt";
         private ClientLogic _clientLogic;
         private PacketLogic _packetLogic;
@@ -27,7 +31,8 @@ namespace library.AppLogic {
             instance = Database.Database.GetInstance();
             _clientLogic = new ClientLogic();
             _packetLogic = new PacketLogic();
-        }
+            _commandActivatePacket=new ActivatePacketCommand(instance);
+            _commandDeactivatePacket = new DeactivatePacketCommand(instance);        }
 
         /* ***************************************************************
          * 
@@ -176,33 +181,13 @@ namespace library.AppLogic {
          * 
          * *************************************************************** */
         public void activatePacket(int clientid, int packetid) {
-            try {
-                string sql = "INSERT INTO ClientPacket (clientId, packetId) VALUES (@clientID, @packetID)";
-                Dictionary<string, object> parameters = new Dictionary<string, object>();
-                parameters.Add("@clientID", clientid);
-                parameters.Add("@packetID", packetid);
-
-                instance.Query(sql, parameters);
-            }
-            catch (Exception ex) {
-                Console.WriteLine(ex.Message);
-            }
+            _commandActivatePacket.Execute(clientid, packetid);
         }
         /* ***************************************************************
          * 
          * *************************************************************** */
         public void deactivatePacket(int clientid, int packetid) {
-            try {
-                string sql = "DELETE FROM ClientPacket WHERE clientID = @clientID AND packetID = @packetID";
-                Dictionary<string, object> parameters = new Dictionary<string, object>();
-                parameters.Add("@clientID", clientid);
-                parameters.Add("@packetID", packetid);
-
-                instance.Query(sql, parameters);
-            }
-            catch (Exception ex) {
-                Console.WriteLine(ex.Message);
-            }
+            _commandDeactivatePacket.Execute(clientid, packetid);
         }
     }
 }

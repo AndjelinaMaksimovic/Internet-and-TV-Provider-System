@@ -115,6 +115,9 @@
     <Compile Include="AppLogic\AppLogic.cs" />
     <Compile Include="AppLogic\Clients\Client.cs" />
     <Compile Include="AppLogic\Clients\ClientLogic.cs" />
+    <Compile Include="AppLogic\Commands\ActivatePacketCommand.cs" />
+    <Compile Include="AppLogic\Commands\DeactivatePacketCommand.cs" />
+    <Compile Include="AppLogic\Commands\ICommand.cs" />
     <Compile Include="AppLogic\Interfaces\IAppLogicFacade.cs" />
     <Compile Include="AppLogic\Interfaces\IPacketBuilder.cs" />
     <Compile Include="AppLogic\Interfaces\IPrototype.cs" />
@@ -141,6 +144,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

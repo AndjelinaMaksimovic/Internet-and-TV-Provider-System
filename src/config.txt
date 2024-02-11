@@ -1,2 +1,2 @@
 PROVIDER # MTS
-CONNSTRING # Data Source=C:\Users\radov\Desktop\Dizajniranje_softvera\Projekat\ClonedProject\src\db\mts_database.db;
+CONNSTRING # Data Source=C:\Projekat Ds\src\db\yettel_database.db;
