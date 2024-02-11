@@ -74,7 +74,9 @@ namespace form_app {
 
             CustomWindow(Color.LightGreen, Color.Black, Color.GreenYellow, Handle);
         }
-
+        /* ********************************************************************
+         * Event handler keydown
+         * ******************************************************************** */
         private void Form_KeyDown(object sender, KeyEventArgs e) {
             if (e.Control && e.KeyCode == Keys.Z) { // Check if Ctrl+Z is pressed
                 Undo();
@@ -84,8 +86,9 @@ namespace form_app {
                 Redo();
             }
         }
-
-        // Method to perform undo action
+        /* ********************************************************************
+         * Undo metod
+         * ******************************************************************** */
         private void Undo() {
             appLogic.restorePreviousState();
             
@@ -101,7 +104,9 @@ namespace form_app {
                 ClientLabel_Click(selectedClientLabel, EventArgs.Empty);
             }
         }
-
+        /* ********************************************************************
+         * Redo metod
+         * ******************************************************************** */
         private void Redo() {
             appLogic.redoPrevouslyRestoredState();
 
@@ -117,7 +122,6 @@ namespace form_app {
                 ClientLabel_Click(selectedClientLabel, EventArgs.Empty);
             }
         }
-
         /* ********************************************************************
          * Popunjava sve komponente na strani
          * ******************************************************************** */
@@ -128,7 +132,6 @@ namespace form_app {
             fill_tv_packets_panel();
             fill_comb_packets_panel();
         }
-
         /* ********************************************************************
          * Popunjava panel za klijente
          * ******************************************************************** */
@@ -157,14 +160,13 @@ namespace form_app {
                 panel.Controls.Add(lb);
             }
         }
-
+        /* ********************************************************************
+        * Simulacija hover efekta kod panela za klijente
+        * ******************************************************************** */
         private void Lb_MouseEnter(object sender, EventArgs e) {
             Label lb = sender as Label;
             lb.BackColor = Color.LightGray;
         }
-        /* ********************************************************************
-        * Hover efekat kod panela za klijente
-        * ******************************************************************** */
         private void Lb_MouseLeave(object sender, EventArgs e) {
             Label lb = (Label)sender;
             if(selectedClientID != null && lb.Tag.ToString() == selectedClientID) {
@@ -174,7 +176,6 @@ namespace form_app {
                 lb.BackColor = SystemColors.Window;
             }
         }
-
         /* ********************************************************************
         * Promena boje selektovanih paketa i korisnika
         * ******************************************************************** */
@@ -239,7 +240,6 @@ namespace form_app {
                     if (lb.Tag.ToString() == packetid) lb.BackColor = selectColor;
                 }
             }
-
 
         }
         /* ********************************************************************
@@ -306,7 +306,6 @@ namespace form_app {
                 this.btnActivate.Visible = true;
             }
         }
-        
         /* ********************************************************************
          * Popunjava panel odvojen za internet pakete
          * ******************************************************************** */
@@ -332,7 +331,6 @@ namespace form_app {
             }
 
         }
-
         /* ********************************************************************
          * Popunjava panel odvojen za tv pakete
          * ******************************************************************** */
@@ -357,7 +355,6 @@ namespace form_app {
                 panel.Controls.Add(lb);
             }
         }
-
         /* ********************************************************************
          * Popunjava panel odvojen za kombinovane pakete
          * ******************************************************************** */
@@ -382,7 +379,6 @@ namespace form_app {
                 panel.Controls.Add(lb);
             }
         }
-
         /* ********************************************************************
          * Popunjava naziv provajdera
          * ******************************************************************** */
@@ -395,7 +391,6 @@ namespace form_app {
                 labelref.Text += "NOT RECOGNIZED";
             }
         }
-
         /* ********************************************************************
          * Event handler za pretrazivanje klijenata po korisnickom imenu
          * ******************************************************************** */
@@ -462,7 +457,6 @@ namespace form_app {
             newForm.FormClosed += parse_create_packet_form_closed;
             newForm.ShowDialog();
         }
-
         /* ********************************************************************
          * Deaktivacija paketa za korisnika
          * ******************************************************************** */

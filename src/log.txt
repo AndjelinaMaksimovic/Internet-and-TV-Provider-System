@@ -5893,3 +5893,12 @@
 11-Feb-24 10:49:54 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
 11-Feb-24 10:49:54 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
 11-Feb-24 10:49:54 PM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON cp.packetid = p.packetid WHERE clientid = 5
+11-Feb-24 10:54:49 PM - logged query : SELECT * FROM Client ORDER BY username ASC
+11-Feb-24 10:54:49 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+11-Feb-24 10:54:49 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+11-Feb-24 10:54:49 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+11-Feb-24 10:54:51 PM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON cp.packetid = p.packetid WHERE clientid = 2
+11-Feb-24 10:54:52 PM - logged query : INSERT INTO ClientPacket (clientId, packetId) VALUES (2, 4)
+11-Feb-24 10:54:52 PM - logged query : SELECT * FROM Client WHERE clientid = 2
+11-Feb-24 10:54:52 PM - logged query : SELECT * FROM Packet WHERE PacketID = 4
+11-Feb-24 10:54:52 PM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON cp.packetid = p.packetid WHERE clientid = 2
