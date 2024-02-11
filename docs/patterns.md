@@ -113,4 +113,4 @@ lako dodavanje novih akcija.
   <img src="./resources/images/memento.png" alt="Memento method logo" height=150>
 </div>
 
-U ovom projektu se koristi Memento šablon ponašanja za simuliranje Undo&Redo komandi.
+U ovom projektu se koristi Memento šablon kako bi se omogućilo snimanje i vraćanje stanja podsistema Database. Klasa Snapshot služi za snimanje stanja i izvršavanje akcija za vraćanje i ponovno izvršavanje. Klasa ConcreteCommand predstavlja konkretne akcije koje menjaju stanje sistema, a klasa Caretaker čuva snimljena stanja. Ovo omogućava efikasno upravljanje stanjem sistema i vraćanje u prethodno zabeleženo stanje po potrebi.
