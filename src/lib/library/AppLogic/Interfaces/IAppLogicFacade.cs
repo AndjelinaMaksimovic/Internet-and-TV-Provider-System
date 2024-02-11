@@ -18,5 +18,6 @@ namespace library.AppLogic.Interfaces {
         Packet getPacketByName(string name);
         void activatePacket(int clientid, int packetid);
         void deactivatePacket(int clientid, int packetid);
+        void restorePreviousState();
     }
 }

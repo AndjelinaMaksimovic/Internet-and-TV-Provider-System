@@ -121,6 +121,9 @@
     <Compile Include="AppLogic\Interfaces\IAppLogicFacade.cs" />
     <Compile Include="AppLogic\Interfaces\IPacketBuilder.cs" />
     <Compile Include="AppLogic\Interfaces\IPrototype.cs" />
+    <Compile Include="AppLogic\Memento\ConcreteCommand.cs" />
+    <Compile Include="AppLogic\Memento\ICommandMemento.cs" />
+    <Compile Include="AppLogic\Memento\Snapshot.cs" />
     <Compile Include="AppLogic\Packets\CombinedPacketBuilder.cs" />
     <Compile Include="AppLogic\Packets\DirectorPacketBuilder.cs" />
     <Compile Include="AppLogic\Packets\InternetPacketBuilder.cs" />

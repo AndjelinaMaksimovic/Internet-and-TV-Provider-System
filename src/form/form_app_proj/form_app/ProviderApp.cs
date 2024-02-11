@@ -40,6 +40,28 @@ namespace form_app {
             this.filter_clients_tb.KeyUp += parse_keyup_filter_clients;
             this.btnDeactivate.Click += DeactivateButton_Click;
             this.btnActivate.Click += ActivateButton_Click;
+
+            this.KeyPreview = true; // This allows the form to receive key events before they are passed to the focused control
+            this.KeyDown += Form_KeyDown;
+        }
+
+        private void Form_KeyDown(object sender, KeyEventArgs e) {
+            if (e.Control && e.KeyCode == Keys.Z) { // Check if Ctrl+Z is pressed
+                Undo();
+                //e.Handled = true;
+            }
+        }
+
+        // Method to perform undo action
+        private void Undo() {
+            appLogic.restorePreviousState();
+            
+            clearAllSelections();
+            selectedClientID = null;
+            selectedPacketID = null;
+            clients = appLogic.getAllClients("");
+
+            fill_components();
         }
 
         /* ********************************************************************
@@ -343,7 +365,7 @@ namespace form_app {
          * Event klika dugmeta za dodavanje novog korisnika
          * ******************************************************************** */
         private void button_register_client_Click(object sender, EventArgs e) {
-            var newForm = new AddUser();
+            var newForm = new AddUser(appLogic);
             newForm.FormClosed += parse_register_client_form_closed;
             newForm.ShowDialog();
         }
@@ -351,7 +373,7 @@ namespace form_app {
          * Event klika dugmeta za dodavanje novog paketa
          * ******************************************************************** */
         private void button_create_packet_Click(object sender, EventArgs e) {
-            var newForm = new CreatePacket();
+            var newForm = new CreatePacket(appLogic);
             newForm.FormClosed += parse_create_packet_form_closed;
             newForm.ShowDialog();
         }

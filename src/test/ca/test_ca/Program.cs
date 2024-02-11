@@ -8,12 +8,10 @@ namespace test_ca {
         static void Main(string[] args) {
 
             AppLogic l = new AppLogic();
+            l.registerClient("test_ca", "test", "test");
+            Console.WriteLine("REGISTER");
+            l.restorePreviousState();
 
-            var x = l.getPacketByName("NET 100");
-
-            if (x != null) {
-                Console.WriteLine(x);
-            }
             Console.Write("Press any key to continue...");
             Console.ReadKey();
         }

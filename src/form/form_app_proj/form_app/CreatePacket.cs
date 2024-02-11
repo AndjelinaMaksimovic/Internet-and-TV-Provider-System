@@ -15,9 +15,9 @@ namespace form_app {
 
         private IAppLogicFacade _appLogic = null;
 
-        public CreatePacket() {
+        public CreatePacket(IAppLogicFacade aLogic) {
             InitializeComponent();
-            _appLogic = new AppLogic();
+            _appLogic = aLogic;
             close_on_esc();
             fill_cb_packet_types();
         }

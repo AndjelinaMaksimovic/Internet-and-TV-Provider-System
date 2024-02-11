@@ -17,11 +17,11 @@ namespace form_app
     {
         private IAppLogicFacade appLogic;
 
-        public AddUser()
+        public AddUser(IAppLogicFacade aLogic)
         {
             InitializeComponent();
             close_on_esc();
-            appLogic = new AppLogic();
+            appLogic = aLogic;
         }
 
         private void closeFrom()

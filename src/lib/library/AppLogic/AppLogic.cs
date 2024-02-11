@@ -12,6 +12,7 @@ using System.Management.Instrumentation;
 using library.Database;
 using System.Windows.Input;
 using library.AppLogic.Commands;
+using library.AppLogic.Memento;
 
 namespace library.AppLogic {
     public class AppLogic : IAppLogicFacade {
@@ -21,6 +22,7 @@ namespace library.AppLogic {
         private string _configFilepath = "../../../../../config.txt";
         private ClientLogic _clientLogic;
         private PacketLogic _packetLogic;
+        private Snapshot _snapshotMaker;
 
         private Database.Database instance = null;
 
@@ -32,7 +34,9 @@ namespace library.AppLogic {
             _clientLogic = new ClientLogic();
             _packetLogic = new PacketLogic();
             _commandActivatePacket=new ActivatePacketCommand(instance);
-            _commandDeactivatePacket = new DeactivatePacketCommand(instance);        }
+            _commandDeactivatePacket = new DeactivatePacketCommand(instance);
+            _snapshotMaker = new Snapshot(instance);
+        }
 
         /* ***************************************************************
          * 
@@ -74,6 +78,12 @@ namespace library.AppLogic {
             parameters.Add("@param3", lastName);
 
             _clientLogic.addNewClient(sql, parameters); // u slucaju da dodje do izuzetka delegira se do prozora forme
+
+            Dictionary<string, object> snapshotParameters = new Dictionary<string, object>();
+            snapshotParameters.Add("type", "INSERT");
+            snapshotParameters.Add("table", "CLIENT");
+            snapshotParameters.Add("username", username);
+            _snapshotMaker.CreateSnapshot(snapshotParameters); // ako iznad pukne nece doci do ovog dela
         }
         /* ***************************************************************
          * 
@@ -129,8 +139,14 @@ namespace library.AppLogic {
             parameters1.Add("@param1", name);
             parameters1.Add("@param2", price);
             _packetLogic.insert(sql1, parameters1);   // moguc izuzetak ukoliko ime nije unique
-            
+
             int newPacketID = getPacketByName(name).PacketID;
+
+            Dictionary<string, object> snapshotParameters = new Dictionary<string, object>();
+            snapshotParameters.Add("type", "INSERT");
+            snapshotParameters.Add("table", "PACKET");
+            snapshotParameters.Add("packetID", newPacketID);
+
             switch (type) {
                 case Packet.PacketType.INTERNET:
                     sql2 = "INSERT INTO InternetPacket (packetid, downloadspeed, uploadspeed) VALUES (@param1, @param2, @param3)";
@@ -138,6 +154,8 @@ namespace library.AppLogic {
                     parameters2.Add("@param2", data["downloadSpeed"]);
                     parameters2.Add("@param3", data["uploadSpeed"]);
                     _packetLogic.insert(sql2, parameters2);
+
+                    snapshotParameters.Add("packetType", "INTERNET");
                     break;
 
                 case Packet.PacketType.TV:
@@ -145,6 +163,8 @@ namespace library.AppLogic {
                     parameters2.Add("@param1", newPacketID);
                     parameters2.Add("@param2", data["numberOfChannels"]);
                     _packetLogic.insert(sql2, parameters2);
+
+                    snapshotParameters.Add("packetType", "TV");
                     break;
 
                 case Packet.PacketType.COMBINED:
@@ -153,11 +173,15 @@ namespace library.AppLogic {
                     parameters2.Add("@param2", getPacketByName(data["internetpacketname"].ToString()).PacketID);
                     parameters2.Add("@param3", getPacketByName(data["tvpacketname"].ToString()).PacketID);
                     _packetLogic.insert(sql2, parameters2);
+
+                    snapshotParameters.Add("packetType", "COMBINED");
                     break;
 
                 default:
                     break;
             }
+
+            _snapshotMaker.CreateSnapshot(snapshotParameters);
         }
         /* ***************************************************************
          * 
@@ -182,12 +206,29 @@ namespace library.AppLogic {
          * *************************************************************** */
         public void activatePacket(int clientid, int packetid) {
             _commandActivatePacket.Execute(clientid, packetid);
+
+            Dictionary<string, object> snapshotParameters = new Dictionary<string, object>();
+            snapshotParameters.Add("type", "INSERT");
+            snapshotParameters.Add("table", "CLIENTPACKET");
+            snapshotParameters.Add("clientID", clientid);
+            snapshotParameters.Add("packetID", packetid);
+            _snapshotMaker.CreateSnapshot(snapshotParameters);
         }
         /* ***************************************************************
          * 
          * *************************************************************** */
         public void deactivatePacket(int clientid, int packetid) {
             _commandDeactivatePacket.Execute(clientid, packetid);
+            Dictionary<string, object> snapshotParameters = new Dictionary<string, object>();
+            snapshotParameters.Add("type", "DELETE");
+            snapshotParameters.Add("table", "CLIENTPACKET");
+            snapshotParameters.Add("clientID", clientid);
+            snapshotParameters.Add("packetID", packetid);
+            _snapshotMaker.CreateSnapshot(snapshotParameters);
+        }
+
+        public void restorePreviousState() {
+            _snapshotMaker.RestoreSnapshot();
         }
     }
 }
