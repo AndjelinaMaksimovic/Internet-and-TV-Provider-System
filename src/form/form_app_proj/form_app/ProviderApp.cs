@@ -177,16 +177,20 @@ namespace form_app {
 
             foreach (Label lb in panelTVPackets.Controls) {
                 lb.BackColor = SystemColors.Control;
+                lb.ForeColor = SystemColors.ControlText;
                
             }
 
             foreach (Label lb in panelInternetPackets.Controls) {
                 lb.BackColor = SystemColors.Control;
+                lb.ForeColor = SystemColors.ControlText;
            
             }
 
             foreach (Label lb in panelCombinedPackets.Controls) {
                 lb.BackColor = SystemColors.Control;
+                lb.ForeColor= SystemColors.ControlText;
+
                 
             }
         }
@@ -241,6 +245,7 @@ namespace form_app {
                     lb.BackColor = SystemColors.Control;
                     if (packetsForSelectedClient != null && packetsForSelectedClient.Any(packet => packet.PacketID.ToString() == selectedPacketID))
                         lb.BackColor = selectColor;
+                        lb.ForeColor = SystemColors.ControlText;
                 }
             }
 
@@ -249,6 +254,7 @@ namespace form_app {
                     lb.BackColor = SystemColors.Control;
                     if (packetsForSelectedClient != null && packetsForSelectedClient.Any(packet => packet.PacketID.ToString() == selectedPacketID))
                         lb.BackColor = selectColor;
+                        lb.ForeColor = SystemColors.ControlText;
                 }
             }
 
@@ -257,6 +263,7 @@ namespace form_app {
                     lb.BackColor = SystemColors.Control;
                     if (packetsForSelectedClient != null && packetsForSelectedClient.Any(packet => packet.PacketID.ToString() == selectedPacketID))
                         lb.BackColor = selectColor;
+                        lb.ForeColor = SystemColors.ControlText;
                 }
             }
         }
@@ -274,11 +281,13 @@ namespace form_app {
             Label clickedLabel = (Label)sender;
 
             if (clickedLabel.Tag.ToString() == selectedPacketID) {
+                clickedLabel.ForeColor = SystemColors.ControlText;
                 selectedPacketID = null;
                 return; // deselect
             }
 
             clickedLabel.BackColor = selectPacketColor;
+            clickedLabel.ForeColor = SystemColors.Control;
             this.selectedPacketID = clickedLabel.Tag.ToString();
 
             // Ako klijent vec ima ovaj paket, prikazi dugme da Deaktivira paket
@@ -454,6 +463,7 @@ namespace form_app {
             Label selectedPacketLabel = panelClients.Controls.OfType<Label>().FirstOrDefault(lbl => lbl.Tag.ToString() == selectedPacketID);
             if (selectedPacketLabel != null) {
                 selectedPacketLabel.BackColor = SystemColors.Control;
+                selectedPacketLabel.ForeColor = SystemColors.ControlText;
             }
 
             appLogic.deactivatePacket(Convert.ToInt32(selectedClientID), Convert.ToInt32(selectedPacketID));
@@ -474,6 +484,7 @@ namespace form_app {
             Label selectedPacketLabel = panelClients.Controls.OfType<Label>().FirstOrDefault(lbl => lbl.Tag.ToString() == selectedPacketID);
             if (selectedPacketLabel != null) {
                 selectedPacketLabel.BackColor = SystemColors.Control;
+                selectedPacketLabel.ForeColor = SystemColors.ControlText;
             }
 
             appLogic.activatePacket(Convert.ToInt32(selectedClientID), Convert.ToInt32(selectedPacketID));
