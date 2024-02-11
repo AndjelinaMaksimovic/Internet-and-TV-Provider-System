@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace library.AppLogic.Packets {
-    internal class TVPacketBuilder : PacketBuilder {
+    internal sealed class TVPacketBuilder : PacketBuilder {
         private Packet packet = null;
 
         public TVPacketBuilder() {
@@ -42,7 +42,7 @@ namespace library.AppLogic.Packets {
         }
 
         public override void build(int id, string name, double price, int downloadSpeed, int uploadSpeed, int numberOfChannels) {
-            packet = new Packet();          // ???
+            packet = new Packet();
             setPacketID(id);
             setPacketName(name);
             setPacketPrice(price);
