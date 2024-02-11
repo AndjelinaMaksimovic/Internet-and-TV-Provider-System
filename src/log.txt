@@ -5902,3 +5902,356 @@
 11-Feb-24 10:54:52 PM - logged query : SELECT * FROM Client WHERE clientid = 2
 11-Feb-24 10:54:52 PM - logged query : SELECT * FROM Packet WHERE PacketID = 4
 11-Feb-24 10:54:52 PM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON cp.packetid = p.packetid WHERE clientid = 2
+11-Feb-24 11:16:07 PM - logged query : SELECT * FROM Client ORDER BY username ASC
+11-Feb-24 11:16:07 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+11-Feb-24 11:16:07 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+11-Feb-24 11:16:07 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+11-Feb-24 11:16:21 PM - logged query : INSERT INTO Client (username, firstname, lastname) VALUES (radovan.draskovic, Radovan, Draskovic)
+11-Feb-24 11:16:22 PM - logged query : SELECT * FROM Client ORDER BY username ASC
+11-Feb-24 11:16:23 PM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON cp.packetid = p.packetid WHERE clientid = 1
+11-Feb-24 11:16:25 PM - logged query : DELETE FROM Client WHERE username = radovan.draskovic
+11-Feb-24 11:16:25 PM - logged query : SELECT * FROM Client ORDER BY username ASC
+11-Feb-24 11:16:25 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+11-Feb-24 11:16:25 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+11-Feb-24 11:16:25 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+11-Feb-24 11:16:26 PM - logged query : INSERT INTO Client (username, firstname, lastname) VALUES (radovan.draskovic, Radovan, Draskovic)
+11-Feb-24 11:16:26 PM - logged query : SELECT * FROM Client ORDER BY username ASC
+11-Feb-24 11:16:26 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+11-Feb-24 11:16:26 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+11-Feb-24 11:16:26 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+11-Feb-24 11:16:50 PM - logged query : INSERT INTO Packet (name, price) VALUES (TV 50, 750)
+11-Feb-24 11:16:50 PM - logged query : SELECT * FROM Packet WHERE name = TV 50
+11-Feb-24 11:16:50 PM - logged query : INSERT INTO TVPacket (packetid, numberOfChannels) VALUES (1, 50)
+11-Feb-24 11:16:51 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+11-Feb-24 11:16:51 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+11-Feb-24 11:16:51 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+11-Feb-24 11:16:52 PM - logged query : SELECT * FROM Packet WHERE name = TV 50
+11-Feb-24 11:16:52 PM - logged query : DELETE FROM tvpacket WHERE packetid = 1
+11-Feb-24 11:16:52 PM - logged query : DELETE FROM Packet WHERE PacketID = 1
+11-Feb-24 11:16:52 PM - logged query : SELECT * FROM Client ORDER BY username ASC
+11-Feb-24 11:16:52 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+11-Feb-24 11:16:52 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+11-Feb-24 11:16:52 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+11-Feb-24 11:16:53 PM - logged query : INSERT INTO Packet (name, price) VALUES(TV 50, 750)
+11-Feb-24 11:16:53 PM - logged query : SELECT * FROM Packet WHERE name = TV 50
+11-Feb-24 11:16:53 PM - logged query : INSERT INTO TVPacket(packetid, numberOfChannels) VALUES (2, 50)
+11-Feb-24 11:16:53 PM - logged query : SELECT * FROM Client ORDER BY username ASC
+11-Feb-24 11:16:53 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+11-Feb-24 11:16:53 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+11-Feb-24 11:16:53 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+11-Feb-24 11:16:58 PM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON cp.packetid = p.packetid WHERE clientid = 2
+11-Feb-24 11:16:59 PM - logged query : INSERT INTO ClientPacket (clientId, packetId) VALUES (2, 2)
+11-Feb-24 11:16:59 PM - logged query : SELECT * FROM Client WHERE clientid = 2
+11-Feb-24 11:16:59 PM - logged query : SELECT * FROM Packet WHERE PacketID = 2
+11-Feb-24 11:16:59 PM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON cp.packetid = p.packetid WHERE clientid = 2
+11-Feb-24 11:17:01 PM - logged query : SELECT * FROM Packet WHERE name = TV 50
+11-Feb-24 11:17:01 PM - logged query : SELECT * FROM Client WHERE username = radovan.draskovic
+11-Feb-24 11:17:01 PM - logged query : DELETE FROM ClientPacket WHERE ClientID = 2 AND PacketID = 2
+11-Feb-24 11:17:01 PM - logged query : SELECT * FROM Client ORDER BY username ASC
+11-Feb-24 11:17:01 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+11-Feb-24 11:17:01 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+11-Feb-24 11:17:01 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+11-Feb-24 11:17:01 PM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON cp.packetid = p.packetid WHERE clientid = 2
+11-Feb-24 11:17:02 PM - logged query : SELECT * FROM Packet WHERE name = TV 50
+11-Feb-24 11:17:02 PM - logged query : DELETE FROM tvpacket WHERE packetid = 2
+11-Feb-24 11:17:02 PM - logged query : DELETE FROM Packet WHERE PacketID = 2
+11-Feb-24 11:17:02 PM - logged query : SELECT * FROM Client ORDER BY username ASC
+11-Feb-24 11:17:02 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+11-Feb-24 11:17:02 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+11-Feb-24 11:17:02 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+11-Feb-24 11:17:02 PM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON cp.packetid = p.packetid WHERE clientid = 2
+11-Feb-24 11:17:04 PM - logged query : INSERT INTO Packet (name, price) VALUES(TV 50, 750)
+11-Feb-24 11:17:04 PM - logged query : SELECT * FROM Packet WHERE name = TV 50
+11-Feb-24 11:17:04 PM - logged query : INSERT INTO TVPacket(packetid, numberOfChannels) VALUES (3, 50)
+11-Feb-24 11:17:04 PM - logged query : SELECT * FROM Client ORDER BY username ASC
+11-Feb-24 11:17:04 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+11-Feb-24 11:17:04 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+11-Feb-24 11:17:04 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+11-Feb-24 11:17:04 PM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON cp.packetid = p.packetid WHERE clientid = 2
+11-Feb-24 11:17:05 PM - logged query : SELECT * FROM Packet WHERE name = TV 50
+11-Feb-24 11:17:05 PM - logged query : SELECT * FROM Client WHERE username = radovan.draskovic
+11-Feb-24 11:17:05 PM - logged query : INSERT INTO ClientPacket(clientid, packetid) VALUES(2, 3)
+11-Feb-24 11:17:05 PM - logged query : SELECT * FROM Client ORDER BY username ASC
+11-Feb-24 11:17:05 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+11-Feb-24 11:17:05 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+11-Feb-24 11:17:05 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+11-Feb-24 11:17:05 PM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON cp.packetid = p.packetid WHERE clientid = 2
+11-Feb-24 11:17:25 PM - logged query : INSERT INTO Packet (name, price) VALUES (NET 30, 1250)
+11-Feb-24 11:17:25 PM - logged query : SELECT * FROM Packet WHERE name = NET 30
+11-Feb-24 11:17:25 PM - logged query : INSERT INTO InternetPacket (packetid, downloadspeed, uploadspeed) VALUES (4, 30, 15)
+11-Feb-24 11:17:26 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+11-Feb-24 11:17:26 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+11-Feb-24 11:17:26 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+11-Feb-24 11:17:30 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+11-Feb-24 11:17:30 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+11-Feb-24 11:17:42 PM - logged query : INSERT INTO Packet (name, price) VALUES (BOX 1, 1500)
+11-Feb-24 11:17:42 PM - logged query : SELECT * FROM Packet WHERE name = BOX 1
+11-Feb-24 11:17:42 PM - logged query : SELECT * FROM Packet WHERE name = NET 30
+11-Feb-24 11:17:42 PM - logged query : SELECT * FROM Packet WHERE name = TV 50
+11-Feb-24 11:17:42 PM - logged query : INSERT INTO CombPacket (packetid, internetpacketid, tvpacketid) VALUES (5, 4, 3)
+11-Feb-24 11:17:43 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+11-Feb-24 11:17:43 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+11-Feb-24 11:17:43 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+11-Feb-24 11:17:46 PM - logged query : SELECT * FROM Packet WHERE name = BOX 1
+11-Feb-24 11:17:46 PM - logged query : DELETE FROM combpacket WHERE packetid = 5
+11-Feb-24 11:17:46 PM - logged query : DELETE FROM Packet WHERE PacketID = 5
+11-Feb-24 11:17:46 PM - logged query : SELECT * FROM Client ORDER BY username ASC
+11-Feb-24 11:17:46 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+11-Feb-24 11:17:46 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+11-Feb-24 11:17:46 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+11-Feb-24 11:17:47 PM - logged query : SELECT * FROM Packet WHERE name = NET 30
+11-Feb-24 11:17:47 PM - logged query : DELETE FROM internetpacket WHERE packetid = 4
+11-Feb-24 11:17:47 PM - logged query : DELETE FROM Packet WHERE PacketID = 4
+11-Feb-24 11:17:47 PM - logged query : SELECT * FROM Client ORDER BY username ASC
+11-Feb-24 11:17:47 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+11-Feb-24 11:17:47 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+11-Feb-24 11:17:47 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+11-Feb-24 11:17:48 PM - logged query : INSERT INTO Packet (name, price) VALUES(NET 30, 1250)
+11-Feb-24 11:17:48 PM - logged query : SELECT * FROM Packet WHERE name = NET 30
+11-Feb-24 11:17:48 PM - logged query : INSERT INTO InternetPacket(packetid, downloadspeed, uploadspeed) VALUES (6, 30, 15)
+11-Feb-24 11:17:48 PM - logged query : SELECT * FROM Client ORDER BY username ASC
+11-Feb-24 11:17:48 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+11-Feb-24 11:17:48 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+11-Feb-24 11:17:48 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+11-Feb-24 11:17:49 PM - logged query : INSERT INTO Packet (name, price) VALUES(BOX 1, 1500)
+11-Feb-24 11:17:49 PM - logged query : SELECT * FROM Packet WHERE name = BOX 1
+11-Feb-24 11:17:49 PM - logged query : SELECT * FROM Packet WHERE name = NET 30
+11-Feb-24 11:17:49 PM - logged query : SELECT * FROM Packet WHERE name = TV 50
+11-Feb-24 11:17:49 PM - logged query : INSERT INTO CombPacket(packetid, internetpacketid, tvpacketid) VALUES (7, 6, 3)
+11-Feb-24 11:17:49 PM - logged query : SELECT * FROM Client ORDER BY username ASC
+11-Feb-24 11:17:49 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+11-Feb-24 11:17:49 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+11-Feb-24 11:17:49 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+11-Feb-24 11:18:24 PM - logged query : INSERT INTO Packet (name, price) VALUES (TV 100, 1000)
+11-Feb-24 11:18:24 PM - logged query : SELECT * FROM Packet WHERE name = TV 100
+11-Feb-24 11:18:24 PM - logged query : INSERT INTO TVPacket (packetid, numberOfChannels) VALUES (8, 100)
+11-Feb-24 11:18:25 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+11-Feb-24 11:18:25 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+11-Feb-24 11:18:25 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+11-Feb-24 11:18:30 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+11-Feb-24 11:18:30 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+11-Feb-24 11:18:47 PM - logged query : INSERT INTO Packet (name, price) VALUES (BOX 2, 1999)
+11-Feb-24 11:18:47 PM - logged query : SELECT * FROM Packet WHERE name = BOX 2
+11-Feb-24 11:18:47 PM - logged query : SELECT * FROM Packet WHERE name = NET 30
+11-Feb-24 11:18:47 PM - logged query : SELECT * FROM Packet WHERE name = TV 100
+11-Feb-24 11:18:47 PM - logged query : INSERT INTO CombPacket (packetid, internetpacketid, tvpacketid) VALUES (9, 6, 8)
+11-Feb-24 11:18:48 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+11-Feb-24 11:18:48 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+11-Feb-24 11:18:48 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+11-Feb-24 11:18:49 PM - logged query : SELECT * FROM Packet WHERE name = BOX 2
+11-Feb-24 11:18:49 PM - logged query : DELETE FROM combpacket WHERE packetid = 9
+11-Feb-24 11:18:49 PM - logged query : DELETE FROM Packet WHERE PacketID = 9
+11-Feb-24 11:18:49 PM - logged query : SELECT * FROM Client ORDER BY username ASC
+11-Feb-24 11:18:49 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+11-Feb-24 11:18:49 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+11-Feb-24 11:18:49 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+11-Feb-24 11:18:50 PM - logged query : SELECT * FROM Packet WHERE name = TV 100
+11-Feb-24 11:18:50 PM - logged query : DELETE FROM tvpacket WHERE packetid = 8
+11-Feb-24 11:18:50 PM - logged query : DELETE FROM Packet WHERE PacketID = 8
+11-Feb-24 11:18:50 PM - logged query : SELECT * FROM Client ORDER BY username ASC
+11-Feb-24 11:18:50 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+11-Feb-24 11:18:50 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+11-Feb-24 11:18:50 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+11-Feb-24 11:18:50 PM - logged query : SELECT * FROM Packet WHERE name = BOX 1
+11-Feb-24 11:18:50 PM - logged query : DELETE FROM combpacket WHERE packetid = 7
+11-Feb-24 11:18:50 PM - logged query : DELETE FROM Packet WHERE PacketID = 7
+11-Feb-24 11:18:50 PM - logged query : SELECT * FROM Client ORDER BY username ASC
+11-Feb-24 11:18:50 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+11-Feb-24 11:18:50 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+11-Feb-24 11:18:50 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+11-Feb-24 11:18:51 PM - logged query : SELECT * FROM Packet WHERE name = NET 30
+11-Feb-24 11:18:51 PM - logged query : DELETE FROM internetpacket WHERE packetid = 6
+11-Feb-24 11:18:51 PM - logged query : DELETE FROM Packet WHERE PacketID = 6
+11-Feb-24 11:18:51 PM - logged query : SELECT * FROM Client ORDER BY username ASC
+11-Feb-24 11:18:51 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+11-Feb-24 11:18:51 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+11-Feb-24 11:18:51 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+11-Feb-24 11:18:52 PM - logged query : SELECT * FROM Packet WHERE name = TV 50
+11-Feb-24 11:18:52 PM - logged query : SELECT * FROM Client WHERE username = radovan.draskovic
+11-Feb-24 11:18:52 PM - logged query : DELETE FROM ClientPacket WHERE ClientID = 2 AND PacketID = 3
+11-Feb-24 11:18:52 PM - logged query : SELECT * FROM Client ORDER BY username ASC
+11-Feb-24 11:18:52 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+11-Feb-24 11:18:52 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+11-Feb-24 11:18:52 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+11-Feb-24 11:18:53 PM - logged query : SELECT * FROM Packet WHERE name = TV 50
+11-Feb-24 11:18:53 PM - logged query : DELETE FROM tvpacket WHERE packetid = 3
+11-Feb-24 11:18:53 PM - logged query : DELETE FROM Packet WHERE PacketID = 3
+11-Feb-24 11:18:53 PM - logged query : SELECT * FROM Client ORDER BY username ASC
+11-Feb-24 11:18:53 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+11-Feb-24 11:18:53 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+11-Feb-24 11:18:53 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+11-Feb-24 11:18:53 PM - logged query : DELETE FROM Client WHERE username = radovan.draskovic
+11-Feb-24 11:18:53 PM - logged query : SELECT * FROM Client ORDER BY username ASC
+11-Feb-24 11:18:53 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+11-Feb-24 11:18:53 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+11-Feb-24 11:18:53 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+11-Feb-24 11:18:55 PM - logged query : INSERT INTO Client (username, firstname, lastname) VALUES (radovan.draskovic, Radovan, Draskovic)
+11-Feb-24 11:18:55 PM - logged query : SELECT * FROM Client ORDER BY username ASC
+11-Feb-24 11:18:55 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+11-Feb-24 11:18:55 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+11-Feb-24 11:18:55 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+11-Feb-24 11:18:55 PM - logged query : INSERT INTO Packet (name, price) VALUES(TV 50, 750)
+11-Feb-24 11:18:55 PM - logged query : SELECT * FROM Packet WHERE name = TV 50
+11-Feb-24 11:18:55 PM - logged query : INSERT INTO TVPacket(packetid, numberOfChannels) VALUES (10, 50)
+11-Feb-24 11:18:55 PM - logged query : SELECT * FROM Client ORDER BY username ASC
+11-Feb-24 11:18:55 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+11-Feb-24 11:18:55 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+11-Feb-24 11:18:55 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+11-Feb-24 11:18:56 PM - logged query : SELECT * FROM Packet WHERE name = TV 50
+11-Feb-24 11:18:56 PM - logged query : SELECT * FROM Client WHERE username = radovan.draskovic
+11-Feb-24 11:18:56 PM - logged query : INSERT INTO ClientPacket(clientid, packetid) VALUES(3, 10)
+11-Feb-24 11:18:56 PM - logged query : SELECT * FROM Client ORDER BY username ASC
+11-Feb-24 11:18:56 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+11-Feb-24 11:18:56 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+11-Feb-24 11:18:56 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+11-Feb-24 11:18:57 PM - logged query : INSERT INTO Packet (name, price) VALUES(NET 30, 1250)
+11-Feb-24 11:18:57 PM - logged query : SELECT * FROM Packet WHERE name = NET 30
+11-Feb-24 11:18:57 PM - logged query : INSERT INTO InternetPacket(packetid, downloadspeed, uploadspeed) VALUES (11, 30, 15)
+11-Feb-24 11:18:57 PM - logged query : SELECT * FROM Client ORDER BY username ASC
+11-Feb-24 11:18:57 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+11-Feb-24 11:18:57 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+11-Feb-24 11:18:57 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+11-Feb-24 11:18:58 PM - logged query : INSERT INTO Packet (name, price) VALUES(BOX 1, 1500)
+11-Feb-24 11:18:58 PM - logged query : SELECT * FROM Packet WHERE name = BOX 1
+11-Feb-24 11:18:58 PM - logged query : SELECT * FROM Packet WHERE name = NET 30
+11-Feb-24 11:18:58 PM - logged query : SELECT * FROM Packet WHERE name = TV 50
+11-Feb-24 11:18:58 PM - logged query : INSERT INTO CombPacket(packetid, internetpacketid, tvpacketid) VALUES (12, 11, 10)
+11-Feb-24 11:18:58 PM - logged query : SELECT * FROM Client ORDER BY username ASC
+11-Feb-24 11:18:58 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+11-Feb-24 11:18:58 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+11-Feb-24 11:18:58 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+11-Feb-24 11:18:58 PM - logged query : INSERT INTO Packet (name, price) VALUES(TV 100, 1000)
+11-Feb-24 11:18:58 PM - logged query : SELECT * FROM Packet WHERE name = TV 100
+11-Feb-24 11:18:58 PM - logged query : INSERT INTO TVPacket(packetid, numberOfChannels) VALUES (13, 100)
+11-Feb-24 11:18:58 PM - logged query : SELECT * FROM Client ORDER BY username ASC
+11-Feb-24 11:18:58 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+11-Feb-24 11:18:59 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+11-Feb-24 11:18:59 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+11-Feb-24 11:18:59 PM - logged query : INSERT INTO Packet (name, price) VALUES(BOX 2, 1999)
+11-Feb-24 11:18:59 PM - logged query : SELECT * FROM Packet WHERE name = BOX 2
+11-Feb-24 11:18:59 PM - logged query : SELECT * FROM Packet WHERE name = NET 30
+11-Feb-24 11:18:59 PM - logged query : SELECT * FROM Packet WHERE name = TV 100
+11-Feb-24 11:18:59 PM - logged query : INSERT INTO CombPacket(packetid, internetpacketid, tvpacketid) VALUES (14, 11, 13)
+11-Feb-24 11:18:59 PM - logged query : SELECT * FROM Client ORDER BY username ASC
+11-Feb-24 11:18:59 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+11-Feb-24 11:18:59 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+11-Feb-24 11:18:59 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+11-Feb-24 11:19:00 PM - logged query : SELECT * FROM Client ORDER BY username ASC
+11-Feb-24 11:19:00 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+11-Feb-24 11:19:00 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+11-Feb-24 11:19:00 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+11-Feb-24 11:19:02 PM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON cp.packetid = p.packetid WHERE clientid = 3
+11-Feb-24 11:19:04 PM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON cp.packetid = p.packetid WHERE clientid = 3
+11-Feb-24 11:19:05 PM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON cp.packetid = p.packetid WHERE clientid = 3
+11-Feb-24 11:19:08 PM - logged query : INSERT INTO ClientPacket (clientId, packetId) VALUES (3, 14)
+11-Feb-24 11:19:08 PM - logged query : SELECT * FROM Client WHERE clientid = 3
+11-Feb-24 11:19:08 PM - logged query : SELECT * FROM Packet WHERE PacketID = 14
+11-Feb-24 11:19:08 PM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON cp.packetid = p.packetid WHERE clientid = 3
+11-Feb-24 11:19:10 PM - logged query : SELECT * FROM Packet WHERE name = BOX 2
+11-Feb-24 11:19:10 PM - logged query : SELECT * FROM Client WHERE username = radovan.draskovic
+11-Feb-24 11:19:10 PM - logged query : DELETE FROM ClientPacket WHERE ClientID = 3 AND PacketID = 14
+11-Feb-24 11:19:10 PM - logged query : SELECT * FROM Client ORDER BY username ASC
+11-Feb-24 11:19:10 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+11-Feb-24 11:19:10 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+11-Feb-24 11:19:10 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+11-Feb-24 11:19:10 PM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON cp.packetid = p.packetid WHERE clientid = 3
+11-Feb-24 11:19:13 PM - logged query : DELETE FROM ClientPacket WHERE clientID = 3 AND packetID = 10
+11-Feb-24 11:19:13 PM - logged query : SELECT * FROM Client WHERE clientid = 3
+11-Feb-24 11:19:13 PM - logged query : SELECT * FROM Packet WHERE PacketID = 10
+11-Feb-24 11:19:13 PM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON cp.packetid = p.packetid WHERE clientid = 3
+11-Feb-24 11:19:14 PM - logged query : SELECT * FROM Packet WHERE name = BOX 2
+11-Feb-24 11:19:14 PM - logged query : SELECT * FROM Client WHERE username = radovan.draskovic
+11-Feb-24 11:19:14 PM - logged query : INSERT INTO ClientPacket(clientid, packetid) VALUES(3, 14)
+11-Feb-24 11:19:14 PM - logged query : SELECT * FROM Client ORDER BY username ASC
+11-Feb-24 11:19:14 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+11-Feb-24 11:19:14 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+11-Feb-24 11:19:14 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+11-Feb-24 11:19:14 PM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON cp.packetid = p.packetid WHERE clientid = 3
+11-Feb-24 11:19:16 PM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON cp.packetid = p.packetid WHERE clientid = 3
+11-Feb-24 11:19:18 PM - logged query : SELECT * FROM Client ORDER BY username ASC
+11-Feb-24 11:19:18 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+11-Feb-24 11:19:18 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+11-Feb-24 11:19:18 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+11-Feb-24 11:19:18 PM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON cp.packetid = p.packetid WHERE clientid = 3
+11-Feb-24 11:19:19 PM - logged query : SELECT * FROM Client ORDER BY username ASC
+11-Feb-24 11:19:19 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+11-Feb-24 11:19:19 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+11-Feb-24 11:19:19 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+11-Feb-24 11:19:19 PM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON cp.packetid = p.packetid WHERE clientid = 3
+11-Feb-24 11:19:21 PM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON cp.packetid = p.packetid WHERE clientid = 3
+11-Feb-24 11:19:23 PM - logged query : INSERT INTO ClientPacket (clientId, packetId) VALUES (3, 10)
+11-Feb-24 11:19:23 PM - logged query : SELECT * FROM Client WHERE clientid = 3
+11-Feb-24 11:19:23 PM - logged query : SELECT * FROM Packet WHERE PacketID = 10
+11-Feb-24 11:19:23 PM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON cp.packetid = p.packetid WHERE clientid = 3
+11-Feb-24 11:19:24 PM - logged query : SELECT * FROM Packet WHERE name = TV 50
+11-Feb-24 11:19:24 PM - logged query : SELECT * FROM Client WHERE username = radovan.draskovic
+11-Feb-24 11:19:24 PM - logged query : DELETE FROM ClientPacket WHERE ClientID = 3 AND PacketID = 10
+11-Feb-24 11:19:24 PM - logged query : SELECT * FROM Client ORDER BY username ASC
+11-Feb-24 11:19:24 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+11-Feb-24 11:19:24 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+11-Feb-24 11:19:24 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+11-Feb-24 11:19:24 PM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON cp.packetid = p.packetid WHERE clientid = 3
+11-Feb-24 11:19:25 PM - logged query : SELECT * FROM Packet WHERE name = BOX 2
+11-Feb-24 11:19:25 PM - logged query : SELECT * FROM Client WHERE username = radovan.draskovic
+11-Feb-24 11:19:25 PM - logged query : DELETE FROM ClientPacket WHERE ClientID = 3 AND PacketID = 14
+11-Feb-24 11:19:25 PM - logged query : SELECT * FROM Client ORDER BY username ASC
+11-Feb-24 11:19:25 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+11-Feb-24 11:19:25 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+11-Feb-24 11:19:25 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+11-Feb-24 11:19:25 PM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON cp.packetid = p.packetid WHERE clientid = 3
+11-Feb-24 11:19:26 PM - logged query : SELECT * FROM Packet WHERE name = TV 50
+11-Feb-24 11:19:26 PM - logged query : SELECT * FROM Client WHERE username = radovan.draskovic
+11-Feb-24 11:19:26 PM - logged query : INSERT INTO ClientPacket (ClientID, PacketID) VALUES (3, 10)
+11-Feb-24 11:19:26 PM - logged query : SELECT * FROM Client ORDER BY username ASC
+11-Feb-24 11:19:26 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+11-Feb-24 11:19:26 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+11-Feb-24 11:19:26 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+11-Feb-24 11:19:26 PM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON cp.packetid = p.packetid WHERE clientid = 3
+11-Feb-24 11:19:29 PM - logged query : SELECT * FROM Packet WHERE name = BOX 2
+11-Feb-24 11:19:29 PM - logged query : DELETE FROM combpacket WHERE packetid = 14
+11-Feb-24 11:19:29 PM - logged query : DELETE FROM Packet WHERE PacketID = 14
+11-Feb-24 11:19:29 PM - logged query : SELECT * FROM Client ORDER BY username ASC
+11-Feb-24 11:19:29 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+11-Feb-24 11:19:29 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+11-Feb-24 11:19:29 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+11-Feb-24 11:19:29 PM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON cp.packetid = p.packetid WHERE clientid = 3
+11-Feb-24 11:19:30 PM - logged query : INSERT INTO Packet (name, price) VALUES(BOX 2, 1999)
+11-Feb-24 11:19:30 PM - logged query : SELECT * FROM Packet WHERE name = BOX 2
+11-Feb-24 11:19:30 PM - logged query : SELECT * FROM Packet WHERE name = NET 30
+11-Feb-24 11:19:30 PM - logged query : SELECT * FROM Packet WHERE name = TV 100
+11-Feb-24 11:19:30 PM - logged query : INSERT INTO CombPacket(packetid, internetpacketid, tvpacketid) VALUES (15, 11, 13)
+11-Feb-24 11:19:30 PM - logged query : SELECT * FROM Client ORDER BY username ASC
+11-Feb-24 11:19:30 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+11-Feb-24 11:19:30 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+11-Feb-24 11:19:30 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+11-Feb-24 11:19:30 PM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON cp.packetid = p.packetid WHERE clientid = 3
+11-Feb-24 11:19:46 PM - logged query : INSERT INTO Client (username, firstname, lastname) VALUES (marija.jolovic, Marija, Jolovic)
+11-Feb-24 11:19:46 PM - logged query : SELECT * FROM Client ORDER BY username ASC
+11-Feb-24 11:20:02 PM - logged query : SELECT * FROM Client ORDER BY username ASC
+11-Feb-24 11:20:03 PM - logged query : DELETE FROM Client WHERE username = marija.jolovic
+11-Feb-24 11:20:03 PM - logged query : SELECT * FROM Client ORDER BY username ASC
+11-Feb-24 11:20:03 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+11-Feb-24 11:20:03 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+11-Feb-24 11:20:03 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+11-Feb-24 11:20:05 PM - logged query : INSERT INTO Client (username, firstname, lastname) VALUES (marija.jolovic, Marija, Jolovic)
+11-Feb-24 11:20:05 PM - logged query : SELECT * FROM Client ORDER BY username ASC
+11-Feb-24 11:20:05 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+11-Feb-24 11:20:05 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+11-Feb-24 11:20:05 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+11-Feb-24 11:20:19 PM - logged query : INSERT INTO Client (username, firstname, lastname) VALUES (damjan.pavlovic, Damjan, Pavlovic)
+11-Feb-24 11:20:20 PM - logged query : SELECT * FROM Client ORDER BY username ASC
+11-Feb-24 11:20:33 PM - logged query : INSERT INTO Client (username, firstname, lastname) VALUES (andjelina.maksimovic, Andjelina, Maksimovic)
+11-Feb-24 11:20:33 PM - logged query : SELECT * FROM Client ORDER BY username ASC
+11-Feb-24 11:20:50 PM - logged query : INSERT INTO Client (username, firstname, lastname) VALUES (uros.mladenovic, Uros, Mladenovic)
+11-Feb-24 11:20:51 PM - logged query : SELECT * FROM Client ORDER BY username ASC
+11-Feb-24 11:20:52 PM - logged query : SELECT * FROM ClientPacket cp JOIN Packet p ON cp.packetid = p.packetid WHERE clientid = 3
+11-Feb-24 11:20:56 PM - logged query : DELETE FROM Client WHERE username = uros.mladenovic
+11-Feb-24 11:20:56 PM - logged query : SELECT * FROM Client ORDER BY username ASC
+11-Feb-24 11:20:56 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+11-Feb-24 11:20:56 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+11-Feb-24 11:20:56 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID
+11-Feb-24 11:20:56 PM - logged query : INSERT INTO Client (username, firstname, lastname) VALUES (uros.mladenovic, Uros, Mladenovic)
+11-Feb-24 11:20:56 PM - logged query : SELECT * FROM Client ORDER BY username ASC
+11-Feb-24 11:20:56 PM - logged query : SELECT * FROM Packet p JOIN InternetPacket i ON p.PacketID = i.PacketID
+11-Feb-24 11:20:57 PM - logged query : SELECT * FROM Packet p JOIN TVPacket t ON p.PacketID = t.PacketID
+11-Feb-24 11:20:57 PM - logged query : SELECT * FROM packet p JOIN combpacket c JOIN internetpacket i JOIN tvpacket t on p.packetid = c.packetid AND c.InternetPacketID = i.packetid and c.TVPacketID = t.PacketID

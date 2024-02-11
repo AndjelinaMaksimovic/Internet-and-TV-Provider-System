@@ -1,2 +1,2 @@
-PROVIDER # A1
-CONNSTRING # Data Source=C:\Users\radov\Desktop\Dizajniranje_softvera\Projekat\ClonedProject\src\db\a1_database.db;
+PROVIDER # MTS
+CONNSTRING # server=localhost;user=root;password=;database=mts_database;
