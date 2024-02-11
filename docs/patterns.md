@@ -113,4 +113,7 @@ lako dodavanje novih akcija.
   <img src="./resources/images/memento.png" alt="Memento method logo" height=150>
 </div>
 
-U ovom projektu se koristi Memento šablon kako bi se omogućilo snimanje i vraćanje stanja podsistema Database. Klasa Snapshot služi za snimanje stanja i izvršavanje akcija za vraćanje i ponovno izvršavanje. Klasa ConcreteCommand predstavlja konkretne akcije koje menjaju stanje sistema, a klasa Caretaker čuva snimljena stanja. Ovo omogućava efikasno upravljanje stanjem sistema i vraćanje u prethodno zabeleženo stanje po potrebi.
+U ovom projektu se koristi Memento šablon kako bi se omogućilo snimanje i vraćanje stanja podsistema Database. 
+Klasa Snapshot čuva prethodna stanje sistema, odnosno promene izvršene u bazi. Pomoću nje je moguće snimiti trenutno stanje sistema (CreateSnapshot), vraćanje podisistema u prethodno stanje (RestoreSnapshot) kao i ponovno izvršavanje akcija (RedoSnapshot). Interfejs ICommandMemento obezbeđuje postojanje metoda za redo i undo čiju implementaciju vrši klasa ConcreteCommand klasa definišući konkretne akcije ponovnog izvršavanja prethodne komande ili njenog vraćanja.
+
+Ovaj obrazac omogućava efikasno upravljanje stanjem sistema, omogućavajući njegovo snimanje u različitim trenucima i vraćanje u prethodna stanja po potrebi.
