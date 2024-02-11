@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using library.AppLogic.Interfaces;
 using library.AppLogic.Packets;
 using library.AppLogic.Clients;
+using System.Runtime.InteropServices;
 
 namespace form_app {
     public partial class ProviderApp : Form {
@@ -22,6 +23,31 @@ namespace form_app {
         private Color selectColor = Color.LightGreen;                   // color used to display selected users and their packets
         private string selectedPacketID = null;                         // decide which packet is currently selected
         private Color selectPacketColor = Color.DarkGreen;              // color used to display selected packets
+
+        /* **************************** FORM COLOR ************************************* */
+
+        private string ToBgr(Color c) => $"{c.B:X2}{c.G:X2}{c.R:X2}";
+
+        [DllImport("DwmApi")]
+        private static extern int DwmSetWindowAttribute(IntPtr hwnd, int attr, int[] attrValue, int attrSize);
+
+        const int DWWMA_CAPTION_COLOR = 35;
+        const int DWWMA_BORDER_COLOR = 34;
+        const int DWMWA_TEXT_COLOR = 36;
+        public void CustomWindow(Color captionColor, Color fontColor, Color borderColor, IntPtr handle) {
+            IntPtr hWnd = handle;
+            //Change caption color
+            int[] caption = new int[] { int.Parse(ToBgr(captionColor), System.Globalization.NumberStyles.HexNumber) };
+            DwmSetWindowAttribute(hWnd, DWWMA_CAPTION_COLOR, caption, 4);
+            //Change font color
+            int[] font = new int[] { int.Parse(ToBgr(fontColor), System.Globalization.NumberStyles.HexNumber) };
+            DwmSetWindowAttribute(hWnd, DWMWA_TEXT_COLOR, font, 4);
+            //Change border color
+            int[] border = new int[] { int.Parse(ToBgr(borderColor), System.Globalization.NumberStyles.HexNumber) };
+            DwmSetWindowAttribute(hWnd, DWWMA_BORDER_COLOR, border, 4);
+        }
+
+        /* ***************************************************************************** */
 
         /* ********************************************************************
          * Konstruktor
@@ -43,6 +69,8 @@ namespace form_app {
 
             this.KeyPreview = true; // This allows the form to receive key events before they are passed to the focused control
             this.KeyDown += Form_KeyDown;
+
+            CustomWindow(Color.LightGreen, Color.Black, Color.GreenYellow, Handle);
         }
 
         private void Form_KeyDown(object sender, KeyEventArgs e) {
@@ -93,6 +121,9 @@ namespace form_app {
         /* ********************************************************************
          * Popunjava panel za klijente
          * ******************************************************************** */
+
+
+
         private void fill_clients_panel() {
             FlowLayoutPanel panel = this.panelClients;
 
@@ -106,6 +137,8 @@ namespace form_app {
                 lb.Width = 120; // Adjust width as needed
                 lb.Height = 26;
                 lb.Tag = client.ClientID;
+                lb.MouseEnter += Lb_MouseEnter;
+                lb.MouseLeave += Lb_MouseLeave;
 
                 if (selectedClientID != null && lb.Tag.ToString() == selectedClientID) {
                     lb.BackColor = selectColor;
@@ -116,9 +149,25 @@ namespace form_app {
                 panel.Controls.Add(lb);
             }
         }
+
+        private void Lb_MouseEnter(object sender, EventArgs e) {
+            Label lb = sender as Label;
+            lb.BackColor = Color.LightGray;
+        }
+
+        private void Lb_MouseLeave(object sender, EventArgs e) {
+            Label lb = (Label)sender;
+            if(selectedClientID != null && lb.Tag.ToString() == selectedClientID) {
+                lb.BackColor = selectColor;
+            }
+            else {
+                lb.BackColor = SystemColors.Window;
+            }
+        }
+
         /* ********************************************************************
-         * Promena boje selektovanih paketa i korisnika
-         * ******************************************************************** */
+        * Promena boje selektovanih paketa i korisnika
+        * ******************************************************************** */
         private void clearAllSelections() {
             this.btnDeactivate.Visible = false;
             this.btnActivate.Visible = false;
@@ -350,6 +399,8 @@ namespace form_app {
                 lb.Width = 120; // Adjust width as needed
                 lb.Height = 26;
                 lb.Tag = client.ClientID;
+                lb.MouseEnter += Lb_MouseEnter;
+                lb.MouseLeave += Lb_MouseLeave;
 
                 if (selectedClientID != null && lb.Tag.ToString() == selectedClientID) {
                     lb.BackColor = selectColor;
@@ -365,6 +416,8 @@ namespace form_app {
          * Poziva se nakon sto se zatvori prozor za dodavanje novog klijenta
          * ******************************************************************** */
         private void parse_register_client_form_closed(object sender, FormClosedEventArgs e) {
+            clearAllSelections();
+            selectedClientID = null;
             clients = appLogic.getAllClients("");
             fill_clients_panel();
         }
@@ -372,6 +425,7 @@ namespace form_app {
          * Poziva se nakon sto se zatvori prozor za dodavanje novog paketa
          * ******************************************************************** */
         private void parse_create_packet_form_closed(object sender, FormClosedEventArgs e) {
+            clearAllSelections();
             fill_internet_packets_panel();
             fill_tv_packets_panel();
             fill_comb_packets_panel();
