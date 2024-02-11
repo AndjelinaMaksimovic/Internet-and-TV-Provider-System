@@ -46,7 +46,13 @@ namespace form_app {
             this.button_create_packet = new System.Windows.Forms.Button();
             this.btnDeactivate = new System.Windows.Forms.Button();
             this.btnActivate = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.picUndo = new System.Windows.Forms.PictureBox();
+            this.label_undo = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.headerPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picUndo)).BeginInit();
             this.SuspendLayout();
             // 
             // panelClients
@@ -211,11 +217,61 @@ namespace form_app {
             this.btnActivate.UseVisualStyleBackColor = false;
             this.btnActivate.Visible = false;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::form_app.Properties.Resources.redo_img_small;
+            this.pictureBox1.InitialImage = global::form_app.Properties.Resources.redo_img_small;
+            this.pictureBox1.Location = new System.Drawing.Point(945, 348);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(54, 41);
+            this.pictureBox1.TabIndex = 26;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // picUndo
+            // 
+            this.picUndo.Image = global::form_app.Properties.Resources.undo_img_small;
+            this.picUndo.InitialImage = ((System.Drawing.Image)(resources.GetObject("picUndo.InitialImage")));
+            this.picUndo.Location = new System.Drawing.Point(872, 348);
+            this.picUndo.Name = "picUndo";
+            this.picUndo.Size = new System.Drawing.Size(43, 41);
+            this.picUndo.TabIndex = 25;
+            this.picUndo.TabStop = false;
+            this.picUndo.Click += new System.EventHandler(this.picUndo_Click);
+            // 
+            // label_undo
+            // 
+            this.label_undo.AutoSize = true;
+            this.label_undo.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_undo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.label_undo.Location = new System.Drawing.Point(864, 404);
+            this.label_undo.Name = "label_undo";
+            this.label_undo.Size = new System.Drawing.Size(50, 13);
+            this.label_undo.TabIndex = 27;
+            this.label_undo.Text = "CTRL + Z";
+            this.label_undo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(944, 404);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(51, 13);
+            this.label1.TabIndex = 28;
+            this.label1.Text = "CTRL + V";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // ProviderApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1061, 480);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label_undo);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.picUndo);
             this.Controls.Add(this.btnActivate);
             this.Controls.Add(this.btnDeactivate);
             this.Controls.Add(this.button_create_packet);
@@ -241,6 +297,8 @@ namespace form_app {
             this.Text = "TIM1 Provider App";
             this.headerPanel.ResumeLayout(false);
             this.headerPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picUndo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -268,6 +326,10 @@ namespace form_app {
         private Button button1;
         private Button btnDeactivate;
         private Button btnActivate;
+        private PictureBox picUndo;
+        private PictureBox pictureBox1;
+        private Label label_undo;
+        private Label label1;
     }
 }
 

@@ -492,5 +492,12 @@ namespace form_app {
             }
         }
 
+        private void picUndo_Click(object sender, EventArgs e) {
+            Undo();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e) {
+            Redo();
+        }
     }
 }
