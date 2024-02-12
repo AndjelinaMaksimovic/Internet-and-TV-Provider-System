@@ -214,8 +214,6 @@ namespace form_app {
             clearAllSelections();
             if (sender == null) return;
 
-            if (sender == null) return;
-
             Label clickedLabel = (Label)sender;
 
             if (clickedLabel.Tag.ToString() == selectedClientID) {
