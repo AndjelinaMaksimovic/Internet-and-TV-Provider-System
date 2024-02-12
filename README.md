@@ -10,7 +10,3 @@ Tim čine :
 - Anđelina Maksimović
 - Uroš Mladenović 
 
-<figure class="video_container">
-  <iframe src="../docs/video.mp4" frameborder="0" allowfullscreen="true"> 
-</iframe>
-</figure>
