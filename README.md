@@ -9,10 +9,18 @@ Projekat sistem za internet i TV provajdere predstavlja projekat petoro studenat
 - Anđelina Maksimović
 - Uroš Mladenović
 
+Projekat se može klonirati putem git komande
+`git clone http://gitlab.pmf.kg.ac.rs/ds/projekat-2023/tim-01.git`
+ili preuzimanjem .zip foldera sa sadržajem projekta.
+
 # Potrebno za pokretanje aplikacije u razvojnom okruženju
 
 Potrebni paketi koji se koriste za konekciju sa odgovarajućim tipom baze nalaze se u fajlu _requirements.txt_, čiji se sadržaj može videti [ovde](https://gitlab.pmf.kg.ac.rs/ds/projekat-2023/tim-01/-/blob/master/requirements.txt)
+Obzirom da se projekat sastoji iz _class library_ biblioteke i _windows forms app_-a potrebno je build-ovati biblioteku pre korišćenja projekta i izmeniti putanju u _config_ fajlu do odgovarajuće baze na računaru (u slučaju konekcije sa SQLite bazom podataka) ili navesti server i odgovarajuće kredencijale (u slučaju konekcije sa MySQL bazom podataka).
 
 # Podrška za rad sa bazama podataka
 - SQLite
 - MySQL
+
+UML dijagram koji predstavlja strukturu biblioteke se može preuzeti [ovde](https://gitlab.pmf.kg.ac.rs/ds/projekat-2023/tim-01/-/blob/master/docs/UML_packet_providers.png).
+![uml dijagram](https://gitlab.pmf.kg.ac.rs/ds/projekat-2023/tim-01/-/blob/master/docs/UML_packet_providers.png)
