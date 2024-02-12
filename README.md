@@ -26,3 +26,7 @@ UML dijagram koji predstavlja strukturu biblioteke se može preuzeti [ovde](http
 <div>
   <img src="../docs/UML_packet_providers.png" alt="UML dijagram" height=700>
 </div>
+
+Primer rada aplikacije:
+
+https://gitlab.pmf.kg.ac.rs/ds/projekat-2023/tim-01/-/blob/master/docs/vid.mp4
