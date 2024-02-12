@@ -8,3 +8,11 @@ Projekat sistem za internet i TV provajdere predstavlja projekat petoro studenat
 - Damjan Pavlović
 - Anđelina Maksimović
 - Uroš Mladenović
+
+# Potrebno za pokretanje aplikacije u razvojnom okruženju
+
+Potrebni paketi koji se koriste za konekciju sa odgovarajućim tipom baze nalaze se u fajlu _requirements.txt_, čiji se sadržaj može videti [ovde](https://gitlab.pmf.kg.ac.rs/ds/projekat-2023/tim-01/-/blob/master/requirements.txt)
+
+# Podrška za rad sa bazama podataka
+- SQLite
+- MySQL
