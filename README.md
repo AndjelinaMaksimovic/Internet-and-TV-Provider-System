@@ -28,5 +28,4 @@ UML dijagram koji predstavlja strukturu biblioteke se može preuzeti [ovde](http
 </div>
 
 Primer rada aplikacije:
-
-https://gitlab.pmf.kg.ac.rs/ds/projekat-2023/tim-01/-/blob/master/docs/vid.mp4
+https://gitlab.pmf.kg.ac.rs/ds/projekat-2023/tim-01/-/blob/master/docs/vid.mp4?expanded=true&viewer=rich
