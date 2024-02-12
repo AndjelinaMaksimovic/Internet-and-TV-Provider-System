@@ -210,6 +210,7 @@ namespace form_app {
         private void ClientLabel_Click(object sender, EventArgs e) {
 
             clearAllSelections();
+            if (sender == null) return;
 
             Label clickedLabel = (Label)sender;
 

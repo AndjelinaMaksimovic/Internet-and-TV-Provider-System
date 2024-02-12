@@ -260,7 +260,7 @@ namespace form_app {
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(51, 13);
             this.label1.TabIndex = 28;
-            this.label1.Text = "CTRL + V";
+            this.label1.Text = "CTRL + Y";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ProviderApp
