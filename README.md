@@ -23,4 +23,6 @@ Obzirom da se projekat sastoji iz _class library_ biblioteke i _windows forms ap
 - MySQL
 
 UML dijagram koji predstavlja strukturu biblioteke se može preuzeti [ovde](https://gitlab.pmf.kg.ac.rs/ds/projekat-2023/tim-01/-/blob/master/docs/UML_packet_providers.png).
-![uml dijagram](https://gitlab.pmf.kg.ac.rs/ds/projekat-2023/tim-01/-/blob/master/docs/UML_packet_providers.png)
+<div>
+  <img src="../docs/UML_packet_providers.png" alt="UML dijagram" height=700>
+</div>
