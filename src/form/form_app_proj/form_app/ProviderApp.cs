@@ -97,6 +97,7 @@ namespace form_app {
             selectedPacketID = null;
 
             fill_components();
+            filter_clients_tb.Text = string.Empty;
 
             if (selectedClientID != null) {
                 Label selectedClientLabel = panelClients.Controls.OfType<Label>().FirstOrDefault(lbl => lbl.Tag.ToString() == selectedClientID);
@@ -115,6 +116,7 @@ namespace form_app {
             selectedPacketID = null;
 
             fill_components();
+            filter_clients_tb.Text = string.Empty;
 
             if (selectedClientID != null) {
                 Label selectedClientLabel = panelClients.Controls.OfType<Label>().FirstOrDefault(lbl => lbl.Tag.ToString() == selectedClientID);
@@ -210,6 +212,8 @@ namespace form_app {
         private void ClientLabel_Click(object sender, EventArgs e) {
 
             clearAllSelections();
+            if (sender == null) return;
+
             if (sender == null) return;
 
             Label clickedLabel = (Label)sender;
