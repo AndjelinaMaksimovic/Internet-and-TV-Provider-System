@@ -11,7 +11,6 @@ Tim čine :
 - Uroš Mladenović 
 
 <figure class="video_container">
- <video controls="true" allowfullscreen="true">
- <source src="./docs/video.mp4" type="video/mp4">
- </video>
+  <iframe src="../docs/video.mp4" frameborder="0" allowfullscreen="true"> 
+</iframe>
 </figure>
