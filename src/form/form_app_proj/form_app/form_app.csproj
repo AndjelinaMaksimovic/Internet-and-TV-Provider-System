@@ -85,12 +85,6 @@
     <Compile Include="CreatePacket.Designer.cs">
       <DependentUpon>CreatePacket.cs</DependentUpon>
     </Compile>
-    <Compile Include="Installer1.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Installer1.Designer.cs">
-      <DependentUpon>Installer1.cs</DependentUpon>
-    </Compile>
     <Compile Include="LoadingScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,10 +121,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="ClassDiagram1.cd" />
-    <None Include="ClassDiagram2.cd" />
-    <None Include="ClassDiagram3.cd" />
-    <None Include="ClassDiagram4.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
