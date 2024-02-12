@@ -1,2 +1,7 @@
+<<<<<<< Updated upstream
 PROVIDER # MTS
 CONNSTRING # server=localhost;user=root;password=;database=mts_database;
+=======
+PROVIDER # A1
+CONNSTRING # Data Source=C:\Users\PC\Desktop\DS\Projekat\tim-01\src\db\sbb_database.db;
+>>>>>>> Stashed changes
