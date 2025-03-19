@@ -1,3 +1,5 @@
+[English](patterns.md)
+
 # Design patterns
 
 ### Creational design patterns
