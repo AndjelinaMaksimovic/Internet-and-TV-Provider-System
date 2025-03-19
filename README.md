@@ -24,10 +24,10 @@ Since the project consists of a _class library_ and a _Windows Forms app_, you n
 - SQLite
 - MySQL
 
-The UML diagram representing the structure of the library can be downloaded [here](https://gitlab.pmf.kg.ac.rs/ds/projekat-2023/tim-01/-/blob/master/docs/UML_packet_providers.png).
+The UML diagram representing the structure of the library.
 <div>
-  <img src="../docs/UML_packet_providers.png" alt="UML diagram" height=700>
+  <img src="docs/UML_packet_providers.png" alt="UML diagram" height=700>
 </div>
 
-Example of application usage:
-https://gitlab.pmf.kg.ac.rs/ds/projekat-2023/tim-01/-/blob/master/docs/vid.mp4?expanded=true&viewer=rich
+You can find example of application usage [here](https://github.com/AndjelinaMaksimovic/Internet-and-TV-Provider-System/blame/main/docs/video.mp4) 
+
