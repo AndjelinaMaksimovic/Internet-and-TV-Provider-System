@@ -30,4 +30,5 @@ The UML diagram representing the structure of the library.
 </div>
 
 You can find example of application usage [here](https://github.com/AndjelinaMaksimovic/Internet-and-TV-Provider-System/blame/main/docs/video.mp4) 
+You can find explanation of Design Patterns usage in project [here](https://github.com/AndjelinaMaksimovic/Internet-and-TV-Provider-System/blob/main/docs/patterns.md)
 
